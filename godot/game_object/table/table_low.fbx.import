@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dttvcrqxntgus"
+uid="uid://cvrjysx6odl16"
 path="res://.godot/imported/table_low.fbx-787a903bb7c20efb394fdb69059ad3cd.scn"
 
 [deps]
@@ -13,10 +13,10 @@ dest_files=["res://.godot/imported/table_low.fbx-787a903bb7c20efb394fdb69059ad3c
 
 [params]
 
-nodes/root_type="GameObject"
+nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=10.0
+nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -25,7 +25,7 @@ meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
-animation/import=false
+animation/import=true
 animation/fps=30
 animation/trimming=true
 animation/remove_immutable_tracks=true
