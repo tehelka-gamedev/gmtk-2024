@@ -6,3 +6,9 @@ enum GameState {
 	OBJECT_SELECTED,
 	ROTATING_OBJECT,
 }
+
+
+enum CollisionLayer {
+	WORLD = 1,
+	OBJECT = 2,
+}

@@ -6,7 +6,7 @@
 size = Vector3(15, 4, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5a4v"]
-size = Vector3(6, 3, 0.5)
+size = Vector3(15, 4, 0.5)
 
 [node name="Billboard" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.80494, -5.69024)
