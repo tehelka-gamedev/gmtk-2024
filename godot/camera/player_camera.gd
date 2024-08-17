@@ -16,6 +16,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	# If no focus on the window, ignore
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		return
+	
 	var horizontal_input_vector: Vector2 = Input.get_vector(
 		"move_left",
 		"move_right",
@@ -33,8 +37,21 @@ func _process(delta: float) -> void:
 	position += translation_speed * delta * motion_vector # $CameraRotation/Camera3D.global_transform
 	#print($CameraRotation/Camera3D.global_transform)
 
+func _input(event: InputEvent) -> void:
+	# Handle focus/unfocus with escape / click on the viewport
+	if event.is_action_pressed("ui_cancel"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			get_viewport().set_input_as_handled()
 
 func _unhandled_input(event: InputEvent) -> void:
+	# If no focus on the window, ignore
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		return
+	
 	var scale_factor: float = min(
 			(float(get_viewport().size.x) / get_viewport().get_visible_rect().size.x),
 			(float(get_viewport().size.y) / get_viewport().get_visible_rect().size.y)
