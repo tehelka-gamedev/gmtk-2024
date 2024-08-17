@@ -1,20 +1,29 @@
 extends Node3D
 
 
-var current_selected_object:GameObject = null
 @export var target_height: float = 5.0
+@export var object_pool:Array[PackedScene] = []
+@export var number_items_to_spawn = 4
 
+
+var current_selected_object:GameObject = null
 @onready var _height_detector: HeightDetector = $HeightDetector
 @onready var _billboard: Billboard = $Billboard
 @onready var _player_camera: PlayerCamera = $PlayerCamera
 @onready var _hud: HUD = $HUD
 
+@onready var _objects = $Objects
+@onready var _spawn_borders = $SpawnBorders
+
 
 func _ready() -> void:
+	seed(randi())
+	
 	@warning_ignore("return_value_discarded")
 	_height_detector.max_height_changed.connect(_on_max_height_changed)
 	_billboard.set_target_height(target_height)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	start_game()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -63,6 +72,16 @@ func _on_max_height_changed(max_height: float) -> void:
 	if max_height >= target_height:
 		_hud.show_win()
 
+func start_game() -> void:
+	for i in range(number_items_to_spawn):
+		var obj_scene:PackedScene = object_pool.pick_random()
+		var rand_x:Vector3 = _spawn_borders.curve.sample(0, randf())
+		var rand_z:Vector3 = _spawn_borders.curve.sample(1, randf())
+		
+		var obj := obj_scene.instantiate()
+		_objects.add_child(obj)
+		obj.global_position = Vector3(rand_x.x, rand_x.y, rand_z.z)
+		#await get_tree().create_timer(0.1).timeout
 
 func select(object: GameObject) -> void:
 	if GameState.current_game_state == Enum.GameState.FREE_CAMERA:
