@@ -40,8 +40,7 @@ func _process(delta: float) -> void:
 		+ horizontal_input_vector.y * _camera_rotation.global_basis.z
 	)
 	
-	position += translation_speed * delta * motion_vector # $CameraRotation/Camera3D.global_transform
-	#print($CameraRotation/Camera3D.global_transform)
+	position += translation_speed * delta * motion_vector
 
 
 func _input(event: InputEvent) -> void:
@@ -60,11 +59,12 @@ func _input(event: InputEvent) -> void:
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			get_viewport().set_input_as_handled()
-		else:
+		elif GameState.current_game_state == Enum.GameState.FREE_CAMERA:
 			var obj := get_object_under_mouse(event.position)
 			if obj and obj is GameObject:
 				obj = obj as GameObject
 				object_clicked.emit(obj)
+				get_viewport().set_input_as_handled()
 				
 
 func get_object_under_mouse(mouse_position:Vector2) -> Node3D:
@@ -78,7 +78,7 @@ func get_object_under_mouse(mouse_position:Vector2) -> Node3D:
  
 		var result:Dictionary = world_space.intersect_ray(params)
 		if result:
-				return result["collider"]
+			return result["collider"]
 		return null
 
 func _unhandled_input(event: InputEvent) -> void:

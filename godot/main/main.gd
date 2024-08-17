@@ -15,13 +15,14 @@ func _ready() -> void:
 	_billboard.set_target_height(target_height)
 	player_camera.object_clicked.connect(_on_object_clicked)
 
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		var mouse_event := event as InputEventMouseButton
 		if mouse_event.button_index == MOUSE_BUTTON_LEFT and mouse_event.pressed:
 			if current_selected_object != null:
 				_unselect_current_object()
-				print("nope")
+
 
 func _unselect_current_object() -> void:
 	assert (current_selected_object!=null, "Trying to unselect an object but none is selected, something is wrong!")
@@ -36,8 +37,6 @@ func _on_max_height_changed(max_height: float) -> void:
 
 func _on_object_clicked(object:GameObject) -> void:
 	if GameState.current_game_state == Enum.GameState.FREE_CAMERA:
-		print("yes")
 		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
 		object.selected = true
 		current_selected_object = object
-		get_viewport().set_input_as_handled()
