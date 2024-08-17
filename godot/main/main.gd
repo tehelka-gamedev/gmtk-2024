@@ -67,6 +67,7 @@ func _on_max_height_changed(max_height: float) -> void:
 func select(object: GameObject) -> void:
 	if GameState.current_game_state == Enum.GameState.FREE_CAMERA:
 		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
+		object.global_position = _player_camera.global_position + _player_camera.get_forward_direction() * (object.global_position - _player_camera.global_position).length()
 		object.selected = true
 		current_selected_object = object
 		

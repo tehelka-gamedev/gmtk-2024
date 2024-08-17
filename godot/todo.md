@@ -4,6 +4,7 @@
 	-> currently, 1 second is elapsed before the first update
 	-> problem is if we use _detect_current_max_height at launched,
 	main.gd has not connected the signal yet to change the heighlabel on the billboard
+- change l'albedo de l'objet sur lequel est peut cliquer
 - pause menu
 - end menu
 - main menu
