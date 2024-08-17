@@ -46,6 +46,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_00qp6")
 
 [node name="PlayerCamera" parent="." instance=ExtResource("1_y5qgp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179205, 2.74989, 5.72712)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4nusp")
