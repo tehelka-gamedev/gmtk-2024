@@ -4,6 +4,7 @@
 
 [node name="PlayerCamera" type="Node3D"]
 script = ExtResource("1_3wptn")
+object_3d_physics_layer = 2
 
 [node name="CameraRotation" type="Node3D" parent="."]
 
