@@ -42,7 +42,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		and GameState.current_game_state == Enum.GameState.OBJECT_SELECTED
 	):
 		GameState.current_game_state = Enum.GameState.ROTATING_OBJECT
-	elif event.is_action_released("allow_object_rotation"):
+	elif (
+		event.is_action_released("allow_object_rotation")
+		and GameState.current_game_state == Enum.GameState.ROTATING_OBJECT
+	):
 		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
 
 
