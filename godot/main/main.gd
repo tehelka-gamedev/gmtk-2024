@@ -23,6 +23,9 @@ func _input(event: InputEvent) -> void:
 			if current_selected_object != null:
 				_unselect_current_object()
 
+	if event.is_action_pressed("ui_cancel"):
+		if current_selected_object != null:
+				_unselect_current_object()
 
 func _unselect_current_object() -> void:
 	assert (current_selected_object!=null, "Trying to unselect an object but none is selected, something is wrong!")

@@ -10,7 +10,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("debug_menu"):
+		visible = not visible
 
 func _on_game_state_changed(new_game_state:Enum.GameState) -> void:
 	game_state_value.text = Enum.GameState.keys()[new_game_state]
