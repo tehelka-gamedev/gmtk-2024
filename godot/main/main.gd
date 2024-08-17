@@ -56,4 +56,4 @@ func _on_object_clicked(object:GameObject) -> void:
 		object.selected = true
 		current_selected_object = object
 		
-		player_camera.attach_object(object.global_position, get_path_to(object))
+		_player_camera.attach_object(object.global_position, get_path_to(object))
