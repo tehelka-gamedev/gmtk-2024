@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://jeihxw20nydi"]
+
+[ext_resource type="PackedScene" uid="uid://b3osahesu8vvn" path="res://camera/player_camera.tscn" id="1_y5qgp"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t10fx"]
+size = Vector2(100, 100)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_s75uj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pynq8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00qp6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5jlxj"]
+sky_top_color = Color(1, 0.454902, 0.54902, 1)
+sky_horizon_color = Color(0.647059, 0.533333, 0.670588, 1)
+sky_curve = 0.130582
+ground_horizon_color = Color(0.0431373, 0.690196, 0.670588, 1)
+
+[sub_resource type="Sky" id="Sky_eouk7"]
+sky_material = SubResource("ProceduralSkyMaterial_5jlxj")
+
+[sub_resource type="Environment" id="Environment_4nusp"]
+background_mode = 2
+sky = SubResource("Sky_eouk7")
+
+[node name="Main" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="MeshiInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("PlaneMesh_t10fx")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape3D_s75uj")
+
+[node name="Cube" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57639, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube"]
+mesh = SubResource("BoxMesh_pynq8")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube"]
+shape = SubResource("BoxShape3D_00qp6")
+
+[node name="PlayerCamera" parent="." instance=ExtResource("1_y5qgp")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4nusp")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 8.30557, 3.48861)
+shadow_enabled = true

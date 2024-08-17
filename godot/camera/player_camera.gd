@@ -1,0 +1,52 @@
+class_name PlayerCamera
+extends Node3D
+
+
+const CAMERA_X_ROT_MIN := deg_to_rad(-89.9)
+const CAMERA_X_ROT_MAX := deg_to_rad(70)
+
+@export var translation_speed: float = 10.0
+@export var rotation_speed: float = 0.001
+
+@onready var _camera_rotation: Node3D = $CameraRotation
+
+
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func _process(delta: float) -> void:
+	var horizontal_input_vector: Vector2 = Input.get_vector(
+		"move_left",
+		"move_right",
+		"move_forward",
+		"move_backward"
+	)
+	var vertical_input: float = Input.get_action_strength("move_up") - Input.get_action_strength("move_down")
+	
+	var motion_vector: Vector3 = (
+		horizontal_input_vector.x * _camera_rotation.global_basis.x
+		+ vertical_input * _camera_rotation.global_basis.y
+		+ horizontal_input_vector.y * _camera_rotation.global_basis.z
+	)
+	
+	position += translation_speed * delta * motion_vector # $CameraRotation/Camera3D.global_transform
+	#print($CameraRotation/Camera3D.global_transform)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	var scale_factor: float = min(
+			(float(get_viewport().size.x) / get_viewport().get_visible_rect().size.x),
+			(float(get_viewport().size.y) / get_viewport().get_visible_rect().size.y)
+	)
+
+	if event is InputEventMouseMotion:
+		var camera_speed_this_frame = rotation_speed
+		rotate_camera(event.relative * camera_speed_this_frame * scale_factor)
+
+
+func rotate_camera(move):
+	rotate_y(-move.x)
+	# After relative transforms, camera needs to be renormalized.
+	orthonormalize()
+	_camera_rotation.rotation.x = clamp(_camera_rotation.rotation.x - move.y, CAMERA_X_ROT_MIN, CAMERA_X_ROT_MAX)
