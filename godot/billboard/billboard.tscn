@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcqgjd3l2f1sm"]
+
+[ext_resource type="Script" path="res://billboard/billboard.gd" id="1_d844d"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q0u76"]
+size = Vector3(6, 3, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d5a4v"]
+size = Vector3(6, 3, 0.5)
+
+[node name="Billboard" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.80494, -5.69024)
+collision_mask = 0
+script = ExtResource("1_d844d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_q0u76")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_d5a4v")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92223, 0.26)
+text = "HEIGHT"
+font_size = 196
+
+[node name="HeightLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.236226, 0.26)
+font_size = 256

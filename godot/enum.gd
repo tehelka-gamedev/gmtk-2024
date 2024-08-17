@@ -1,7 +1,7 @@
 class_name Enum
 extends Object
 
-enum GAME_STATE {
+enum GameState {
 	FREE_CAMERA,
 	OBJECT_SELECTED,
 }
