@@ -42,8 +42,8 @@ func _process(delta: float) -> void:
 
 	var attached_object_zoom: float = Input.get_action_strength("zoom_object_in") - Input.get_action_strength("zoom_object_out")
 	if not is_zero_approx(attached_object_zoom):
-		var zoom_direction: Vector3 = (_remote_transform3D.position - position).normalized()
-		_remote_transform3D.position += zoom_direction * zoom_speed * attached_object_zoom * delta
+		var zoom_direction: Vector3 = -_camera.global_basis.z
+		_remote_transform3D.global_position += zoom_direction * zoom_speed * attached_object_zoom * delta
 
 
 func _unhandled_input(event: InputEvent) -> void:
