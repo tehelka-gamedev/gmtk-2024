@@ -1,26 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://xlpgwschco4n"]
+[gd_scene load_steps=3 format=3 uid="uid://xlpgwschco4n"]
 
 [ext_resource type="PackedScene" uid="uid://jeihxw20nydi" path="res://main/main.tscn" id="1_ewsf1"]
-[ext_resource type="Script" path="res://gameplay/game_object.gd" id="2_lggx1"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6s62u"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_4xy4v"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtm57"]
+[ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://gameplay/GameObject.tscn" id="2_k2p07"]
 
 [node name="MainTestTehelka" instance=ExtResource("1_ewsf1")]
 
-[node name="Cube2" type="RigidBody3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7071, 6.20974, 0.0598385)
-collision_layer = 2
-collision_mask = 3
-script = ExtResource("2_lggx1")
-metadata/_edit_group_ = true
+[node name="GameObject" parent="." index="5" instance=ExtResource("2_k2p07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.73401, 3.29549, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube2" index="0"]
-shape = SubResource("BoxShape3D_6s62u")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube2" index="1"]
-mesh = SubResource("BoxMesh_4xy4v")
-surface_material_override/0 = SubResource("StandardMaterial3D_rtm57")
+[node name="GameObject2" parent="." index="6" instance=ExtResource("2_k2p07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.51594, 3.29549, 0)
