@@ -107,6 +107,11 @@ rotate_object_Z-={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="world"
+3d_physics/layer_2="object"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
