@@ -9,9 +9,7 @@
 - end menu
 - main menu
 - spawn random objects / or predefined (like a puzzle level)
-- zoom/dezoom selected object
-- scale selected object
-- center camera on selected object
+- center camera on selected object (done for now, object is moving and not the camera)
 - improve object rotation
 - improve worldEnvironment and polish
 - scale jauge UI

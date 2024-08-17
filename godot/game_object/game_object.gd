@@ -16,12 +16,20 @@ var selected: bool = false :
 			collision_layer = 0
 		else:
 			collision_layer = Enum.CollisionLayer.OBJECT
-			mesh_instance.get_surface_override_material(0).albedo_color = Color.WHITE
+			_mesh_instance.get_surface_override_material(0).albedo_color = Color.WHITE
 	get:
 		return selected
+var object_scale: float = 1.0:
+	set(value):
+		object_scale = value
+		_mesh_instance.scale = Vector3.ONE * object_scale
+		_collision_shape.scale = Vector3.ONE * object_scale
+		_collision_detector_shape.scale = Vector3.ONE * object_scale
 
-@onready var mesh_instance: MeshInstance3D = $MeshInstance3D
+@onready var _mesh_instance: MeshInstance3D = $MeshInstance3D
 @onready var _collision_detector: Area3D = $CollisionDetector
+@onready var _collision_shape: CollisionShape3D = $CollisionShape3D
+@onready var _collision_detector_shape: CollisionShape3D = $CollisionDetector/CollisionShape3D
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -29,9 +37,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	
 	if event.is_action("scale_up"):
-		scale *= scale_sentitivity
+		object_scale *= scale_sentitivity
 	elif event.is_action("scale_down"):
-		scale /= scale_sentitivity
+		object_scale /= scale_sentitivity
 	elif GameState.current_game_state == Enum.GameState.ROTATING_OBJECT and event is InputEventMouseMotion:
 		rotate_x(deg_to_rad(event.relative.y * mouse_sensitivity))
 		rotate_y(deg_to_rad(event.relative.x * mouse_sensitivity))
@@ -44,9 +52,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if selected:
 		if is_not_colliding():
-			mesh_instance.get_surface_override_material(0).albedo_color = valid_color
+			_mesh_instance.get_surface_override_material(0).albedo_color = valid_color
 		else:
-			mesh_instance.get_surface_override_material(0).albedo_color = invalid_color
+			_mesh_instance.get_surface_override_material(0).albedo_color = invalid_color
 
 
 func is_not_colliding() -> bool:
