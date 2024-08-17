@@ -13,9 +13,13 @@ var selected: bool = false :
 		freeze = value
 		
 		if selected:
+			_collision_detector.monitoring = true
+			_collision_detector.monitorable = true
 			collision_layer = 0
 		else:
 			collision_layer = Enum.CollisionLayer.OBJECT
+			_collision_detector.monitoring = false
+			_collision_detector.monitorable = false
 			var _mesh_instance_override_material:StandardMaterial3D = _mesh_instance.get_surface_override_material(0) as StandardMaterial3D
 			assert(_mesh_instance_override_material!=null, "no mesh instance override material, something is wrong!")
 			_mesh_instance_override_material.albedo_color = Color.WHITE
