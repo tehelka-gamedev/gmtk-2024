@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://jeihxw20nydi"]
+[gd_scene load_steps=10 format=3 uid="uid://jeihxw20nydi"]
 
 [ext_resource type="PackedScene" uid="uid://b3osahesu8vvn" path="res://camera/player_camera.tscn" id="1_y5qgp"]
+[ext_resource type="Texture2D" uid="uid://46pg3af12jhy" path="res://hud/crosshair.png" id="2_c323c"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_t10fx"]
 size = Vector2(100, 100)
@@ -54,3 +55,25 @@ environment = SubResource("Environment_4nusp")
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 8.30557, 3.48861)
 shadow_enabled = true
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/CenterContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_c323c")
