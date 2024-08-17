@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3osahesu8vvn"]
+[gd_scene load_steps=3 format=3 uid="uid://b3osahesu8vvn"]
 
 [ext_resource type="Script" path="res://camera/player_camera.gd" id="1_3wptn"]
+[ext_resource type="PackedScene" uid="uid://cvfmo1gx7g5vf" path="res://camera/attach_arm.tscn" id="2_j8usp"]
 
 [node name="PlayerCamera" type="Node3D"]
 script = ExtResource("1_3wptn")
@@ -10,6 +11,5 @@ object_3d_physics_layer = 2
 
 [node name="Camera3D" type="Camera3D" parent="CameraRotation"]
 
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="CameraRotation"]
-update_rotation = false
-update_scale = false
+[node name="AttachArm" parent="CameraRotation" instance=ExtResource("2_j8usp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.96811)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvfmo1gx7g5vf"]
+
+[ext_resource type="Script" path="res://camera/attach_arm.gd" id="1_f4ggd"]
+
+[node name="AttachArm" type="Node3D"]
+script = ExtResource("1_f4ggd")

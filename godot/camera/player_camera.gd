@@ -12,8 +12,7 @@ const CAMERA_X_ROT_MAX: float = deg_to_rad(70)
 
 @onready var _camera_rotation: Node3D = $CameraRotation
 @onready var _camera: Camera3D = $CameraRotation/Camera3D
-@onready var _remote_transform3D: RemoteTransform3D = $CameraRotation/RemoteTransform3D
-
+@onready var _attach_arm: AttachArm = $CameraRotation/AttachArm
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -96,15 +95,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotate_camera((event as InputEventMouseMotion).relative * camera_speed_this_frame * scale_factor)
 
 
-func attach_object(object_global_position: Vector3, object_path_relative_to_root: NodePath) -> void:
-	_remote_transform3D.global_position = object_global_position
-	_remote_transform3D.remote_path = NodePath(
-			str(_remote_transform3D.get_path_to(self)) + "/" + str(object_path_relative_to_root)
-	)
+func attach(game_object: GameObject) -> void:
+	_attach_arm.attached_object = game_object
 
 
 func detach_object() -> void:
-	_remote_transform3D.remote_path = NodePath()
+	_attach_arm.attached_object = null
 
 
 func rotate_camera(move: Vector2) -> void:

@@ -12,6 +12,7 @@ resource_local_to_scene = true
 [node name="GameObject" type="RigidBody3D"]
 collision_layer = 2
 collision_mask = 3
+freeze_mode = 1
 script = ExtResource("1_nluqi")
 metadata/_edit_group_ = true
 

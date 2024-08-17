@@ -8,13 +8,13 @@ extends RigidBody3D
 var selected: bool = false :
 	set(value):
 		selected = value
-		freeze = value
 		
 		if selected:
 			mesh_instance.get_surface_override_material(0).albedo_color = selected_color
+			gravity_scale = 0
 		else:
 			mesh_instance.get_surface_override_material(0).albedo_color = Color.WHITE
-			
+			gravity_scale = 1
 	get:
 		return selected
 
