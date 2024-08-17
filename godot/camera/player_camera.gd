@@ -13,6 +13,7 @@ const CAMERA_X_ROT_MAX: float = deg_to_rad(70)
 
 @onready var _camera_rotation: Node3D = $CameraRotation
 @onready var _camera: Camera3D = $CameraRotation/Camera3D
+@onready var _attached_game_object:RemoteTransform3D = $AttachedGameObject
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -22,8 +23,10 @@ func _process(delta: float) -> void:
 	# If no focus on the window, ignore
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
-		
-	if GameState.current_game_state != Enum.GameState.FREE_CAMERA:
+	
+	var can_move:bool = (GameState.current_game_state == Enum.GameState.FREE_CAMERA
+		or GameState.current_game_state == Enum.GameState.OBJECT_SELECTED)
+	if not can_move:
 		return
 	
 	var horizontal_input_vector: Vector2 = Input.get_vector(
@@ -41,6 +44,8 @@ func _process(delta: float) -> void:
 	)
 	
 	position += translation_speed * delta * motion_vector
+	
+	
 
 
 func _input(event: InputEvent) -> void:
@@ -60,14 +65,51 @@ func _input(event: InputEvent) -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			get_viewport().set_input_as_handled()
 		elif GameState.current_game_state == Enum.GameState.FREE_CAMERA:
-			var obj := get_object_under_mouse(event.position)
+			var obj := _get_object_under_mouse(event.position)
 			if obj and obj is GameObject:
 				obj = obj as GameObject
 				object_clicked.emit(obj)
 				get_viewport().set_input_as_handled()
-				
 
-func get_object_under_mouse(mouse_position:Vector2) -> Node3D:
+func _unhandled_input(event: InputEvent) -> void:
+	# If no focus on the window, ignore
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		return
+	
+	# Can rotate only if in free camera or in object selected
+	var can_rotate:bool = (GameState.current_game_state == Enum.GameState.FREE_CAMERA
+		or GameState.current_game_state == Enum.GameState.OBJECT_SELECTED)
+	
+	if not can_rotate:
+		return
+	
+	if event is InputEventMouseButton:
+		var mouse_event := event as InputEventMouseButton
+		if mouse_event.button_index == MOUSE_BUTTON_RIGHT and not mouse_event.pressed:
+			return
+	
+	var window: Window = get_viewport() as Window
+	var scale_factor: float = min(
+			(float(window.size.x) / window.get_visible_rect().size.x),
+			(float(window.size.y) / window.get_visible_rect().size.y)
+	)
+
+	if event is InputEventMouseMotion:
+		var camera_speed_this_frame: float = rotation_speed
+		rotate_camera((event as InputEventMouseMotion).relative * camera_speed_this_frame * scale_factor)
+
+func attach_object(object_global_position:Vector3, object_path:NodePath) -> void:
+	_attached_game_object.global_position = object_global_position
+	_attached_game_object.remote_path = object_path
+
+func rotate_camera(move: Vector2) -> void:
+	rotate_y(-move.x)
+	# After relative transforms, camera needs to be renormalized.
+	orthonormalize()
+	_camera_rotation.rotation.x = clamp(_camera_rotation.rotation.x - move.y, CAMERA_X_ROT_MIN, CAMERA_X_ROT_MAX)
+
+
+func _get_object_under_mouse(mouse_position:Vector2) -> Node3D:
 		var world_space := get_world_3d().direct_space_state
  
 		var params := PhysicsRayQueryParameters3D.new()
@@ -80,28 +122,3 @@ func get_object_under_mouse(mouse_position:Vector2) -> Node3D:
 		if result:
 			return result["collider"]
 		return null
-
-func _unhandled_input(event: InputEvent) -> void:
-	# If no focus on the window, ignore
-	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
-		return
-	
-	if GameState.current_game_state != Enum.GameState.FREE_CAMERA:
-		return
-	
-	var window: Window = get_viewport() as Window
-	var scale_factor: float = min(
-			(float(window.size.x) / window.get_visible_rect().size.x),
-			(float(window.size.y) / window.get_visible_rect().size.y)
-	)
-
-	if event is InputEventMouseMotion:
-		var camera_speed_this_frame: float = rotation_speed
-		rotate_camera((event as InputEventMouseMotion).relative * camera_speed_this_frame * scale_factor)
-
-
-func rotate_camera(move: Vector2) -> void:
-	rotate_y(-move.x)
-	# After relative transforms, camera needs to be renormalized.
-	orthonormalize()
-	_camera_rotation.rotation.x = clamp(_camera_rotation.rotation.x - move.y, CAMERA_X_ROT_MIN, CAMERA_X_ROT_MAX)
