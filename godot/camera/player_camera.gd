@@ -8,12 +8,12 @@ const CAMERA_X_ROT_MAX: float = deg_to_rad(70)
 
 @export var translation_speed: float = 10.0
 @export var rotation_speed: float = 0.001
-
 @export_flags_3d_physics var object_3d_physics_layer
 
 @onready var _camera_rotation: Node3D = $CameraRotation
 @onready var _camera: Camera3D = $CameraRotation/Camera3D
-@onready var _attached_game_object:RemoteTransform3D = $AttachedGameObject
+@onready var _remote_transform3D: RemoteTransform3D = $CameraRotation/RemoteTransform3D
+
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -44,19 +44,17 @@ func _process(delta: float) -> void:
 	)
 	
 	position += translation_speed * delta * motion_vector
-	
-	
 
 
-func _input(event: InputEvent) -> void:
-	# Handle focus/unfocus with escape / click on the viewport
+func _unhandled_input(event: InputEvent) -> void:
+		# Handle focus/unfocus with escape / click on the viewport
 	if event.is_action_pressed("ui_cancel"):
 		if GameState.current_game_state == Enum.GameState.FREE_CAMERA:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			get_viewport().set_input_as_handled()
 		elif GameState.current_game_state == Enum.GameState.OBJECT_SELECTED:
 			pass
-	if (
+	elif (
 			event is InputEventMouseButton
 			and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT
 			and (event as InputEventMouseButton).pressed
@@ -71,13 +69,12 @@ func _input(event: InputEvent) -> void:
 				object_clicked.emit(obj)
 				get_viewport().set_input_as_handled()
 
-func _unhandled_input(event: InputEvent) -> void:
 	# If no focus on the window, ignore
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
 	
 	# Can rotate only if in free camera or in object selected
-	var can_rotate:bool = (GameState.current_game_state == Enum.GameState.FREE_CAMERA
+	var can_rotate: bool = (GameState.current_game_state == Enum.GameState.FREE_CAMERA
 		or GameState.current_game_state == Enum.GameState.OBJECT_SELECTED)
 	
 	if not can_rotate:
@@ -98,9 +95,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		var camera_speed_this_frame: float = rotation_speed
 		rotate_camera((event as InputEventMouseMotion).relative * camera_speed_this_frame * scale_factor)
 
-func attach_object(object_global_position:Vector3, object_path:NodePath) -> void:
-	_attached_game_object.global_position = object_global_position
-	_attached_game_object.remote_path = object_path
+
+func attach_object(object_global_position: Vector3, object_path_relative_to_root: NodePath) -> void:
+	_remote_transform3D.global_position = object_global_position
+	_remote_transform3D.remote_path = NodePath(
+			str(_remote_transform3D.get_path_to(self)) + "/" + str(object_path_relative_to_root)
+	)
+
+
+func detach_object() -> void:
+	_remote_transform3D.remote_path = NodePath()
+
 
 func rotate_camera(move: Vector2) -> void:
 	rotate_y(-move.x)

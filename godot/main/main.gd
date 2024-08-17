@@ -23,10 +23,11 @@ func _input(event: InputEvent) -> void:
 		if mouse_event.button_index == MOUSE_BUTTON_LEFT and mouse_event.pressed:
 			if current_selected_object != null:
 				_unselect_current_object()
+				get_viewport().set_input_as_handled()
 
 	if event.is_action_pressed("ui_cancel"):
 		if current_selected_object != null:
-				_unselect_current_object()
+			_unselect_current_object()
 	
 	if GameState.current_game_state == Enum.GameState.OBJECT_SELECTED:
 		if Input.is_action_pressed("allow_object_rotation"):
@@ -42,6 +43,7 @@ func _unselect_current_object() -> void:
 	current_selected_object.selected = false
 	GameState.current_game_state = Enum.GameState.FREE_CAMERA
 	current_selected_object = null
+	_player_camera.detach_object()
 
 
 func _on_max_height_changed(max_height: float) -> void:
@@ -50,10 +52,10 @@ func _on_max_height_changed(max_height: float) -> void:
 		_hud.show_win()
 
 
-func _on_object_clicked(object:GameObject) -> void:
+func _on_object_clicked(object: GameObject) -> void:
 	if GameState.current_game_state == Enum.GameState.FREE_CAMERA:
 		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
 		object.selected = true
 		current_selected_object = object
 		
-		_player_camera.attach_object(object.global_position, get_path_to(object))
+		_player_camera.attach_object(object.global_position, _player_camera.get_path_to(object))

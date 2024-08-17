@@ -23,18 +23,9 @@ extends RigidBody3D
 func _ready() -> void:
 	if selected:
 		freeze = true
-		
-	input_event.connect(_on_input_event)
 
 
-func _process(delta: float) -> void:
-	if Input.is_action_pressed("select_object"):
-		pass
-	pass
-	
-	
-
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if not selected:
 		return
 	
@@ -48,17 +39,3 @@ func _input(event: InputEvent) -> void:
 		var object_rot = rotation_degrees
 		object_rot.x = clamp(object_rot.x, -70, 70)
 		rotation_degrees = object_rot
-		#position += Vector3(event.relative.x, event.relative.y, 0)
-	pass
-
-func _on_input_event(camera:Node, event:InputEvent, event_position:Vector3, normal:Vector3, shapeidx:int) -> void:
-	if not selected:
-		return
-
-	if event is not InputEventMouseButton:
-		return
-
-	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		print("pressed")
-	
-	

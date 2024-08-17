@@ -7,12 +7,9 @@ script = ExtResource("1_3wptn")
 object_3d_physics_layer = 2
 
 [node name="CameraRotation" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 
 [node name="Camera3D" type="Camera3D" parent="CameraRotation"]
-transform = Transform3D(1, 0, 0, 0, 0.95272, 0.30385, 0, -0.30385, 0.95272, 0, 0, -3)
 
-[node name="AttachedGameObject" type="RemoteTransform3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="CameraRotation"]
 update_rotation = false
 update_scale = false
