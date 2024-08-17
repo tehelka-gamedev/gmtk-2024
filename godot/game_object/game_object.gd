@@ -13,10 +13,14 @@ var selected: bool = false :
 		freeze = value
 		
 		if selected:
+			_collision_detector.monitoring = true
+			_collision_detector.monitorable = true
 			collision_layer = 0
 		else:
 			collision_layer = Enum.CollisionLayer.OBJECT
 			_set_albedo_color(Color.WHITE)
+			_collision_detector.monitoring = false
+			_collision_detector.monitorable = false
 	get:
 		return selected
 var object_scale: float = 1.0:
