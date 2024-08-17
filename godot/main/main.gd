@@ -6,14 +6,15 @@ var current_selected_object:GameObject = null
 
 @onready var _height_detector: HeightDetector = $HeightDetector
 @onready var _billboard: Billboard = $Billboard
-@onready var player_camera:PlayerCamera = $PlayerCamera
+@onready var _player_camera: PlayerCamera = $PlayerCamera
+@onready var _hud: HUD = $HUD
 
 
 func _ready() -> void:
 	@warning_ignore("return_value_discarded")
 	_height_detector.max_height_changed.connect(_on_max_height_changed)
 	_billboard.set_target_height(target_height)
-	player_camera.object_clicked.connect(_on_object_clicked)
+	_player_camera.object_clicked.connect(_on_object_clicked)
 
 
 func _input(event: InputEvent) -> void:
@@ -27,6 +28,7 @@ func _input(event: InputEvent) -> void:
 		if current_selected_object != null:
 				_unselect_current_object()
 
+
 func _unselect_current_object() -> void:
 	assert (current_selected_object!=null, "Trying to unselect an object but none is selected, something is wrong!")
 	
@@ -34,8 +36,11 @@ func _unselect_current_object() -> void:
 	GameState.current_game_state = Enum.GameState.FREE_CAMERA
 	current_selected_object = null
 
+
 func _on_max_height_changed(max_height: float) -> void:
 	_billboard.set_max_height(max_height)
+	if max_height >= target_height:
+		_hud.show_win()
 
 
 func _on_object_clicked(object:GameObject) -> void:
