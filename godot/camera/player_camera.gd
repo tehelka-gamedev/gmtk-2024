@@ -62,9 +62,10 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 		else:
 			var obj := get_object_under_mouse(event.position)
-			if obj is GameObject:
+			if obj and obj is GameObject:
 				obj = obj as GameObject
 				object_clicked.emit(obj)
+				
 
 func get_object_under_mouse(mouse_position:Vector2) -> Node3D:
 		var world_space := get_world_3d().direct_space_state
