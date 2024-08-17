@@ -50,3 +50,5 @@ func _on_object_clicked(object:GameObject) -> void:
 		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
 		object.selected = true
 		current_selected_object = object
+		
+		player_camera.attach_object(object.global_position, get_path_to(object))

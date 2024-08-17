@@ -13,6 +13,7 @@ const CAMERA_X_ROT_MAX: float = deg_to_rad(70)
 
 @onready var _camera_rotation: Node3D = $CameraRotation
 @onready var _camera: Camera3D = $CameraRotation/Camera3D
+@onready var _attached_game_object:RemoteTransform3D = $AttachedGameObject
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -64,26 +65,11 @@ func _input(event: InputEvent) -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			get_viewport().set_input_as_handled()
 		elif GameState.current_game_state == Enum.GameState.FREE_CAMERA:
-			var obj := get_object_under_mouse(event.position)
+			var obj := _get_object_under_mouse(event.position)
 			if obj and obj is GameObject:
 				obj = obj as GameObject
 				object_clicked.emit(obj)
 				get_viewport().set_input_as_handled()
-
-
-func get_object_under_mouse(mouse_position:Vector2) -> Node3D:
-		var world_space := get_world_3d().direct_space_state
- 
-		var params := PhysicsRayQueryParameters3D.new()
-		params.from = _camera.project_ray_origin(mouse_position)
-		params.to = _camera.project_position(mouse_position, _camera.far)
-		params.exclude = []
-		params.collision_mask = object_3d_physics_layer
- 
-		var result:Dictionary = world_space.intersect_ray(params)
-		if result:
-			return result["collider"]
-		return null
 
 func _unhandled_input(event: InputEvent) -> void:
 	# If no focus on the window, ignore
@@ -112,9 +98,27 @@ func _unhandled_input(event: InputEvent) -> void:
 		var camera_speed_this_frame: float = rotation_speed
 		rotate_camera((event as InputEventMouseMotion).relative * camera_speed_this_frame * scale_factor)
 
+func attach_object(object_global_position:Vector3, object_path:NodePath) -> void:
+	_attached_game_object.global_position = object_global_position
+	_attached_game_object.remote_path = object_path
 
 func rotate_camera(move: Vector2) -> void:
 	rotate_y(-move.x)
 	# After relative transforms, camera needs to be renormalized.
 	orthonormalize()
 	_camera_rotation.rotation.x = clamp(_camera_rotation.rotation.x - move.y, CAMERA_X_ROT_MIN, CAMERA_X_ROT_MAX)
+
+
+func _get_object_under_mouse(mouse_position:Vector2) -> Node3D:
+		var world_space := get_world_3d().direct_space_state
+ 
+		var params := PhysicsRayQueryParameters3D.new()
+		params.from = _camera.project_ray_origin(mouse_position)
+		params.to = _camera.project_position(mouse_position, _camera.far)
+		params.exclude = []
+		params.collision_mask = object_3d_physics_layer
+ 
+		var result:Dictionary = world_space.intersect_ray(params)
+		if result:
+			return result["collider"]
+		return null
