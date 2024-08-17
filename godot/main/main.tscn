@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://jeihxw20nydi"]
+[gd_scene load_steps=14 format=3 uid="uid://jeihxw20nydi"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_tycjl"]
 [ext_resource type="PackedScene" uid="uid://b3osahesu8vvn" path="res://camera/player_camera.tscn" id="1_y5qgp"]
 [ext_resource type="Script" path="res://main/height_detector.gd" id="2_11x3m"]
 [ext_resource type="Texture2D" uid="uid://46pg3af12jhy" path="res://hud/crosshair.png" id="2_c323c"]
 [ext_resource type="PackedScene" uid="uid://bcqgjd3l2f1sm" path="res://billboard/billboard.tscn" id="3_a3m6j"]
+[ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="3_qdt2t"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_t10fx"]
 size = Vector2(100, 100)
@@ -13,10 +14,6 @@ size = Vector2(100, 100)
 albedo_color = Color(0.25459, 0.356683, 0.349198, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_s75uj"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_pynq8"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_00qp6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jcetm"]
 size = Vector3(100, 1, 100)
@@ -53,29 +50,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179205, 2.74989, 5.72712)
 
 [node name="Objects" type="Node3D" parent="."]
 
-[node name="Cube" type="RigidBody3D" parent="Objects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57639, 0)
-collision_layer = 2
-collision_mask = 3
+[node name="GameObject" parent="Objects" instance=ExtResource("3_qdt2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.799286, 1.1608)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Objects/Cube"]
-mesh = SubResource("BoxMesh_pynq8")
-skeleton = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Cube"]
-shape = SubResource("BoxShape3D_00qp6")
-
-[node name="Cube2" type="RigidBody3D" parent="Objects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.05191, 0.478556)
-collision_layer = 2
-collision_mask = 3
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Objects/Cube2"]
-mesh = SubResource("BoxMesh_pynq8")
-skeleton = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Cube2"]
-shape = SubResource("BoxShape3D_00qp6")
+[node name="GameObject2" parent="Objects" instance=ExtResource("3_qdt2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.856859, -0.333863)
 
 [node name="Billboard" parent="." instance=ExtResource("3_a3m6j")]
 
