@@ -2,7 +2,8 @@ class_name GameObject
 extends RigidBody3D
 
 
-@export var mouse_sensitivity:float = 0.05
+@export var scale_sentitivity: float = 1.01
+@export var mouse_sensitivity: float = 0.05
 @export_color_no_alpha var valid_color: Color = Color.GREEN
 @export_color_no_alpha var invalid_color: Color = Color.RED
 
@@ -24,13 +25,14 @@ var selected: bool = false :
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not selected:
+	if not selected or Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
 	
-	if (Input.is_action_pressed("allow_object_rotation")
-		and event is InputEventMouseMotion
-		and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
-	):
+	if event.is_action("scale_up"):
+		scale *= scale_sentitivity
+	elif event.is_action("scale_down"):
+		scale /= scale_sentitivity
+	elif GameState.current_game_state == Enum.GameState.ROTATING_OBJECT and event is InputEventMouseMotion:
 		rotate_x(deg_to_rad(event.relative.y * mouse_sensitivity))
 		rotate_y(deg_to_rad(event.relative.x * mouse_sensitivity))
 

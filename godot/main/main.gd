@@ -14,27 +14,36 @@ func _ready() -> void:
 	@warning_ignore("return_value_discarded")
 	_height_detector.max_height_changed.connect(_on_max_height_changed)
 	_billboard.set_target_height(target_height)
-	_player_camera.object_clicked.connect(_on_object_clicked)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		var mouse_event := event as InputEventMouseButton
-		if mouse_event.button_index == MOUSE_BUTTON_LEFT and mouse_event.pressed:
-			if current_selected_object != null and current_selected_object.is_not_colliding():
-				_unselect_current_object()
-				get_viewport().set_input_as_handled()
-
+func _unhandled_input(event: InputEvent) -> void:
+	# Handle focus/unfocus with escape / click on the viewport
 	if event.is_action_pressed("ui_cancel"):
-		if current_selected_object != null:
+		if GameState.current_game_state == Enum.GameState.FREE_CAMERA:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		elif GameState.current_game_state == Enum.GameState.OBJECT_SELECTED:
 			_unselect_current_object()
-	
-	if GameState.current_game_state == Enum.GameState.OBJECT_SELECTED:
-		if Input.is_action_pressed("allow_object_rotation"):
-			GameState.current_game_state = Enum.GameState.ROTATING_OBJECT
-	elif GameState.current_game_state == Enum.GameState.ROTATING_OBJECT:
-		if not Input.is_action_pressed("allow_object_rotation"):
-			GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("select_object"):
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			get_viewport().set_input_as_handled()
+		elif GameState.current_game_state == Enum.GameState.FREE_CAMERA:
+			var object: GameObject = _player_camera.get_object_under_mouse(event.position)
+			if object :
+				select(object)
+				get_viewport().set_input_as_handled()
+		elif current_selected_object != null and current_selected_object.is_not_colliding():
+			_unselect_current_object()
+			get_viewport().set_input_as_handled()
+	elif (
+		event.is_action_pressed("allow_object_rotation")
+		and GameState.current_game_state == Enum.GameState.OBJECT_SELECTED
+	):
+		GameState.current_game_state = Enum.GameState.ROTATING_OBJECT
+	elif event.is_action_released("allow_object_rotation"):
+		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
 
 
 func _unselect_current_object() -> void:
@@ -52,7 +61,7 @@ func _on_max_height_changed(max_height: float) -> void:
 		_hud.show_win()
 
 
-func _on_object_clicked(object: GameObject) -> void:
+func select(object: GameObject) -> void:
 	if GameState.current_game_state == Enum.GameState.FREE_CAMERA:
 		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
 		object.selected = true
