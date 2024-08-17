@@ -2,7 +2,10 @@ class_name GameObject
 extends RigidBody3D
 
 
-@export var selected:bool = false :
+@export var mouse_sensitivity:float = 0.05
+@export_color_no_alpha var selected_color: Color = Color.HOT_PINK
+
+var selected: bool = false :
 	set(value):
 		selected = value
 		freeze = value
@@ -14,15 +17,8 @@ extends RigidBody3D
 			
 	get:
 		return selected
-@export var mouse_sensitivity:float = 0.05
-@export_color_no_alpha var selected_color: Color = Color.HOT_PINK
 
 @onready var mesh_instance:MeshInstance3D = $MeshInstance3D
-
-
-func _ready() -> void:
-	if selected:
-		freeze = true
 
 
 func _unhandled_input(event: InputEvent) -> void:
