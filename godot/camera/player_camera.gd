@@ -4,6 +4,7 @@ extends Node3D
 const CAMERA_X_ROT_MIN: float = deg_to_rad(-89.9)
 const CAMERA_X_ROT_MAX: float = deg_to_rad(70)
 
+@export var zoom_speed: float = 5.0
 @export var translation_speed: float = 10.0
 @export var rotation_speed: float = 0.001
 @export_flags_3d_physics var object_3d_physics_layer: int
@@ -18,7 +19,7 @@ func _process(delta: float) -> void:
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
 	
-	var can_move:bool = (GameState.current_game_state == Enum.GameState.FREE_CAMERA
+	var can_move: bool = (GameState.current_game_state == Enum.GameState.FREE_CAMERA
 		or GameState.current_game_state == Enum.GameState.OBJECT_SELECTED)
 	if not can_move:
 		return
@@ -38,6 +39,11 @@ func _process(delta: float) -> void:
 	)
 	
 	position += translation_speed * delta * motion_vector
+
+	var attached_object_zoom: float = Input.get_action_strength("zoom_object_in") - Input.get_action_strength("zoom_object_out")
+	if not is_zero_approx(attached_object_zoom):
+		var zoom_direction: Vector3 = -_camera.global_basis.z
+		_remote_transform3D.global_position += zoom_direction * zoom_speed * attached_object_zoom * delta
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -90,3 +96,7 @@ func get_object_under_mouse(mouse_position: Vector2) -> GameObject:
 	if result and result["collider"] is GameObject:
 		return result["collider"]
 	return null
+
+
+func get_forward_direction() -> Vector3:
+	return -_camera.global_basis.z

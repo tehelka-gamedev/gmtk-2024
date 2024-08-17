@@ -86,6 +86,13 @@ func start_game() -> void:
 func select(object: GameObject) -> void:
 	if GameState.current_game_state == Enum.GameState.FREE_CAMERA:
 		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
+		
+		object.global_position = _player_camera.global_position + _player_camera.get_forward_direction() * (object.global_position - _player_camera.global_position).length()
+		# tween way, commented out for now
+		#var new_object_position: Vector3 = _player_camera.global_position + _player_camera.get_forward_direction() * (object.global_position - _player_camera.global_position).length()
+		#var tween: Tween = get_tree().create_tween()
+		#tween.tween_property(object, "global_position", new_object_position, 0.1)
+		#await tween.finished
 		object.selected = true
 		current_selected_object = object
 		

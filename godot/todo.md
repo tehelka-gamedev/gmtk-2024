@@ -4,13 +4,12 @@
 	-> currently, 1 second is elapsed before the first update
 	-> problem is if we use _detect_current_max_height at launched,
 	main.gd has not connected the signal yet to change the heighlabel on the billboard
+- change l'albedo de l'objet sur lequel est peut cliquer
 - pause menu
 - end menu
 - main menu
 - spawn random objects / or predefined (like a puzzle level)
-- zoom/dezoom selected object
-- scale selected object
-- center camera on selected object
+- center camera on selected object (done for now, object is moving and not the camera)
 - improve object rotation
 - improve worldEnvironment and polish
 - scale jauge UI
