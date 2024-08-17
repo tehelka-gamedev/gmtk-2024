@@ -16,7 +16,9 @@ var selected: bool = false :
 			collision_layer = 0
 		else:
 			collision_layer = Enum.CollisionLayer.OBJECT
-			_mesh_instance.get_surface_override_material(0).albedo_color = Color.WHITE
+			var _mesh_instance_override_material:StandardMaterial3D = _mesh_instance.get_surface_override_material(0) as StandardMaterial3D
+			assert(_mesh_instance_override_material!=null, "no mesh instance override material, something is wrong!")
+			_mesh_instance_override_material.albedo_color = Color.WHITE
 	get:
 		return selected
 var object_scale: float = 1.0:
@@ -41,20 +43,22 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action("scale_down"):
 		object_scale /= scale_sentitivity
 	elif GameState.current_game_state == Enum.GameState.ROTATING_OBJECT and event is InputEventMouseMotion:
-		rotate_x(deg_to_rad(event.relative.y * mouse_sensitivity))
-		rotate_y(deg_to_rad(event.relative.x * mouse_sensitivity))
+		var motion_event:InputEventMouseMotion = event as InputEventMouseMotion
+		rotate_x(deg_to_rad(motion_event.relative.y * mouse_sensitivity))
+		rotate_y(deg_to_rad(motion_event.relative.x * mouse_sensitivity))
 
-		var object_rot = rotation_degrees
+		var object_rot:Vector3 = rotation_degrees
 		object_rot.x = clamp(object_rot.x, -70, 70)
 		rotation_degrees = object_rot
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if selected:
+		var _mesh_instance_override_material:StandardMaterial3D = _mesh_instance.get_surface_override_material(0) as StandardMaterial3D
 		if is_not_colliding():
-			_mesh_instance.get_surface_override_material(0).albedo_color = valid_color
+			_mesh_instance_override_material.albedo_color = valid_color
 		else:
-			_mesh_instance.get_surface_override_material(0).albedo_color = invalid_color
+			_mesh_instance_override_material.albedo_color = invalid_color
 
 
 func is_not_colliding() -> bool:
