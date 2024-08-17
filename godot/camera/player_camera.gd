@@ -22,8 +22,10 @@ func _process(delta: float) -> void:
 	# If no focus on the window, ignore
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
-		
-	if GameState.current_game_state != Enum.GameState.FREE_CAMERA:
+	
+	var can_move:bool = (GameState.current_game_state == Enum.GameState.FREE_CAMERA
+		or GameState.current_game_state == Enum.GameState.OBJECT_SELECTED)
+	if not can_move:
 		return
 	
 	var horizontal_input_vector: Vector2 = Input.get_vector(
@@ -41,6 +43,8 @@ func _process(delta: float) -> void:
 	)
 	
 	position += translation_speed * delta * motion_vector
+	
+	
 
 
 func _input(event: InputEvent) -> void:
@@ -65,7 +69,7 @@ func _input(event: InputEvent) -> void:
 				obj = obj as GameObject
 				object_clicked.emit(obj)
 				get_viewport().set_input_as_handled()
-				
+
 
 func get_object_under_mouse(mouse_position:Vector2) -> Node3D:
 		var world_space := get_world_3d().direct_space_state
@@ -86,8 +90,17 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
 	
-	if GameState.current_game_state != Enum.GameState.FREE_CAMERA:
+	# Can rotate only if in free camera or in object selected
+	var can_rotate:bool = (GameState.current_game_state == Enum.GameState.FREE_CAMERA
+		or GameState.current_game_state == Enum.GameState.OBJECT_SELECTED)
+	
+	if not can_rotate:
 		return
+	
+	if event is InputEventMouseButton:
+		var mouse_event := event as InputEventMouseButton
+		if mouse_event.button_index == MOUSE_BUTTON_RIGHT and not mouse_event.pressed:
+			return
 	
 	var window: Window = get_viewport() as Window
 	var scale_factor: float = min(

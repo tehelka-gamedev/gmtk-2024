@@ -26,6 +26,13 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		if current_selected_object != null:
 				_unselect_current_object()
+	
+	if GameState.current_game_state == Enum.GameState.OBJECT_SELECTED:
+		if Input.is_action_pressed("allow_object_rotation"):
+			GameState.current_game_state = Enum.GameState.ROTATING_OBJECT
+	elif GameState.current_game_state == Enum.GameState.ROTATING_OBJECT:
+		if not Input.is_action_pressed("allow_object_rotation"):
+			GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
 
 func _unselect_current_object() -> void:
 	assert (current_selected_object!=null, "Trying to unselect an object but none is selected, something is wrong!")
