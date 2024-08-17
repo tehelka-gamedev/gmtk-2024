@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://billboard/billboard.gd" id="1_d844d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_q0u76"]
-size = Vector3(6, 3, 0.5)
+size = Vector3(15, 4, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5a4v"]
 size = Vector3(6, 3, 0.5)
@@ -19,11 +19,11 @@ mesh = SubResource("BoxMesh_q0u76")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_d5a4v")
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="TargetHeightLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92223, 0.26)
-text = "HEIGHT"
-font_size = 196
+text = "target height: "
+font_size = 256
 
 [node name="HeightLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.236226, 0.26)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.699453, 0.26)
 font_size = 256

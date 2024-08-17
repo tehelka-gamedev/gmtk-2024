@@ -1,6 +1,7 @@
 class_name GameObject
 extends RigidBody3D
 
+
 @export var selected:bool = false :
 	set(value):
 		selected = value
@@ -13,30 +14,24 @@ extends RigidBody3D
 			
 	get:
 		return selected
-
 @export var mouse_sensitivity:float = 0.05
-
 @export_color_no_alpha var selected_color: Color = Color.HOT_PINK
 
 @onready var mesh_instance:MeshInstance3D = $MeshInstance3D
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	if selected:
 		freeze = true
 		
 	input_event.connect(_on_input_event)
 
-func _draw() -> void:
-	
-	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("select_object"):
 		pass
 	pass
+
 
 func _input(event: InputEvent) -> void:
 	if not selected:
@@ -51,7 +46,8 @@ func _input(event: InputEvent) -> void:
 		rotation_degrees = object_rot
 		#position += Vector3(event.relative.x, event.relative.y, 0)
 	pass
-	
+
+
 func _physics_process(delta: float) -> void:
 	if not selected:
 		return
@@ -91,7 +87,6 @@ func _physics_process(delta: float) -> void:
 		global_rotate(rotZ, ROT_AMOUNT*delta)
 	
 
-# Called when an event is on the node
 func _on_input_event(camera:Node, event:InputEvent, event_position:Vector3, normal:Vector3, shapeidx:int) -> void:
 	if not selected:
 		return
