@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4rgu0wkn1oyx"
-path.s3tc="res://.godot/imported/stepladder_low_stepladder_mat_BaseColor.png-4cb1fdf0896774b6ff13854f1743cc37.s3tc.ctex"
+path="res://.godot/imported/stepladder_low_stepladder_mat_BaseColor.png-4cb1fdf0896774b6ff13854f1743cc37.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://game_object/Stepladder/Texture_export/stepladder_low_stepladder_mat_BaseColor.png"
-dest_files=["res://.godot/imported/stepladder_low_stepladder_mat_BaseColor.png-4cb1fdf0896774b6ff13854f1743cc37.s3tc.ctex"]
+dest_files=["res://.godot/imported/stepladder_low_stepladder_mat_BaseColor.png-4cb1fdf0896774b6ff13854f1743cc37.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

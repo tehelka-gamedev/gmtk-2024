@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://main/height_detector.gd" id="2_11x3m"]
 [ext_resource type="PackedScene" uid="uid://bcqgjd3l2f1sm" path="res://billboard/billboard.tscn" id="3_a3m6j"]
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="3_qdt2t"]
-[ext_resource type="PackedScene" path="res://hud/hud.tscn" id="6_ufsw2"]
+[ext_resource type="PackedScene" uid="uid://be0p0p4t8aqt6" path="res://hud/hud.tscn" id="6_ufsw2"]
 [ext_resource type="PackedScene" uid="uid://b2tdd1ub85smd" path="res://game_object/Stepladder/stepladder_low.fbx" id="7_880no"]
 [ext_resource type="PackedScene" uid="uid://ctxoaexo53ehy" path="res://game_object/GolfBall/golfball_low.fbx" id="8_xb7xv"]
 [ext_resource type="PackedScene" uid="uid://b5epmmq4dfyd8" path="res://game_object/Beachball/beachball_low.fbx" id="9_aiy31"]
