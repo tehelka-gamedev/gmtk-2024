@@ -36,14 +36,16 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("WorldBoundaryShape3D_s75uj")
 
-[node name="Cube" type="RigidBody3D" parent="."]
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="Cube" type="RigidBody3D" parent="Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57639, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Objects/Cube"]
 mesh = SubResource("BoxMesh_pynq8")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Cube"]
 shape = SubResource("BoxShape3D_00qp6")
 
 [node name="PlayerCamera" parent="." instance=ExtResource("1_y5qgp")]

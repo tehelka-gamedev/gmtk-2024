@@ -2,8 +2,8 @@ class_name PlayerCamera
 extends Node3D
 
 
-const CAMERA_X_ROT_MIN := deg_to_rad(-89.9)
-const CAMERA_X_ROT_MAX := deg_to_rad(70)
+const CAMERA_X_ROT_MIN: float = deg_to_rad(-89.9)
+const CAMERA_X_ROT_MAX: float = deg_to_rad(70)
 
 @export var translation_speed: float = 10.0
 @export var rotation_speed: float = 0.001
@@ -37,32 +37,39 @@ func _process(delta: float) -> void:
 	position += translation_speed * delta * motion_vector # $CameraRotation/Camera3D.global_transform
 	#print($CameraRotation/Camera3D.global_transform)
 
+
 func _input(event: InputEvent) -> void:
 	# Handle focus/unfocus with escape / click on the viewport
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if (
+			event is InputEventMouseButton
+			and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT
+			and (event as InputEventMouseButton).pressed
+	):
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			get_viewport().set_input_as_handled()
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	# If no focus on the window, ignore
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
 	
+	var window: Window = get_viewport() as Window
 	var scale_factor: float = min(
-			(float(get_viewport().size.x) / get_viewport().get_visible_rect().size.x),
-			(float(get_viewport().size.y) / get_viewport().get_visible_rect().size.y)
+			(float(window.size.x) / window.get_visible_rect().size.x),
+			(float(window.size.y) / window.get_visible_rect().size.y)
 	)
 
 	if event is InputEventMouseMotion:
-		var camera_speed_this_frame = rotation_speed
-		rotate_camera(event.relative * camera_speed_this_frame * scale_factor)
+		var camera_speed_this_frame: float = rotation_speed
+		rotate_camera((event as InputEventMouseMotion).relative * camera_speed_this_frame * scale_factor)
 
 
-func rotate_camera(move):
+func rotate_camera(move: Vector2) -> void:
 	rotate_y(-move.x)
 	# After relative transforms, camera needs to be renormalized.
 	orthonormalize()
