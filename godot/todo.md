@@ -12,11 +12,18 @@ Processus d'import des assets 3D
 
 
 ### Choses à faire en priorité
-- faire un export web et le mettre sur itch
+- Menu principal
+	- Bouton (avec du son) nombre d'objet
+	- Bouton hauteur à atteindre
+- Faire en sorte que le pivot de rotation soit plus au centre de l'objet
+- Mettre un marqueur sous l'objet sélectionné pour voir où il tombe
+- Voir pour le focus de la souris sur l'export web
+- Bloquer le zoom in/out à une certaine profondeur
+- Déplacer la caméra plus lentement de base
+	- Mettre un bouton (shift) pour accélerer
 
 
 ### Choses pour plus tard
-- bloquer le zoom in/out à une certaine profondeur
 - mettre un bouton pour faire tourner la caméra autour de l'objet sélectionné
 - maybe update the heightlabel when the game is launcherz
 	-> currently, 1 second is elapsed before the first update
