@@ -30,15 +30,21 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		return
+
 	if _current_selected_object == null:
 		var mouse_position: Vector2 = get_viewport().get_mouse_position()
 		var object: GameObject = _player_camera.get_object_under_mouse(mouse_position, select_max_distance)
 		if object != null:
+			if _current_hovered_object != null:
+				_current_hovered_object.stop_hover()
 			_current_hovered_object = object
 			_current_hovered_object.hover()
 		elif _current_hovered_object != null:
 			_current_hovered_object.stop_hover()
 			_current_hovered_object = null
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Handle focus/unfocus with escape / click on the viewport
