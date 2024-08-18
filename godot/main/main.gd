@@ -90,6 +90,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	):
 		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
 	elif event.is_action_pressed("reload_game"):
+		GameState.current_game_state = Enum.GameState.FREE_CAMERA
 		get_tree().reload_current_scene()
 	
 	_handle_selected_object_input(event)
