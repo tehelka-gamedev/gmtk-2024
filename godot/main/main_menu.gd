@@ -44,7 +44,3 @@ func _ready() -> void:
 	target_height_slider.value = GameSettings.target_height
 	nb_item_slider.value = GameSettings.number_items_to_spawn
 	nb_item_label.text = "%d" % int(nb_item_slider.value)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

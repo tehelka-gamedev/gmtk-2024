@@ -4,7 +4,7 @@ extends Node3D
 @export var object_pool:Array[PackedScene] = []
 @export var select_max_distance: float = 5.0
 @export var no_movement_duration_before_game_win: float = 3.0
-
+@export_file("*.tscn") var main_menu_scene: String
 
 var _current_height: float = 0.0
 var _last_time_something_has_moved: float = 0.0
@@ -89,7 +89,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
 	elif event.is_action_pressed("reload_game"):
 		GameState.current_game_state = Enum.GameState.FREE_CAMERA
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file(main_menu_scene)
 	
 	_handle_selected_object_input(event)
 	
