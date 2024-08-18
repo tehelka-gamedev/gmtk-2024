@@ -8,6 +8,7 @@ extends RigidBody3D
 @export_color_no_alpha var valid_color: Color = Color.GREEN
 @export_color_no_alpha var invalid_color: Color = Color.RED
 @export var scale_pivot: Vector3
+@export var model: Node3D
 
 @export_category("Gameplay parameters")
 ## Amount of unit scaling the object cost
@@ -44,6 +45,7 @@ var _mesh_instances: Array[MeshInstance3D] = []
 var _initial_mass:float = mass
 
 @onready var _collision_detector: Area3D = $CollisionDetector
+@onready var _initial_model_position: Vector3 = model.position
 
 
 func _ready() -> void:
@@ -56,6 +58,7 @@ func _ready() -> void:
 			_collision_detector_shapes.append(duplicate)
 	
 	_mesh_instances = _get_mesh_instances(self)
+	center_of_mass = scale_pivot
 	#for mesh_instance: MeshInstance3D in _mesh_instances:
 		#mesh_instance.set_surface_override_material(0, mesh_instance.get_surface_override_material(0).duplicate())
 
@@ -116,8 +119,10 @@ func _set_albedo_color(color: Color) -> void:
 
 
 func _set_scale(value: float) -> void:
-	for mesh_instance: MeshInstance3D in _mesh_instances:
-		mesh_instance.scale = Vector3.ONE * value
+	#for mesh_instance: MeshInstance3D in _mesh_instances:
+		#mesh_instance.scale = Vector3.ONE * value
+	model.position = scale_pivot + (_initial_model_position - scale_pivot) * value
+	model.scale = Vector3.ONE * value
 	for collision_shape: ScallableCollisionShape3D in _collision_shapes:
 		collision_shape.position = scale_pivot + (collision_shape.initial_position - scale_pivot) * value
 		collision_shape.scale = Vector3.ONE * value

@@ -10,9 +10,10 @@ bounce = 0.5
 [sub_resource type="SphereShape3D" id="SphereShape3D_r36vj"]
 radius = 0.1
 
-[node name="BeachBall" instance=ExtResource("1_ljb3l")]
+[node name="BeachBall" node_paths=PackedStringArray("model") instance=ExtResource("1_ljb3l")]
 mass = 0.28
 physics_material_override = SubResource("PhysicsMaterial_3tmhj")
+model = NodePath("beachball")
 
 [node name="beachball" parent="." index="0" instance=ExtResource("2_agl27")]
 

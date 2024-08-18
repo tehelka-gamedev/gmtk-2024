@@ -13,10 +13,10 @@ dest_files=["res://.godot/imported/stepladder_low.fbx-780c3c64b8816333d64d55064c
 
 [params]
 
-nodes/root_type="GameObject"
-nodes/root_name="stepladder_low_stepladder_mat"
+nodes/root_type="Node3D"
+nodes/root_name="stepladder"
 nodes/apply_root_scale=true
-nodes/root_scale=10.0
+nodes/root_scale=30.0
 nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true

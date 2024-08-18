@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://jeihxw20nydi"]
+[gd_scene load_steps=21 format=3 uid="uid://jeihxw20nydi"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_tycjl"]
 [ext_resource type="PackedScene" uid="uid://b3osahesu8vvn" path="res://camera/player_camera.tscn" id="1_y5qgp"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://516yvd011d4p" path="res://game_object/football/foot_ball.tscn" id="4_xan4c"]
 [ext_resource type="PackedScene" uid="uid://b4ckgjiuaqsuw" path="res://game_object/beachball/beach_ball.tscn" id="5_7w4q0"]
 [ext_resource type="PackedScene" uid="uid://be0p0p4t8aqt6" path="res://hud/hud.tscn" id="6_ufsw2"]
+[ext_resource type="PackedScene" uid="uid://dvex3p54ywo5a" path="res://game_object/stepladder/step_ladder.tscn" id="6_wbhtt"]
 [ext_resource type="PackedScene" uid="uid://d16adc8cfh5cy" path="res://main/gameplay/scaling_gauge.tscn" id="8_7lvbe"]
 [ext_resource type="Script" path="res://main/gameplay/scaling_gauge.gd" id="9_6u6kg"]
 
@@ -45,7 +46,7 @@ point_count = 5
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_tycjl")
-object_pool = Array[PackedScene]([ExtResource("2_kp88t"), ExtResource("3_rfsl0"), ExtResource("4_xan4c"), ExtResource("5_7w4q0")])
+object_pool = Array[PackedScene]([ExtResource("2_kp88t"), ExtResource("3_rfsl0"), ExtResource("4_xan4c"), ExtResource("5_7w4q0"), ExtResource("6_wbhtt")])
 number_items_to_spawn = 15
 
 [node name="Ground" type="StaticBody3D" parent="."]
