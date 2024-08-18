@@ -83,12 +83,12 @@ func rotate_camera(move: Vector2) -> void:
 	_camera_rotation.rotation.x = clamp(_camera_rotation.rotation.x - move.y, CAMERA_X_ROT_MIN, CAMERA_X_ROT_MAX)
 
 
-func get_object_under_mouse(mouse_position: Vector2) -> GameObject:
+func get_object_under_mouse(mouse_position: Vector2, select_max_distance: float) -> GameObject:
 	var world_space := get_world_3d().direct_space_state
 
 	var params := PhysicsRayQueryParameters3D.new()
 	params.from = _camera.project_ray_origin(mouse_position)
-	params.to = _camera.project_position(mouse_position, _camera.far)
+	params.to = _camera.project_position(mouse_position, select_max_distance)
 	params.exclude = []
 	params.collision_mask = object_3d_physics_layer
 

@@ -4,6 +4,7 @@ extends RigidBody3D
 
 @export var scale_sentitivity: float = 1.01
 @export var mouse_sensitivity: float = 0.05
+@export_color_no_alpha var hover_color: Color = Color.YELLOW
 @export_color_no_alpha var valid_color: Color = Color.GREEN
 @export_color_no_alpha var invalid_color: Color = Color.RED
 
@@ -66,11 +67,20 @@ func is_not_colliding() -> bool:
 	return _collision_detector.get_overlapping_bodies() == []
 
 
-func _set_albedo_color(color:Color) -> void:
+func hover() -> void:
+	_set_albedo_color(hover_color)
+
+
+func stop_hover() -> void:
+	_set_albedo_color(Color.WHITE)
+
+
+func _set_albedo_color(color: Color) -> void:
 	for mesh_instance in _mesh_instances:
 		var _mesh_instance_override_material:StandardMaterial3D = mesh_instance.get_surface_override_material(0) as StandardMaterial3D
 		_mesh_instance_override_material.albedo_color = color
 
-func _set_scale(value:float) -> void:
+
+func _set_scale(value: float) -> void:
 	for mesh_instance in _mesh_instances:
 		mesh_instance.scale = Vector3.ONE * value

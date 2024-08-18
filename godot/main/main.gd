@@ -3,10 +3,12 @@ extends Node3D
 
 @export var target_height: float = 5.0
 @export var object_pool:Array[PackedScene] = []
-@export var number_items_to_spawn = 4
+@export var number_items_to_spawn: int = 4
+@export var select_max_distance: float = 5.0
 
 
-var current_selected_object:GameObject = null
+var _current_selected_object: GameObject = null
+var _current_hovered_object: GameObject = null
 @onready var _height_detector: HeightDetector = $HeightDetector
 @onready var _billboard: Billboard = $Billboard
 @onready var _player_camera: PlayerCamera = $PlayerCamera
@@ -26,6 +28,17 @@ func _ready() -> void:
 	start_game()
 
 
+func _physics_process(delta: float) -> void:
+	if _current_selected_object == null:
+		var mouse_position: Vector2 = get_viewport().get_mouse_position()
+		var object: GameObject = _player_camera.get_object_under_mouse(mouse_position, select_max_distance)
+		if object != null:
+			_current_hovered_object = object
+			_current_hovered_object.hover()
+		elif _current_hovered_object != null:
+			_current_hovered_object.stop_hover()
+			_current_hovered_object = null
+
 func _unhandled_input(event: InputEvent) -> void:
 	# Handle focus/unfocus with escape / click on the viewport
 	if event.is_action_pressed("ui_cancel"):
@@ -39,11 +52,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			get_viewport().set_input_as_handled()
 		elif GameState.current_game_state == Enum.GameState.FREE_CAMERA:
-			var object: GameObject = _player_camera.get_object_under_mouse(event.position)
-			if object :
-				select(object)
+			if _current_hovered_object != null:
+				select(_current_hovered_object)
 				get_viewport().set_input_as_handled()
-		elif current_selected_object != null and current_selected_object.is_not_colliding():
+		elif _current_selected_object != null and _current_selected_object.is_not_colliding():
 			_unselect_current_object()
 			get_viewport().set_input_as_handled()
 	elif (
@@ -61,11 +73,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _unselect_current_object() -> void:
-	assert (current_selected_object!=null, "Trying to unselect an object but none is selected, something is wrong!")
+	assert (_current_selected_object!=null, "Trying to unselect an object but none is selected, something is wrong!")
 	
-	current_selected_object.selected = false
+	_current_selected_object.selected = false
 	GameState.current_game_state = Enum.GameState.FREE_CAMERA
-	current_selected_object = null
+	_current_selected_object = null
 	_player_camera.detach_object()
 
 
@@ -96,6 +108,6 @@ func select(object: GameObject) -> void:
 		#tween.tween_property(object, "global_position", new_object_position, 0.1)
 		#await tween.finished
 		object.selected = true
-		current_selected_object = object
+		_current_selected_object = object
 		
 		_player_camera.attach_object(object.global_position, _player_camera.get_path_to(object))
