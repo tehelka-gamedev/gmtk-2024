@@ -39,8 +39,6 @@ func _ready() -> void:
 		nb_item_label.text = "%d" % int(value)
 	)
 	
-	print("%d" % int(GameSettings.number_items_to_spawn))
-	
 	target_height_slider.value = GameSettings.target_height
 	nb_item_slider.value = GameSettings.number_items_to_spawn
 	nb_item_label.text = "%d" % int(nb_item_slider.value)
