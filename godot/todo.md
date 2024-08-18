@@ -7,6 +7,9 @@ Processus d'import des assets 3D
 - faire un new inherited scene de gameobject.tscn
 - rajouter le fbx en enfant du root node
 - setup le scale_pivot sur le root node qui fait office de centre de gravité
+- renomme le mesh "Mesh"
+- ajouter un fiston à $Mesh : "MassCenter" (Marker3D)
+- mettre le mesh dans la variable exportée "model" du GameObject
 - créer les collisions shapes à la main / ou les générer par godot
 - retype les collisions shapes en ScallableCollisionShape3D
 

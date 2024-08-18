@@ -100,6 +100,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
 	elif event.is_action_pressed("reload_game"):
 		GameState.current_game_state = Enum.GameState.FREE_CAMERA
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_tree().change_scene_to_file(main_menu_scene)
 	
 	_handle_selected_object_input(event)
@@ -158,8 +159,7 @@ func select(object: GameObject) -> void:
 		object.selected = true
 		_current_selected_object = object
 		
-		var attach_position: Vector3 = object.global_position - object.scale_pivot
-		_player_camera.attach_object(attach_position, _player_camera.get_path_to(object))
+		_player_camera.attach_object(object.global_position, _player_camera.get_path_to(object))
 
 
 func _no_object_has_moved_last_frame() -> bool:
