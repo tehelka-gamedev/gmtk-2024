@@ -41,6 +41,7 @@ Processus d'import des assets 3D
 - add a feedback to project the drop in place of the selected object
 - reduire la taille de l'export pck si possible
 - take picture of the final tower as end game gift
+- ecrire les crédits !
 
 
 ### Basic level
