@@ -89,13 +89,20 @@ func stop_hover() -> void:
 	_set_albedo_color(Color.WHITE)
 
 ## Scale up one time
-func scale_up() -> void:
+## Returns true if the scaling could be done, false otherwise
+func scale_up() -> bool:
+	if object_scale*scale_sentitivity > max_scale:
+		return false
 	object_scale *= scale_sentitivity
-
+	return true
+	
 ## Scale down one time
-func scale_down() -> void:
+## Returns true if the scaling could be done, false otherwise
+func scale_down() -> bool:
+	if object_scale/scale_sentitivity < min_scale:
+		return false
 	object_scale /= scale_sentitivity
-
+	return true
 
 func _set_albedo_color(color: Color) -> void:
 	for mesh_instance in _mesh_instances:

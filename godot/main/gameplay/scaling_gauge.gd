@@ -37,6 +37,11 @@ func isEmpty() -> bool:
 func isFull() -> bool:
 	return current_value == max_value
 
+func can_pay(amount:int) -> bool:
+	if amount > current_value:
+		return false
+	return true
+
 ## Try to pay "amount" from the gauge, returns true if succeeded
 func pay(amount:int) -> bool:
 	if amount > current_value:
