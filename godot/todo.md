@@ -22,11 +22,11 @@ Choses à faire en priorité
 	- mettre un UI de la jauge
 - change l'albedo de l'objet sur lequel est peut cliquer
 	- mettre une distance max pour sélectionner un objet
-- mettre un bouton pour regénérer la scène
 - faire un export web et le mettre sur itch
 
 Choses pour plus tard
 
+- mettre un bouton pour faire tourner la caméra autour de l'objet sélectionné
 - maybe update the heightlabel when the game is launcher
 	-> currently, 1 second is elapsed before the first update
 	-> problem is if we use _detect_current_max_height at launched,

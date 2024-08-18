@@ -56,6 +56,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		and GameState.current_game_state == Enum.GameState.ROTATING_OBJECT
 	):
 		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
+	elif event.is_action_pressed("reload_game"):
+		get_tree().reload_current_scene()
 
 
 func _unselect_current_object() -> void:

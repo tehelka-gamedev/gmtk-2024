@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://jeihxw20nydi"]
+[gd_scene load_steps=15 format=3 uid="uid://jeihxw20nydi"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_tycjl"]
 [ext_resource type="PackedScene" uid="uid://b3osahesu8vvn" path="res://camera/player_camera.tscn" id="1_y5qgp"]
@@ -6,10 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bcqgjd3l2f1sm" path="res://billboard/billboard.tscn" id="3_a3m6j"]
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="3_qdt2t"]
 [ext_resource type="PackedScene" uid="uid://be0p0p4t8aqt6" path="res://hud/hud.tscn" id="6_ufsw2"]
-[ext_resource type="PackedScene" uid="uid://b2tdd1ub85smd" path="res://game_object/stepladder/stepladder_low.fbx" id="7_880no"]
-[ext_resource type="PackedScene" uid="uid://ctxoaexo53ehy" path="res://game_object/golfBall/golfball_low.fbx" id="8_xb7xv"]
-[ext_resource type="PackedScene" uid="uid://b5epmmq4dfyd8" path="res://game_object/beachball/beachball_low.fbx" id="9_aiy31"]
-[ext_resource type="PackedScene" uid="uid://dwrs1dvfm22l8" path="res://game_object/football/football_low.fbx" id="10_ds3rc"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_t10fx"]
 size = Vector2(100, 100)
@@ -91,15 +87,3 @@ shadow_enabled = true
 
 [node name="SpawnBorders" type="Path3D" parent="."]
 curve = SubResource("Curve3D_6nq7e")
-
-[node name="stepladder_low_stepladder_mat" parent="." instance=ExtResource("7_880no")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50046, 1.70286, 0.77216)
-
-[node name="golfball_low_golfball_mat" parent="." instance=ExtResource("8_xb7xv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.80917, 1.58191, 0.896335)
-
-[node name="beachball_low_beachball_mat" parent="." instance=ExtResource("9_aiy31")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.214044, 1.72073, -0.0864255)
-
-[node name="football_low_football_mat" parent="." instance=ExtResource("10_ds3rc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.916448, 1.55066, -0.186856)
