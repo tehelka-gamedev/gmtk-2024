@@ -63,6 +63,7 @@ shape = SubResource("WorldBoundaryShape3D_s75uj")
 
 [node name="PlayerCamera" parent="." instance=ExtResource("1_y5qgp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179205, 2.74989, 5.72712)
+moving_speed = 5.0
 
 [node name="Objects" type="Node3D" parent="."]
 

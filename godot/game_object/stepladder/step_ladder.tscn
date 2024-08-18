@@ -55,6 +55,7 @@ mass = 20.0
 center_of_mass = Vector3(0, 0.26, 0)
 scale_pivot = Vector3(0, 0.602, 0)
 model = NodePath("stepladder")
+scaling_cost = 3
 
 [node name="stepladder" parent="." index="0" instance=ExtResource("2_4bckg")]
 

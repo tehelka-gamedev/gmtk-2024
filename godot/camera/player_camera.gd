@@ -5,9 +5,12 @@ const CAMERA_X_ROT_MIN: float = deg_to_rad(-89.9)
 const CAMERA_X_ROT_MAX: float = deg_to_rad(70)
 
 @export var zoom_speed: float = 5.0
-@export var translation_speed: float = 10.0
+@export var moving_speed: float = 10.0
+@export var running_speed: float = 10.0
 @export var rotation_speed: float = 0.001
 @export_flags_3d_physics var object_3d_physics_layer: int
+
+var _running: bool = false
 
 @onready var _camera_rotation: Node3D = $CameraRotation
 @onready var _camera: Camera3D = $CameraRotation/Camera3D
@@ -38,7 +41,9 @@ func _process(delta: float) -> void:
 		+ horizontal_input_vector.y * _camera_rotation.global_basis.z
 	)
 	
-	position += translation_speed * delta * motion_vector
+	var movement_speed:float = running_speed if Input.is_action_pressed("run") else moving_speed
+	
+	position += movement_speed * delta * motion_vector
 
 	var attached_object_zoom: float = Input.get_action_strength("zoom_object_in") - Input.get_action_strength("zoom_object_out")
 	if not is_zero_approx(attached_object_zoom):
