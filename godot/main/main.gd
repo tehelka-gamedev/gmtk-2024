@@ -1,9 +1,7 @@
 extends Node3D
 
 
-@export var target_height: float = 5.0
 @export var object_pool:Array[PackedScene] = []
-@export var number_items_to_spawn: int = 4
 @export var select_max_distance: float = 5.0
 @export var no_movement_duration_before_game_win: float = 3.0
 
@@ -29,7 +27,7 @@ func _ready() -> void:
 	
 	@warning_ignore("return_value_discarded")
 	_height_detector.max_height_changed.connect(_on_max_height_changed)
-	_billboard.set_target_height(target_height)
+	_billboard.set_target_height(GameSettings.target_height)
 	start_game()
 	
 	for object: GameObject in _objects.get_children():
@@ -37,7 +35,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if _current_height >= target_height:
+	if _current_height >= GameSettings.target_height:
 		if _no_object_has_moved_last_frame():
 			_last_time_something_has_moved += delta
 		
@@ -124,7 +122,7 @@ func _on_max_height_changed(max_height: float) -> void:
 
 
 func start_game() -> void:
-	for i in range(number_items_to_spawn):
+	for i in range(GameSettings.number_items_to_spawn):
 		var obj_scene:PackedScene = object_pool.pick_random()
 		var rand_x:Vector3 = _spawn_borders.curve.sample(0, randf())
 		var rand_z:Vector3 = _spawn_borders.curve.sample(1, randf())

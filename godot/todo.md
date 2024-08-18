@@ -12,9 +12,6 @@ Processus d'import des assets 3D
 
 
 ### Choses à faire en priorité
-- Menu principal
-	- Bouton (avec du son) nombre d'objet
-	- Bouton hauteur à atteindre
 - Faire en sorte que le pivot de rotation soit plus au centre de l'objet
 - Mettre un marqueur sous l'objet sélectionné pour voir où il tombe
 - Voir pour le focus de la souris sur l'export web
@@ -40,6 +37,7 @@ Processus d'import des assets 3D
 - mettre des limites pour qu'on puisse pas bouger la caméra à l'infini
 - add a feedback to project the drop in place of the selected object
 - reduire la taille de l'export pck si possible
+- take picture of the final tower as end game gift
 
 
 ### Basic level
