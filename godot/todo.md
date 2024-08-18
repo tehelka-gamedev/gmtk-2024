@@ -32,7 +32,7 @@ Processus d'import des assets 3D
 - mettre des limites au zoom/dezoom
 - mettre des limites pour qu'on puisse pas bouger la caméra à l'infini
 - add a feedback to project the drop in place of the selected object
-
+- reduire la taille de l'export pck si possible
 
 
 ### Basic level
