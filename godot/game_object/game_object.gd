@@ -35,15 +35,19 @@ var object_scale: float = 1.0:
 	set(value):
 		object_scale = value
 		_set_scale(object_scale)
+		mass = _initial_mass * value
 
 var _collision_shapes: Array[ScallableCollisionShape3D] = []
 var _collision_detector_shapes: Array[ScallableCollisionShape3D] = []
 var _mesh_instances: Array[MeshInstance3D] = []
 
+var _initial_mass:float = mass
+
 @onready var _collision_detector: Area3D = $CollisionDetector
 
 
 func _ready() -> void:
+	_initial_mass = mass
 	for node: Node in get_children():
 		if node is ScallableCollisionShape3D:
 			var duplicate: ScallableCollisionShape3D = node.duplicate()

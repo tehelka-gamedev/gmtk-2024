@@ -12,14 +12,11 @@ Processus d'import des assets 3D
 - ajuster les collisions shapes à la main
 
 
-Choses à faire en priorité
-
-- scale jauge
-	- mettre un UI de la jauge
+### Choses à faire en priorité
 - faire un export web et le mettre sur itch
 
-Choses pour plus tard
 
+### Choses pour plus tard
 - bloquer le zoom in/out à une certaine profondeur
 - mettre un bouton pour faire tourner la caméra autour de l'objet sélectionné
 - maybe update the heightlabel when the game is launcherz
@@ -35,6 +32,7 @@ Choses pour plus tard
 - mode avec predefined object (like a puzzle level)
 - mettre des limites au zoom/dezoom
 - mettre des limites pour qu'on puisse pas bouger la caméra à l'infini
+- add a feedback to project the drop in place of the selected object
 
 
 
