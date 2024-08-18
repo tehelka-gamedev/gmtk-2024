@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ctxoaexo53ehy"
-path="res://.godot/imported/golfball_low.fbx-c827bfe44ae17fd9f6f8bae9409e2663.scn"
+path="res://.godot/imported/golfball_low.fbx-a957ae13d4ae1e21580ecb205fda08a7.scn"
 
 [deps]
 
-source_file="res://game_object/golfBall/golfball_low.fbx"
-dest_files=["res://.godot/imported/golfball_low.fbx-c827bfe44ae17fd9f6f8bae9409e2663.scn"]
+source_file="res://game_object/golfball/golfball_low.fbx"
+dest_files=["res://.godot/imported/golfball_low.fbx-a957ae13d4ae1e21580ecb205fda08a7.scn"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w2b4c5ikylvm"
-path.s3tc="res://.godot/imported/golfball_low_golfball_mat_Normal.png-d78686f98c4a3e7ae5bd6611dbe3c5c2.s3tc.ctex"
+uid="uid://dgmr5xpjtsobr"
+path.bptc="res://.godot/imported/golfball_low_golfball_mat_Height.exr-248e224f1dd9a1bd890880b236b86c51.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://game_object/golfBall/Texture_export/golfball_low_golfball_mat_Normal.png"
-dest_files=["res://.godot/imported/golfball_low_golfball_mat_Normal.png-d78686f98c4a3e7ae5bd6611dbe3c5c2.s3tc.ctex"]
+source_file="res://game_object/golfball/Texture_export/golfball_low_golfball_mat_Height.exr"
+dest_files=["res://.godot/imported/golfball_low_golfball_mat_Height.exr-248e224f1dd9a1bd890880b236b86c51.bptc.ctex"]
 
 [params]
 
@@ -20,11 +20,11 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
+roughness/mode=7
 roughness/src_normal="res://game_object/GolfBall/Texture_export/golfball_low_golfball_mat_Normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
