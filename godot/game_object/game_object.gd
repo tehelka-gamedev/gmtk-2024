@@ -7,6 +7,7 @@ extends RigidBody3D
 @export_color_no_alpha var hover_color: Color = Color.YELLOW
 @export_color_no_alpha var valid_color: Color = Color.GREEN
 @export_color_no_alpha var invalid_color: Color = Color.RED
+@export var scale_pivot: Vector3
 
 @export_category("Gameplay parameters")
 ## Amount of unit scaling the object cost
@@ -35,8 +36,8 @@ var object_scale: float = 1.0:
 		object_scale = value
 		_set_scale(object_scale)
 
-var _collision_shapes: Array[CollisionShape3D] = []
-var _collision_detector_shapes: Array[CollisionShape3D] = []
+var _collision_shapes: Array[ScallableCollisionShape3D] = []
+var _collision_detector_shapes: Array[ScallableCollisionShape3D] = []
 var _mesh_instances: Array[MeshInstance3D] = []
 
 @onready var _collision_detector: Area3D = $CollisionDetector
@@ -44,10 +45,10 @@ var _mesh_instances: Array[MeshInstance3D] = []
 
 func _ready() -> void:
 	for node: Node in get_children():
-		if node is CollisionShape3D:
-			var duplicate: CollisionShape3D = node.duplicate()
+		if node is ScallableCollisionShape3D:
+			var duplicate: ScallableCollisionShape3D = node.duplicate()
 			_collision_detector.add_child(duplicate)
-			_collision_shapes.append(node as CollisionShape3D)
+			_collision_shapes.append(node as ScallableCollisionShape3D)
 			_collision_detector_shapes.append(duplicate)
 	
 	_mesh_instances = _get_mesh_instances(self)
@@ -106,10 +107,12 @@ func _set_albedo_color(color: Color) -> void:
 func _set_scale(value: float) -> void:
 	for mesh_instance: MeshInstance3D in _mesh_instances:
 		mesh_instance.scale = Vector3.ONE * value
-	for collision_shape: CollisionShape3D in _collision_shapes:
+	for collision_shape: ScallableCollisionShape3D in _collision_shapes:
+		collision_shape.position = scale_pivot + (collision_shape.initial_position - scale_pivot) * value
 		collision_shape.scale = Vector3.ONE * value
-	for collision_shape: CollisionShape3D in _collision_detector_shapes:
-		collision_shape.scale = Vector3.ONE * value	
+	for collision_shape: ScallableCollisionShape3D in _collision_detector_shapes:
+		collision_shape.global_position = global_position + scale_pivot + (collision_shape.initial_position - scale_pivot) * value
+		collision_shape.scale = Vector3.ONE * value
 
 
 func _get_mesh_instances(current_node: Node) -> Array[MeshInstance3D]:
