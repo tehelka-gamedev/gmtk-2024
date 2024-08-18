@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameState="*res://main/game_state.gd"
 GameSettings="*res://main/gameplay/GameSettings.gd"
+AudioManager="*res://audio/AudioManager.tscn"
 
 [debug]
 

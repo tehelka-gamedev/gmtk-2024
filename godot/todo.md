@@ -15,8 +15,6 @@ Processus d'import des assets 3D
 - Faire en sorte que le pivot de rotation soit plus au centre de l'objet
 - Voir pour le focus de la souris sur l'export web
 - Bloquer le zoom in/out à une certaine profondeur
-- Déplacer la caméra plus lentement de base
-	- Mettre un bouton (shift) pour accélerer
 
 
 ### Choses pour plus tard

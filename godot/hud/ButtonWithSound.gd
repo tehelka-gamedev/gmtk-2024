@@ -7,7 +7,7 @@ extends Button
 func _ready():
 	if sound_on_click != null:
 		button_down.connect(func():
-			# AudioManager.PlaySoundEffect(sound_on_click)
+			AudioManager.PlaySoundEffect(sound_on_click)
 			pass
 		)
 
