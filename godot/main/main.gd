@@ -71,6 +71,20 @@ func _unhandled_input(event: InputEvent) -> void:
 		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
 	elif event.is_action_pressed("reload_game"):
 		get_tree().reload_current_scene()
+	
+	_handle_selected_object_input(event)
+	
+
+func _handle_selected_object_input(event: InputEvent) -> void:
+	if _current_selected_object == null:
+		return
+	## Handle selected object resize	
+	if event.is_action("scale_up"):
+		if _scaling_gauge.pay(_current_selected_object.scaling_cost):
+			_current_selected_object.scale_up()
+	elif event.is_action("scale_down"):
+		_current_selected_object.scale_down()
+		_scaling_gauge.restore(_current_selected_object.scaling_cost)
 
 
 func _unselect_current_object() -> void:

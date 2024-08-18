@@ -10,3 +10,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.73401, 3.29549, 0)
 
 [node name="GameObject2" parent="." index="6" instance=ExtResource("2_k2p07")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.51594, 3.29549, 0)
+
+[editable path="HUD"]

@@ -8,6 +8,12 @@ extends RigidBody3D
 @export_color_no_alpha var valid_color: Color = Color.GREEN
 @export_color_no_alpha var invalid_color: Color = Color.RED
 
+@export_category("Gameplay parameters")
+## Amount of unit scaling the object cost
+@export var scaling_cost:int = 1
+@export var min_scale:float = 0.5
+@export var max_scale:float = 2.0
+
 var selected: bool = false :
 	set(value):
 		selected = value
@@ -53,11 +59,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not selected or Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
 	
-	if event.is_action("scale_up"):
-		object_scale *= scale_sentitivity
-	elif event.is_action("scale_down"):
-		object_scale /= scale_sentitivity
-	elif GameState.current_game_state == Enum.GameState.ROTATING_OBJECT and event is InputEventMouseMotion:
+	if GameState.current_game_state == Enum.GameState.ROTATING_OBJECT and event is InputEventMouseMotion:
 		var motion_event:InputEventMouseMotion = event as InputEventMouseMotion
 		rotate_x(deg_to_rad(motion_event.relative.y * mouse_sensitivity))
 		rotate_y(deg_to_rad(motion_event.relative.x * mouse_sensitivity))
@@ -85,6 +87,14 @@ func hover() -> void:
 
 func stop_hover() -> void:
 	_set_albedo_color(Color.WHITE)
+
+## Scale up one time
+func scale_up() -> void:
+	object_scale *= scale_sentitivity
+
+## Scale down one time
+func scale_down() -> void:
+	object_scale /= scale_sentitivity
 
 
 func _set_albedo_color(color: Color) -> void:
