@@ -13,10 +13,10 @@ dest_files=["res://.godot/imported/golfball_low.fbx-a957ae13d4ae1e21580ecb205fda
 
 [params]
 
-nodes/root_type="GameObject"
+nodes/root_type="Node3D"
 nodes/root_name="golfball_low_golfball_mat"
 nodes/apply_root_scale=true
-nodes/root_scale=10.0
+nodes/root_scale=2.0
 nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true

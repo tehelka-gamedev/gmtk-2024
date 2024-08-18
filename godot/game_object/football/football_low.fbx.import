@@ -13,8 +13,8 @@ dest_files=["res://.godot/imported/football_low.fbx-a9328edd6e3e48fa692683e9cd01
 
 [params]
 
-nodes/root_type="GameObject"
-nodes/root_name="football_low_football_mat"
+nodes/root_type="Node3D"
+nodes/root_name="football"
 nodes/apply_root_scale=true
 nodes/root_scale=10.0
 nodes/import_as_skeleton_bones=false

@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://516yvd011d4p"]
+
+[ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_h057n"]
+[ext_resource type="PackedScene" uid="uid://dwrs1dvfm22l8" path="res://game_object/football/football_low.fbx" id="2_01p0p"]
+[ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="3_llhja"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_10k5e"]
+bounce = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dbas7"]
+radius = 0.1015
+
+[node name="FootBall" instance=ExtResource("1_h057n")]
+mass = 0.4
+physics_material_override = SubResource("PhysicsMaterial_10k5e")
+
+[node name="football_low_football_mat" parent="." index="1" instance=ExtResource("2_01p0p")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+shape = SubResource("SphereShape3D_dbas7")
+script = ExtResource("3_llhja")

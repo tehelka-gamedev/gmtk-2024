@@ -7,9 +7,8 @@ Processus d'import des assets 3D
 - clicker reimport
 - faire un new inherited scene de gameobject.tscn
 - rajouter le fbx en enfant du root node
-- editable children sur le fbx
-- générer des collisions shapes en cliquant sur les mesh
-- ajuster les collisions shapes à la main
+- setup le scale_pivot sur le root node en fonction du pivot des mesh
+- créer les collisions shapes à la main en ScallableCollisionShape3D
 
 
 ### Choses à faire en priorité

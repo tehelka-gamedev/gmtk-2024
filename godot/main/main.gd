@@ -25,7 +25,6 @@ func _ready() -> void:
 	@warning_ignore("return_value_discarded")
 	_height_detector.max_height_changed.connect(_on_max_height_changed)
 	_billboard.set_target_height(target_height)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	start_game()
 
 

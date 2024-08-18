@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://clngcuh1vawvw"]
+
+[ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_0pysw"]
+[ext_resource type="PackedScene" uid="uid://ctxoaexo53ehy" path="res://game_object/golfball/golfball_low.fbx" id="2_nppoh"]
+[ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="3_mmw5k"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idfn3"]
+bounce = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qsjnc"]
+radius = 0.03
+
+[node name="GolfBall" instance=ExtResource("1_0pysw")]
+mass = 0.046
+physics_material_override = SubResource("PhysicsMaterial_idfn3")
+
+[node name="golfball_low_golfball_mat" parent="." index="0" instance=ExtResource("2_nppoh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+shape = SubResource("SphereShape3D_qsjnc")
+script = ExtResource("3_mmw5k")

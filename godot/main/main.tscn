@@ -1,11 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://jeihxw20nydi"]
+[gd_scene load_steps=19 format=3 uid="uid://jeihxw20nydi"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_tycjl"]
 [ext_resource type="PackedScene" uid="uid://b3osahesu8vvn" path="res://camera/player_camera.tscn" id="1_y5qgp"]
 [ext_resource type="Script" path="res://main/height_detector.gd" id="2_11x3m"]
 [ext_resource type="PackedScene" uid="uid://dn3bd5aclabxe" path="res://game_object/table/table.tscn" id="2_kp88t"]
 [ext_resource type="PackedScene" uid="uid://bcqgjd3l2f1sm" path="res://billboard/billboard.tscn" id="3_a3m6j"]
-[ext_resource type="PackedScene" uid="uid://cwbpngwlt08yu" path="res://game_object/cube/cube.tscn" id="4_kekg3"]
+[ext_resource type="PackedScene" uid="uid://clngcuh1vawvw" path="res://game_object/golfball/golf_ball.tscn" id="3_rfsl0"]
+[ext_resource type="PackedScene" uid="uid://516yvd011d4p" path="res://game_object/football/foot_ball.tscn" id="4_xan4c"]
 [ext_resource type="PackedScene" uid="uid://be0p0p4t8aqt6" path="res://hud/hud.tscn" id="6_ufsw2"]
 [ext_resource type="PackedScene" uid="uid://d16adc8cfh5cy" path="res://main/gameplay/scaling_gauge.tscn" id="8_7lvbe"]
 [ext_resource type="Script" path="res://main/gameplay/scaling_gauge.gd" id="9_6u6kg"]
@@ -43,7 +44,8 @@ point_count = 5
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_tycjl")
-object_pool = Array[PackedScene]([ExtResource("2_kp88t")])
+object_pool = Array[PackedScene]([ExtResource("2_kp88t"), ExtResource("3_rfsl0"), ExtResource("4_xan4c")])
+number_items_to_spawn = 15
 
 [node name="Ground" type="StaticBody3D" parent="."]
 collision_mask = 0
@@ -61,12 +63,6 @@ shape = SubResource("WorldBoundaryShape3D_s75uj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179205, 2.74989, 5.72712)
 
 [node name="Objects" type="Node3D" parent="."]
-
-[node name="Cube" parent="Objects" instance=ExtResource("4_kekg3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32115, 1.67238, 0)
-
-[node name="Cube2" parent="Objects" instance=ExtResource("4_kekg3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.19469, 1.25235, 0)
 
 [node name="Billboard" parent="." instance=ExtResource("3_a3m6j")]
 
