@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://jeihxw20nydi"]
+[gd_scene load_steps=18 format=3 uid="uid://jeihxw20nydi"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_tycjl"]
 [ext_resource type="PackedScene" uid="uid://b3osahesu8vvn" path="res://camera/player_camera.tscn" id="1_y5qgp"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="3_qdt2t"]
 [ext_resource type="PackedScene" uid="uid://cwbpngwlt08yu" path="res://game_object/cube/cube.tscn" id="4_kekg3"]
 [ext_resource type="PackedScene" uid="uid://be0p0p4t8aqt6" path="res://hud/hud.tscn" id="6_ufsw2"]
+[ext_resource type="PackedScene" uid="uid://d16adc8cfh5cy" path="res://main/gameplay/scaling_gauge.tscn" id="8_7lvbe"]
+[ext_resource type="Script" path="res://main/gameplay/scaling_gauge.gd" id="9_6u6kg"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_t10fx"]
 size = Vector2(100, 100)
@@ -86,5 +88,14 @@ shadow_enabled = true
 
 [node name="HUD" parent="." instance=ExtResource("6_ufsw2")]
 
+[node name="GaugeBar" parent="HUD/GaugeZone/VBoxContainer/MarginContainer" index="0" node_paths=PackedStringArray("gauge")]
+gauge = NodePath("../../../../../ScalingGauge")
+
 [node name="SpawnBorders" type="Path3D" parent="."]
 curve = SubResource("Curve3D_6nq7e")
+
+[node name="ScalingGauge" parent="." instance=ExtResource("8_7lvbe")]
+script = ExtResource("9_6u6kg")
+_initial_value = 50
+
+[editable path="HUD"]

@@ -16,6 +16,7 @@ var _current_hovered_object: GameObject = null
 
 @onready var _objects = $Objects
 @onready var _spawn_borders = $SpawnBorders
+@onready var _scaling_gauge:Gauge = $ScalingGauge
 
 
 func _ready() -> void:

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://be0p0p4t8aqt6"]
+[gd_scene load_steps=6 format=3 uid="uid://be0p0p4t8aqt6"]
 
 [ext_resource type="Script" path="res://hud/hud.gd" id="1_5pbm8"]
 [ext_resource type="Texture2D" uid="uid://46pg3af12jhy" path="res://hud/crosshair.png" id="1_bqivw"]
 [ext_resource type="PackedScene" uid="uid://dxpw7bpabpgo4" path="res://debug/debug_window.tscn" id="2_51vf8"]
 [ext_resource type="Script" path="res://debug/debug_window.gd" id="3_gp178"]
+[ext_resource type="Script" path="res://hud/gauge_bar.gd" id="5_v7uf2"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -35,7 +36,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+[node name="crosshair" type="TextureRect" parent="CenterContainer"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 mouse_filter = 2
@@ -44,3 +45,42 @@ texture = ExtResource("1_bqivw")
 [node name="DebugWindow" parent="." instance=ExtResource("2_51vf8")]
 layout_mode = 1
 script = ExtResource("3_gp178")
+
+[node name="GaugeZone" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = 70.0
+offset_bottom = -67.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GaugeZone"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GaugeZone/VBoxContainer"]
+layout_mode = 2
+text = "Scale Gauge"
+
+[node name="MarginContainer" type="MarginContainer" parent="GaugeZone/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 8
+
+[node name="GaugeBar" type="ProgressBar" parent="GaugeZone/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+value = 50.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("5_v7uf2")
