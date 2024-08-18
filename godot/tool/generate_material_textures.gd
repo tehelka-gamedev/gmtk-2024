@@ -38,6 +38,7 @@ func _post_import(scene):
 	mat.heightmap_enabled = true
 	mat.heightmap_texture = load("%s_Height.exr" % base_path )
 	mat.heightmap_flip_texture = true
+	mat.resource_local_to_scene = true
 	
 	var output_mat_path := "%s/%s.material" % [
 		get_source_file().get_base_dir(),
@@ -55,6 +56,7 @@ func iterate(node):
 	if node != null:
 		if node is MeshInstance3D:
 			node.set_surface_override_material(SURFACE_MATERIAL_IDX, mat)
+			
 
 		for child in node.get_children():
 			iterate(child)
