@@ -19,9 +19,10 @@ size = Vector3(0.533554, 0.112064, 0.131104)
 [sub_resource type="BoxShape3D" id="BoxShape3D_1jf6a"]
 size = Vector3(0.107666, 0.0692139, 1.16873)
 
-[node name="Table" instance=ExtResource("1_2ki5n")]
+[node name="Table" node_paths=PackedStringArray("model") instance=ExtResource("1_2ki5n")]
 mass = 40.0
 scale_pivot = Vector3(0, 0.552, 0)
+model = NodePath("table_low")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.336, 0.234, 0.51288)

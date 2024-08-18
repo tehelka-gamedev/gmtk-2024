@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://6o1e2bom3n0q"]
+
+[ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_a2chc"]
+[ext_resource type="PackedScene" uid="uid://8bvfb0rinoku" path="res://game_object/banana/banana_low.fbx" id="2_c8gtv"]
+
+[node name="Banana" instance=ExtResource("1_a2chc")]
+mass = 0.226
+
+[node name="banana" parent="." index="1" instance=ExtResource("2_c8gtv")]

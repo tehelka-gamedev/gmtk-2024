@@ -134,4 +134,5 @@ func select(object: GameObject) -> void:
 		object.selected = true
 		_current_selected_object = object
 		
-		_player_camera.attach_object(object.global_position, _player_camera.get_path_to(object))
+		var attach_position: Vector3 = object.global_position - object.scale_pivot
+		_player_camera.attach_object(attach_position, _player_camera.get_path_to(object))

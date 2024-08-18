@@ -10,9 +10,10 @@ bounce = 0.4
 [sub_resource type="SphereShape3D" id="SphereShape3D_dbas7"]
 radius = 0.1015
 
-[node name="FootBall" instance=ExtResource("1_h057n")]
+[node name="FootBall" node_paths=PackedStringArray("model") instance=ExtResource("1_h057n")]
 mass = 0.4
 physics_material_override = SubResource("PhysicsMaterial_10k5e")
+model = NodePath("football_low_football_mat")
 
 [node name="football_low_football_mat" parent="." index="1" instance=ExtResource("2_01p0p")]
 
