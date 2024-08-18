@@ -21,6 +21,8 @@ var _last_frame_object_position: Dictionary = {}
 @onready var _spawn_borders = $SpawnBorders
 @onready var _scaling_gauge:Gauge = $ScalingGauge
 
+## Picture taken at the end when winning
+@export var _win_viewport:WinViewport = null
 
 func _ready() -> void:
 	seed(randi())
@@ -59,6 +61,15 @@ func _physics_process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("screenshot"):
+		var objects_node = _objects.get_children()
+		var objects:Array[Node3D] = []
+		for obj in objects_node:
+			if obj is GameObject:
+				objects.append(obj as Node3D)
+		var tex = _win_viewport.take_picture(objects)
+		#_cam_target.texture = tex
+	
 	# Handle focus/unfocus with escape / click on the viewport
 	if event.is_action_pressed("ui_cancel"):
 		if GameState.current_game_state == Enum.GameState.FREE_CAMERA:

@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cot7453pgwva1"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h22pi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_iuj22"]
+
+[node name="TestCamera" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.643028, 0.765842, 0, -0.765842, 0.643028, 0, 3.27184, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.7007)
+mesh = SubResource("CylinderMesh_h22pi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42284, 0, -1.02287)
+mesh = SubResource("CylinderMesh_h22pi")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42284, 0, -3.06081)
+mesh = SubResource("BoxMesh_iuj22")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.932103, 0.362194, 0, -0.362194, 0.932103, 0, 1.94209, 1.14234)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 0.437
+offset_right = 166.4
+offset_bottom = 224.824
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.657148, -0.444272, 1.62703)
+
+[node name="SubViewport" type="SubViewport" parent="Node3D"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Node3D/SubViewport"]
+transform = Transform3D(0.424936, -0.0325375, 0.904638, -0.0965649, 0.992022, 0.0810399, -0.900058, -0.121793, 0.418404, 0, 0, 0)

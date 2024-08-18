@@ -107,6 +107,16 @@ func _process(_delta: float) -> void:
 func is_not_colliding() -> bool:
 	return _collision_detector.get_overlapping_bodies() == []
 
+## Not working, WIP
+#func is_on_floor() -> bool:
+	#_collision_detector.monitoring = true
+	#for obj in _collision_detector.get_overlapping_bodies():
+		#if obj.name == "Ground":
+			#_collision_detector.monitoring = false
+			#return true
+	#_collision_detector.monitoring = false
+	#return false
+		
 
 func hover() -> void:
 	_set_albedo_color(hover_color)
