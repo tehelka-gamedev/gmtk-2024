@@ -15,9 +15,6 @@ Processus d'import des assets 3D
 
 Choses à faire en priorité
 
-- set les variables _collision_shape et _collision_detector_shape en tant qu'array et le faire
-	dans la fonction _ready
-- dupliquer la collision shape des objects dans le collisiondetector
 - scale jauge
 	- mettre un UI de la jauge
 - faire un export web et le mettre sur itch
