@@ -13,7 +13,6 @@ Processus d'import des assets 3D
 
 ### Choses à faire en priorité
 - Faire en sorte que le pivot de rotation soit plus au centre de l'objet
-- Mettre un marqueur sous l'objet sélectionné pour voir où il tombe
 - Voir pour le focus de la souris sur l'export web
 - Bloquer le zoom in/out à une certaine profondeur
 - Déplacer la caméra plus lentement de base
@@ -21,6 +20,7 @@ Processus d'import des assets 3D
 
 
 ### Choses pour plus tard
+- améliorer le marqueur de placement sous l'objet
 - mettre un bouton pour faire tourner la caméra autour de l'objet sélectionné
 - maybe update the heightlabel when the game is launcherz
 	-> currently, 1 second is elapsed before the first update

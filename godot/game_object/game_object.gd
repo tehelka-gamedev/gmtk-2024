@@ -25,7 +25,9 @@ var selected: bool = false :
 			_collision_detector.monitoring = true
 			_collision_detector.monitorable = true
 			collision_layer = 0
+			_enable_height_line(true)
 		else:
+			_enable_height_line(false)
 			collision_layer = Enum.CollisionLayer.OBJECT
 			_set_albedo_color(Color.WHITE)
 			_collision_detector.monitoring = false
@@ -42,13 +44,18 @@ var _collision_shapes: Array[ScallableCollisionShape3D] = []
 var _collision_detector_shapes: Array[ScallableCollisionShape3D] = []
 var _mesh_instances: Array[MeshInstance3D] = []
 
-var _initial_mass:float = mass
+var _initial_mass: float = mass
 
 @onready var _collision_detector: Area3D = $CollisionDetector
 @onready var _initial_model_position: Vector3 = model.position
+@onready var _height_line: MeshInstance3D = $HeightLine
+@onready var _height_ray_cast: RayCast3D = $HeightLine/RayCast3D
+@onready var _remote_transform_3d: RemoteTransform3D = $RemoteTransform3D
 
 
 func _ready() -> void:
+	_enable_height_line(false)
+	
 	_initial_mass = mass
 	for node: Node in get_children():
 		if node is ScallableCollisionShape3D:
@@ -78,11 +85,23 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _process(_delta: float) -> void:
-	if selected:
-		if is_not_colliding():
-			_set_albedo_color(valid_color)
-		else:
-			_set_albedo_color(invalid_color)
+	if not selected:
+		return
+
+	if is_not_colliding():
+		_set_albedo_color(valid_color)
+	else:
+		_set_albedo_color(invalid_color)
+	
+	if _height_ray_cast.is_colliding():
+		var collision_point: Vector3 = _height_ray_cast.get_collision_point()
+		var height_vector: Vector3 = collision_point - position
+		var line_mesh: CylinderMesh = _height_line.mesh as CylinderMesh
+		line_mesh.height = height_vector.length()
+		_remote_transform_3d.position = height_vector/2
+		_height_line.visible = true
+	else:
+		_height_line.visible = false
 
 
 func is_not_colliding() -> bool:
@@ -112,6 +131,7 @@ func scale_down() -> bool:
 	object_scale /= scale_sentitivity
 	return true
 
+
 func _set_albedo_color(color: Color) -> void:
 	for mesh_instance in _mesh_instances:
 		var _mesh_instance_override_material: StandardMaterial3D = mesh_instance.get_surface_override_material(0) as StandardMaterial3D
@@ -132,7 +152,7 @@ func _set_scale(value: float) -> void:
 
 
 func _get_mesh_instances(current_node: Node) -> Array[MeshInstance3D]:
-	if current_node is MeshInstance3D:
+	if current_node is MeshInstance3D and current_node is not HeightLine:
 		return [current_node]
 	elif current_node.get_child_count() == 0:
 		return []
@@ -142,3 +162,11 @@ func _get_mesh_instances(current_node: Node) -> Array[MeshInstance3D]:
 		array_piece.append_array(_get_mesh_instances(child))
 	
 	return array_piece
+
+
+func _enable_height_line(value: bool) -> void:
+	if value == true:
+		_height_line.process_mode = Node.PROCESS_MODE_INHERIT
+	else:
+		_height_line.process_mode = Node.PROCESS_MODE_DISABLED
+	_height_line.visible = value

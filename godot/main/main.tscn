@@ -47,6 +47,7 @@ point_count = 5
 [node name="Main" type="Node3D"]
 script = ExtResource("1_tycjl")
 object_pool = Array[PackedScene]([ExtResource("2_kp88t"), ExtResource("3_rfsl0"), ExtResource("4_xan4c"), ExtResource("5_7w4q0"), ExtResource("6_wbhtt")])
+no_movement_duration_before_game_win = 1.0
 
 [node name="Ground" type="StaticBody3D" parent="."]
 collision_mask = 0
