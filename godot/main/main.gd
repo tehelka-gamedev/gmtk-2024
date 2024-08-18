@@ -5,10 +5,15 @@ extends Node3D
 @export var object_pool:Array[PackedScene] = []
 @export var number_items_to_spawn: int = 4
 @export var select_max_distance: float = 5.0
+@export var no_movement_duration_before_game_win: float = 3.0
 
 
+var _current_height: float = 0.0
+var _last_time_something_has_moved: float = 0.0
 var _current_selected_object: GameObject = null
 var _current_hovered_object: GameObject = null
+var _last_frame_object_position: Dictionary = {}
+
 @onready var _height_detector: HeightDetector = $HeightDetector
 @onready var _billboard: Billboard = $Billboard
 @onready var _player_camera: PlayerCamera = $PlayerCamera
@@ -26,9 +31,19 @@ func _ready() -> void:
 	_height_detector.max_height_changed.connect(_on_max_height_changed)
 	_billboard.set_target_height(target_height)
 	start_game()
+	
+	for object: GameObject in _objects.get_children():
+		_last_frame_object_position[object] = object.global_position
 
 
 func _physics_process(delta: float) -> void:
+	if _current_height >= target_height:
+		if _no_object_has_moved_last_frame():
+			_last_time_something_has_moved += delta
+		
+		if _last_time_something_has_moved >= no_movement_duration_before_game_win:
+			_hud.show_win()
+
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
 
@@ -105,8 +120,7 @@ func _unselect_current_object() -> void:
 
 func _on_max_height_changed(max_height: float) -> void:
 	_billboard.set_max_height(max_height)
-	if max_height >= target_height:
-		_hud.show_win()
+	_current_height = max_height
 
 
 func start_game() -> void:
@@ -136,3 +150,13 @@ func select(object: GameObject) -> void:
 		
 		var attach_position: Vector3 = object.global_position - object.scale_pivot
 		_player_camera.attach_object(attach_position, _player_camera.get_path_to(object))
+
+
+func _no_object_has_moved_last_frame() -> bool:
+	var no_movement = true
+	for object: GameObject in _objects.get_children():
+		if not object.global_position.is_equal_approx(_last_frame_object_position[object]):
+			no_movement = false
+		_last_frame_object_position[object] = object.global_position
+		
+	return no_movement
