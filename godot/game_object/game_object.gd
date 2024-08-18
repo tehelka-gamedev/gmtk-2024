@@ -28,13 +28,25 @@ var object_scale: float = 1.0:
 	set(value):
 		object_scale = value
 		_set_scale(object_scale)
-		_collision_shape.scale = Vector3.ONE * object_scale
-		_collision_detector_shape.scale = Vector3.ONE * object_scale
 
-@export var _mesh_instances: Array[MeshInstance3D] = []
+var _collision_shapes: Array[CollisionShape3D] = []
+var _collision_detector_shapes: Array[CollisionShape3D] = []
+var _mesh_instances: Array[MeshInstance3D] = []
+
 @onready var _collision_detector: Area3D = $CollisionDetector
-@onready var _collision_shape: CollisionShape3D = $CollisionShape3D
-@onready var _collision_detector_shape: CollisionShape3D = $CollisionDetector/CollisionShape3D
+
+
+func _ready() -> void:
+	for node: Node in get_children():
+		if node is CollisionShape3D:
+			var duplicate: CollisionShape3D = node.duplicate()
+			_collision_detector.add_child(duplicate)
+			_collision_shapes.append(node as CollisionShape3D)
+			_collision_detector_shapes.append(duplicate)
+	
+	_mesh_instances = _get_mesh_instances(self)
+	#for mesh_instance: MeshInstance3D in _mesh_instances:
+		#mesh_instance.set_surface_override_material(0, mesh_instance.get_surface_override_material(0).duplicate())
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -77,10 +89,27 @@ func stop_hover() -> void:
 
 func _set_albedo_color(color: Color) -> void:
 	for mesh_instance in _mesh_instances:
-		var _mesh_instance_override_material:StandardMaterial3D = mesh_instance.get_surface_override_material(0) as StandardMaterial3D
+		var _mesh_instance_override_material: StandardMaterial3D = mesh_instance.get_surface_override_material(0) as StandardMaterial3D
 		_mesh_instance_override_material.albedo_color = color
 
 
 func _set_scale(value: float) -> void:
-	for mesh_instance in _mesh_instances:
+	for mesh_instance: MeshInstance3D in _mesh_instances:
 		mesh_instance.scale = Vector3.ONE * value
+	for collision_shape: CollisionShape3D in _collision_shapes:
+		collision_shape.scale = Vector3.ONE * value
+	for collision_shape: CollisionShape3D in _collision_detector_shapes:
+		collision_shape.scale = Vector3.ONE * value	
+
+
+func _get_mesh_instances(current_node: Node) -> Array[MeshInstance3D]:
+	if current_node is MeshInstance3D:
+		return [current_node]
+	elif current_node.get_child_count() == 0:
+		return []
+
+	var array_piece: Array[MeshInstance3D] = []
+	for child: Node in current_node.get_children():
+		array_piece.append_array(_get_mesh_instances(child))
+	
+	return array_piece

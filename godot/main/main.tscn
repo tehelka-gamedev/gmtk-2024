@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://jeihxw20nydi"]
+[gd_scene load_steps=16 format=3 uid="uid://jeihxw20nydi"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_tycjl"]
 [ext_resource type="PackedScene" uid="uid://b3osahesu8vvn" path="res://camera/player_camera.tscn" id="1_y5qgp"]
 [ext_resource type="Script" path="res://main/height_detector.gd" id="2_11x3m"]
 [ext_resource type="PackedScene" uid="uid://bcqgjd3l2f1sm" path="res://billboard/billboard.tscn" id="3_a3m6j"]
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="3_qdt2t"]
+[ext_resource type="PackedScene" uid="uid://cwbpngwlt08yu" path="res://game_object/cube/cube.tscn" id="4_kekg3"]
 [ext_resource type="PackedScene" uid="uid://be0p0p4t8aqt6" path="res://hud/hud.tscn" id="6_ufsw2"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_t10fx"]
@@ -58,11 +59,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179205, 2.74989, 5.72712)
 
 [node name="Objects" type="Node3D" parent="."]
 
-[node name="GameObject" parent="Objects" instance=ExtResource("3_qdt2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.799286, 1.1608)
+[node name="Cube" parent="Objects" instance=ExtResource("4_kekg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32115, 1.67238, 0)
 
-[node name="GameObject2" parent="Objects" instance=ExtResource("3_qdt2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.856859, -0.333863)
+[node name="Cube2" parent="Objects" instance=ExtResource("4_kekg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.19469, 1.25235, 0)
 
 [node name="Billboard" parent="." instance=ExtResource("3_a3m6j")]
 
