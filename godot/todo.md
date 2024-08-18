@@ -1,7 +1,6 @@
 ## TODO
 
 Processus d'import des assets 3D
-- set le root name
 - changer le root scale
 - décocher animation
 - mettre le bon import script
