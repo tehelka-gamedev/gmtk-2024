@@ -14,9 +14,9 @@ dest_files=["res://.godot/imported/table_low.fbx-787a903bb7c20efb394fdb69059ad3c
 [params]
 
 nodes/root_type=""
-nodes/root_name=""
+nodes/root_name="table_low_table1"
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=16.0
 nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -25,12 +25,12 @@ meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
-animation/import=true
+animation/import=false
 animation/fps=30
 animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
-import_script/path=""
+import_script/path="res://tool/generate_material_textures.gd"
 _subresources={}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false

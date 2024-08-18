@@ -109,6 +109,7 @@ func _on_max_height_changed(max_height: float) -> void:
 	if max_height >= target_height:
 		_hud.show_win()
 
+
 func start_game() -> void:
 	for i in range(number_items_to_spawn):
 		var obj_scene:PackedScene = object_pool.pick_random()
@@ -119,6 +120,7 @@ func start_game() -> void:
 		_objects.add_child(obj)
 		obj.global_position = Vector3(rand_x.x, rand_x.y, rand_z.z)
 		#await get_tree().create_timer(0.1).timeout
+
 
 func select(object: GameObject) -> void:
 	if GameState.current_game_state == Enum.GameState.FREE_CAMERA:

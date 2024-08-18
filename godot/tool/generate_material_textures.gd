@@ -21,10 +21,6 @@ func _post_import(scene):
 		get_source_file().get_base_dir(),
 		TEXTURE_FOLDER
 		]
-	var base_path = "%s/%s" % [
-		base_dir,
-		scene_name,
-		]
 	
 	mat = StandardMaterial3D.new()
 	
@@ -63,7 +59,7 @@ func iterate(node):
 func find_texture(base_dir:String, end_name:String) -> Resource:
 	for f_name in DirAccess.get_files_at(base_dir):
 		if f_name.ends_with(end_name):
-			var res_path:String = "%s/%s" % [base_dir, end_name]
+			var res_path:String = "%s/%s" % [base_dir, f_name]
 			print_color("ORANGE", "\tLoading resource '%s'" % [res_path])
 			return load(res_path)
 			
