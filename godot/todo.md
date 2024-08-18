@@ -3,7 +3,6 @@
 Processus d'import des assets 3D
 - changer le root scale
 - décocher animation
-- mettre le bon import script
 - clicker reimport
 - faire un new inherited scene de gameobject.tscn
 - rajouter le fbx en enfant du root node
