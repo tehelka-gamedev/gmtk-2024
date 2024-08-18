@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="3_llhja"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_10k5e"]
-bounce = 0.5
+bounce = 0.4
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dbas7"]
 radius = 0.1015

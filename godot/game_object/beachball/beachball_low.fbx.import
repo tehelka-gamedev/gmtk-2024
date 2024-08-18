@@ -13,8 +13,8 @@ dest_files=["res://.godot/imported/beachball_low.fbx-6a33b2f2bc43ca9107143c6fc43
 
 [params]
 
-nodes/root_type="GameObject"
-nodes/root_name="beachball_low_beachball_mat"
+nodes/root_type="Node3D"
+nodes/root_name="beachball"
 nodes/apply_root_scale=true
 nodes/root_scale=10.0
 nodes/import_as_skeleton_bones=false

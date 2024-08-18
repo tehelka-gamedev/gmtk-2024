@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4ckgjiuaqsuw"]
+
+[ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_ljb3l"]
+[ext_resource type="PackedScene" uid="uid://b5epmmq4dfyd8" path="res://game_object/beachball/beachball_low.fbx" id="2_agl27"]
+[ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="3_0twcd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3tmhj"]
+bounce = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_r36vj"]
+radius = 0.1
+
+[node name="BeachBall" instance=ExtResource("1_ljb3l")]
+mass = 0.28
+physics_material_override = SubResource("PhysicsMaterial_3tmhj")
+
+[node name="beachball" parent="." index="0" instance=ExtResource("2_agl27")]
+
+[node name="ScallableCollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+shape = SubResource("SphereShape3D_r36vj")
+script = ExtResource("3_0twcd")
