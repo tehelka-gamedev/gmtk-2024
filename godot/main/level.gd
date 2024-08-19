@@ -83,7 +83,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		for obj in objects_node:
 			if obj is GameObject:
 				objects.append(obj as Node3D)
-		var photo = _win_viewport.take_picture(objects)
+		var photo = await _win_viewport.take_picture(objects)
 		$camTarget.texture = photo
 	
 	# Handle focus/unfocus with escape / click on the viewport
@@ -173,13 +173,14 @@ func win() -> void:
 	AudioManager.play_music(SoundBank.win_music)
 	_stats.tower_height = _current_height
 	_stats.target_height = target_height
+	_win_viewport.camera_distance = target_height
 	
 	var objects_node = _objects.get_children()
 	var objects:Array[Node3D] = []
 	for obj in objects_node:
 		if obj is GameObject:
 			objects.append(obj as Node3D)
-	var photo = _win_viewport.take_picture(objects)
+	var photo = await _win_viewport.take_picture(objects)
 	
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	

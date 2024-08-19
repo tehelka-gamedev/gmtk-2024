@@ -10,6 +10,11 @@ extends SubViewport
 func take_picture(objects:Array[Node3D]) -> Texture:
 	_place_camera(objects)
 	
+	# we cannot find a way to wait for the next frame tofinish
+	# so wait for the second call to _process
+	await get_tree().process_frame
+	await get_tree().process_frame
+	
 	var img = get_texture().get_image()
 	# Convert Image to ImageTexture.
 	var tex = ImageTexture.create_from_image(img)
