@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6w3syq7pc1c7"]
+
+[ext_resource type="Script" path="res://hud/photo_zone/photo_zone.gd" id="1_iic06"]
+[ext_resource type="PackedScene" uid="uid://dgbgj5a8rced0" path="res://hud/photo_zone/photo_holder.tscn" id="1_o3y7i"]
+
+[node name="PhotoZone" type="PanelContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_iic06")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="PhotoHolder" parent="MarginContainer" instance=ExtResource("1_o3y7i")]
+layout_mode = 2

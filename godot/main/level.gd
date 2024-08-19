@@ -18,6 +18,9 @@ var _last_frame_object_position: Dictionary = {}
 ## True if the player has won, false otherwise
 var _has_won:bool = false
 
+## tracks player stats
+var _stats:WinStats = WinStats.new()
+
 @onready var _height_detector: HeightDetector = $HeightDetector
 @onready var _billboard: Billboard = $Billboard
 @onready var _player_camera: PlayerCamera = $PlayerCamera
@@ -31,6 +34,9 @@ var _has_won:bool = false
 @export var _win_viewport:WinViewport = null
 
 func _ready() -> void:
+	if not Events.replay_requested.is_connected(reload_level):
+		Events.replay_requested.connect(reload_level)
+		
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	seed(randi())
 	
@@ -77,8 +83,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		for obj in objects_node:
 			if obj is GameObject:
 				objects.append(obj as Node3D)
-		var tex = _win_viewport.take_picture(objects)
-		#_cam_target.texture = tex
+		var photo = _win_viewport.take_picture(objects)
+		$camTarget.texture = photo
 	
 	# Handle focus/unfocus with escape / click on the viewport
 	if event.is_action_pressed("ui_cancel"):
@@ -143,9 +149,12 @@ func _on_max_height_changed(max_height: float) -> void:
 	_billboard.set_max_height(max_height)
 	_current_height = max_height
 
-
+func reload_level() -> void:
+	get_tree().reload_current_scene()
+	
 func start_game() -> void:
 	_has_won = false
+	_stats.reset()
 	for i in range(GameSettings.number_items_to_spawn):
 		var obj_scene:PackedScene = object_pool.pick_random()
 		var rand_x:Vector3 = _spawn_borders.curve.sample(0, randf())
@@ -159,9 +168,22 @@ func start_game() -> void:
 func win() -> void:
 	_has_won = true
 	AudioManager.play_music(SoundBank.win_music)
-	_hud.show_win()
+	_stats.tower_height = _current_height
+	_stats.target_height = target_height
+	
+	var objects_node = _objects.get_children()
+	var objects:Array[Node3D] = []
+	for obj in objects_node:
+		if obj is GameObject:
+			objects.append(obj as Node3D)
+	var photo = _win_viewport.take_picture(objects)
+	
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+	_hud.show_win(_stats, photo)
 
 func select(object: GameObject) -> void:
+	# Picking object
 	if GameState.current_game_state == Enum.GameState.FREE_CAMERA:
 		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
 		
@@ -175,6 +197,7 @@ func select(object: GameObject) -> void:
 		_current_selected_object = object
 		
 		AudioManager.play_sound_effect(SoundBank.grab_se)
+		_stats.nb_item_picked += 1
 		
 		_player_camera.attach_object(object.global_position, _player_camera.get_path_to(object))
 

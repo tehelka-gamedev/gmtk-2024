@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbbye1j2u3f12"]
+
+[ext_resource type="Script" path="res://hud/win_panel.gd" id="1_llx4m"]
+[ext_resource type="PackedScene" uid="uid://b6w3syq7pc1c7" path="res://hud/photo_zone/photo_zone.tscn" id="2_2ejq5"]
+[ext_resource type="PackedScene" uid="uid://cjh6lx0w2vb7d" path="res://hud/stats_zone.tscn" id="3_6kei0"]
+[ext_resource type="Script" path="res://hud/ButtonWithSound.gd" id="4_3f3ew"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8x4ir"]
+bg_color = Color(0.180005, 0.180005, 0.180005, 1)
+
+[node name="WinPanel" type="PanelContainer" node_paths=PackedStringArray("stats_zone", "photo_zone", "button_replay", "button_menu")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 62.0
+offset_top = 35.0
+offset_right = -62.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8x4ir")
+script = ExtResource("1_llx4m")
+stats_zone = NodePath("MarginContainer/VBoxContainer/HBoxContainer/RightZone/MarginContainer/VBoxContainer/StatsZone")
+photo_zone = NodePath("MarginContainer/VBoxContainer/HBoxContainer/PhotoZone")
+button_replay = NodePath("MarginContainer/VBoxContainer/HBoxContainer/RightZone/MarginContainer/VBoxContainer/ReplayZone/HBoxContainer/ButtonReplay")
+button_menu = NodePath("MarginContainer/VBoxContainer/HBoxContainer/RightZone/MarginContainer/VBoxContainer/ReplayZone/HBoxContainer/ButtonMenu")
+main_menu_scene = "res://main/main_menu.tscn"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="WinLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 128
+text = "YOU WIN"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="PhotoZone" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_2ejq5")]
+layout_mode = 2
+
+[node name="RightZone" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightZone"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightZone/MarginContainer"]
+layout_mode = 2
+
+[node name="StatsZone" parent="MarginContainer/VBoxContainer/HBoxContainer/RightZone/MarginContainer/VBoxContainer" instance=ExtResource("3_6kei0")]
+layout_mode = 2
+
+[node name="ReplayZone" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightZone/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightZone/MarginContainer/VBoxContainer/ReplayZone"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ButtonReplay" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/RightZone/MarginContainer/VBoxContainer/ReplayZone/HBoxContainer"]
+layout_mode = 2
+text = "Replay"
+script = ExtResource("4_3f3ew")
+
+[node name="ButtonMenu" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/RightZone/MarginContainer/VBoxContainer/ReplayZone/HBoxContainer"]
+layout_mode = 2
+text = "Return to main menu"
+script = ExtResource("4_3f3ew")

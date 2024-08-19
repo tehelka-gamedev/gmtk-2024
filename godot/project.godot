@@ -21,6 +21,7 @@ GameState="*res://main/game_state.gd"
 GameSettings="*res://main/gameplay/GameSettings.gd"
 AudioManager="*res://audio/AudioManager.tscn"
 SoundBank="*res://audio/SoundBank.tscn"
+Events="*res://utils/events.gd"
 
 [debug]
 

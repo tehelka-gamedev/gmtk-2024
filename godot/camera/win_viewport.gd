@@ -4,6 +4,9 @@ extends SubViewport
 @export var camera_distance:float = 10
 @onready var screenshot_camera:Camera3D = $ScreenshotCamera
 
+@export var debugA:MeshInstance3D = null
+@export var debugB:MeshInstance3D = null
+
 func take_picture(objects:Array[Node3D]) -> Texture:
 	_place_camera(objects)
 	
@@ -21,6 +24,11 @@ func _place_camera(objects:Array[Node3D]) -> void:
 	for obj in objects:
 		barycenter += obj.global_position
 	barycenter /= objects.size()
+	
+	if debugA:
+		debugA.global_position=barycenter
+	
+		
 	
 	## Place the camera on a sphere at a distance r = camera_distance
 	## within certain angle
@@ -43,5 +51,8 @@ func _place_camera(objects:Array[Node3D]) -> void:
 		C,
 		A,
 	)
+	
+	if debugB:
+		debugB.global_position = camera_position
 
 	screenshot_camera.look_at_from_position(camera_position, barycenter)

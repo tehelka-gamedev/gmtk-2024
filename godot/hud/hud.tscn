@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://be0p0p4t8aqt6"]
+[gd_scene load_steps=8 format=3 uid="uid://be0p0p4t8aqt6"]
 
 [ext_resource type="Script" path="res://hud/hud.gd" id="1_5pbm8"]
 [ext_resource type="Texture2D" uid="uid://46pg3af12jhy" path="res://hud/crosshair.png" id="1_bqivw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://debug/debug_window.gd" id="3_gp178"]
 [ext_resource type="Script" path="res://hud/gauge_bar.gd" id="5_v7uf2"]
 [ext_resource type="PackedScene" uid="uid://cyiio111ful15" path="res://main/main-menu/mute_sounds_container.tscn" id="6_1omwq"]
+[ext_resource type="PackedScene" uid="uid://dbbye1j2u3f12" path="res://hud/win_panel.tscn" id="7_g03qq"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -17,18 +18,6 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_5pbm8")
 
-[node name="WinLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 128
-text = "YOU WIN"
-
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -36,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="crosshair" type="TextureRect" parent="CenterContainer"]
 modulate = Color(0, 0, 0, 1)
@@ -46,6 +36,7 @@ texture = ExtResource("1_bqivw")
 [node name="DebugWindow" parent="." instance=ExtResource("2_51vf8")]
 layout_mode = 1
 script = ExtResource("3_gp178")
+metadata/_edit_lock_ = true
 
 [node name="GaugeZone" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -89,3 +80,10 @@ script = ExtResource("5_v7uf2")
 [node name="MuteSoundsContainer" parent="." instance=ExtResource("6_1omwq")]
 layout_mode = 1
 grow_horizontal = 1
+
+[node name="WinPanel" parent="." instance=ExtResource("7_g03qq")]
+layout_mode = 1
+offset_left = 48.0
+offset_top = 27.0
+offset_right = -48.0
+offset_bottom = -27.0

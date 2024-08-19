@@ -24,6 +24,7 @@ Processus d'import des assets 3D
 
 
 ### Choses pour plus tard
+- tweak end photo, adapt to the target height
 - mettre plus de chiffres sur l'UI pour que le joueur sente mieux les différences
 	de scaling factor entre les objets ? Voire les indiquer directement d'une
 	manière ou d'une autre

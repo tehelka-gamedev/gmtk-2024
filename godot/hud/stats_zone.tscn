@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjh6lx0w2vb7d"]
+
+[ext_resource type="Script" path="res://hud/stats_zone.gd" id="1_d0jjt"]
+
+[node name="StatsZone" type="MarginContainer" node_paths=PackedStringArray("nb_item_picked_label", "tower_height_label")]
+size_flags_vertical = 3
+script = ExtResource("1_d0jjt")
+nb_item_picked_label = NodePath("VBoxContainer/GridContainer/nbItemPickedValueLabel")
+tower_height_label = NodePath("VBoxContainer/GridContainer/towerHeightValueLabel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="StatsTitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Statistics
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 16
+columns = 2
+
+[node name="nbItemPickedInfo" type="Label" parent="VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Number of items picked/dropped: 
+"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="nbItemPickedValueLabel" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "-1"
+vertical_alignment = 1
+
+[node name="towerHeightInfo" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Tower Height"
+vertical_alignment = 1
+
+[node name="towerHeightValueLabel" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "-1m-1"
+vertical_alignment = 1

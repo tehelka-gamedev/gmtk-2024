@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgbgj5a8rced0"]
+
+[ext_resource type="Texture2D" uid="uid://yfftg38igpph" path="res://hud/polaroid_tmp.png" id="1_8xy6i"]
+[ext_resource type="Script" path="res://hud/photo_zone/photo_holder.gd" id="2_olun3"]
+
+[node name="PhotoBackground" type="TextureRect"]
+texture = ExtResource("1_8xy6i")
+expand_mode = 2
+script = ExtResource("2_olun3")
+
+[node name="PhotoContent" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 17.0
+offset_right = -20.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
