@@ -140,7 +140,7 @@ func _handle_selected_object_input(event: InputEvent) -> void:
 
 func _unselect_current_object() -> void:
 	assert (_current_selected_object!=null, "Trying to unselect an object but none is selected, something is wrong!")
-	
+	AudioManager.play_sound_effect(SoundBank.drop_se)
 	_current_selected_object.selected = false
 	GameState.current_game_state = Enum.GameState.FREE_CAMERA
 	_current_selected_object = null
