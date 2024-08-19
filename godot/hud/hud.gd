@@ -35,4 +35,3 @@ func on_unselect_object() -> void:
 
 func on_object_scale_changed(new_scale: float) -> void:
 	object_scale_bar.value = new_scale
-
