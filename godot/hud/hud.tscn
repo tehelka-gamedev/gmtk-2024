@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://be0p0p4t8aqt6"]
+[gd_scene load_steps=7 format=3 uid="uid://be0p0p4t8aqt6"]
 
 [ext_resource type="Script" path="res://hud/hud.gd" id="1_5pbm8"]
 [ext_resource type="Texture2D" uid="uid://46pg3af12jhy" path="res://hud/crosshair.png" id="1_bqivw"]
 [ext_resource type="PackedScene" uid="uid://dxpw7bpabpgo4" path="res://debug/debug_window.tscn" id="2_51vf8"]
 [ext_resource type="Script" path="res://debug/debug_window.gd" id="3_gp178"]
 [ext_resource type="Script" path="res://hud/gauge_bar.gd" id="5_v7uf2"]
+[ext_resource type="PackedScene" uid="uid://cyiio111ful15" path="res://main/main-menu/mute_sounds_container.tscn" id="6_1omwq"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -84,3 +85,7 @@ value = 50.0
 fill_mode = 3
 show_percentage = false
 script = ExtResource("5_v7uf2")
+
+[node name="MuteSoundsContainer" parent="." instance=ExtResource("6_1omwq")]
+layout_mode = 1
+grow_horizontal = 1

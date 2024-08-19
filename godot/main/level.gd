@@ -15,6 +15,9 @@ var _current_selected_object: GameObject = null
 var _current_hovered_object: GameObject = null
 var _last_frame_object_position: Dictionary = {}
 
+## True if the player has won, false otherwise
+var _has_won:bool = false
+
 @onready var _height_detector: HeightDetector = $HeightDetector
 @onready var _billboard: Billboard = $Billboard
 @onready var _player_camera: PlayerCamera = $PlayerCamera
@@ -44,12 +47,12 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if _current_height >= target_height:
+	if not _has_won and _current_height >= target_height:
 		if _no_object_has_moved_last_frame():
 			_last_time_something_has_moved += delta
 		
 		if _last_time_something_has_moved >= no_movement_duration_before_game_win:
-			_hud.show_win()
+			win()
 
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
@@ -142,6 +145,7 @@ func _on_max_height_changed(max_height: float) -> void:
 
 
 func start_game() -> void:
+	_has_won = false
 	for i in range(GameSettings.number_items_to_spawn):
 		var obj_scene:PackedScene = object_pool.pick_random()
 		var rand_x:Vector3 = _spawn_borders.curve.sample(0, randf())
@@ -152,6 +156,10 @@ func start_game() -> void:
 		obj.global_position = Vector3(rand_x.x, rand_x.y, rand_z.z)
 		#await get_tree().create_timer(0.1).timeout
 
+func win() -> void:
+	_has_won = true
+	AudioManager.play_music(SoundBank.win_music)
+	_hud.show_win()
 
 func select(object: GameObject) -> void:
 	if GameState.current_game_state == Enum.GameState.FREE_CAMERA:
@@ -165,6 +173,8 @@ func select(object: GameObject) -> void:
 		#await tween.finished
 		object.selected = true
 		_current_selected_object = object
+		
+		AudioManager.play_sound_effect(SoundBank.grab_se)
 		
 		_player_camera.attach_object(object.global_position, _player_camera.get_path_to(object))
 

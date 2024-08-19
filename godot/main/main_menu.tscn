@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cduummsvefesk"]
+[gd_scene load_steps=9 format=3 uid="uid://cduummsvefesk"]
 
 [ext_resource type="Script" path="res://main/main_menu.gd" id="1_hjvb3"]
 [ext_resource type="Script" path="res://hud/ButtonWithSound.gd" id="2_dlb6r"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://fg00hg2ot87u" path="res://levels/level_1.tscn" id="3_ymn5e"]
 [ext_resource type="PackedScene" uid="uid://dg1tid3vprjl0" path="res://levels/level_2.tscn" id="4_jsgpt"]
 [ext_resource type="PackedScene" uid="uid://dyuoaywmnvenj" path="res://levels/level_3.tscn" id="5_8eejo"]
+[ext_resource type="Texture2D" uid="uid://djc4mk8rfgm1w" path="res://main/gmtk2024-logo.png" id="7_0w4br"]
+[ext_resource type="PackedScene" uid="uid://cyiio111ful15" path="res://main/main-menu/mute_sounds_container.tscn" id="8_c51y2"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("button_play", "button_quit", "nb_item_slider", "nb_item_label", "target_height_slider", "target_height_label")]
 layout_mode = 3
@@ -134,3 +136,16 @@ value = 2.0
 [node name="TargetHeightLabel" type="Label" parent="debugTest/HBoxContainer2"]
 layout_mode = 2
 text = "XXmXX"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 982.0
+offset_top = 561.0
+offset_right = 1143.0
+offset_bottom = 639.0
+texture = ExtResource("7_0w4br")
+expand_mode = 2
+
+[node name="MuteSoundsContainer" parent="." instance=ExtResource("8_c51y2")]
+layout_mode = 0
+anchors_preset = 0

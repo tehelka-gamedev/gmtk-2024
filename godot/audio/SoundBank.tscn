@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://beev21n37oask"]
+
+[ext_resource type="Script" path="res://audio/sound_bank.gd" id="1_wrl1i"]
+[ext_resource type="AudioStream" uid="uid://cmc6ks7js1x0e" path="res://audio/data/ambience-Mainmenu.mp3" id="2_4ohnk"]
+[ext_resource type="AudioStream" uid="uid://bkqhnompum2q8" path="res://audio/data/fanfare3-win.ogg" id="3_ycdwg"]
+[ext_resource type="AudioStream" uid="uid://bj7wd6aa3soaf" path="res://audio/data/snd_grab.wav" id="4_3ytqe"]
+
+[node name="SoundBank" type="Node"]
+script = ExtResource("1_wrl1i")
+main_menu_music = ExtResource("2_4ohnk")
+win_music = ExtResource("3_ycdwg")
+grab_se = ExtResource("4_3ytqe")
