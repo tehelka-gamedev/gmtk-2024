@@ -87,6 +87,7 @@ offset_left = 48.0
 offset_top = 27.0
 offset_right = -48.0
 offset_bottom = -27.0
+
 [node name="ObjectScaleGauge" type="MarginContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
