@@ -13,6 +13,7 @@ points = PackedVector3Array(-0.0398708, -0.0129171, -0.0716686, 0.094927, -0.117
 [node name="Anvil" node_paths=PackedStringArray("model") instance=ExtResource("1_istwb")]
 mass = 60.0
 model = NodePath("Mesh")
+approximate_length = 0.5
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_vlyvm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.203534, 0)

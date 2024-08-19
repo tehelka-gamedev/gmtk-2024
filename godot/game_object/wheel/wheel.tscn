@@ -88,6 +88,7 @@ points = PackedVector3Array(0.159604, -0.271286, 0.0171133, 0.139496, -0.130633,
 [node name="Wheel" node_paths=PackedStringArray("model") instance=ExtResource("1_c56hq")]
 mass = 4.0
 model = NodePath("Mesh")
+approximate_length = 0.68
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_8cp7n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33876, 0)

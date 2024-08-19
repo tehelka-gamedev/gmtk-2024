@@ -119,7 +119,8 @@ max_value = 300
 _initial_value = 150
 
 [node name="camTarget" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22683, 0, -5.57357)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33541, 2.44386, -5.09592)
+visible = false
 
 [node name="WinViewport" type="SubViewport" parent="." node_paths=PackedStringArray("debugA", "debugB")]
 handle_input_locally = false
@@ -130,7 +131,7 @@ debugA = NodePath("../debugA")
 debugB = NodePath("../debugB")
 
 [node name="ScreenshotCamera" type="Camera3D" parent="WinViewport"]
-transform = Transform3D(0.438669, 0, 0.898649, 0, 1, 0, -0.898649, 0, 0.438669, -23.0012, -33.9494, 4.12803)
+transform = Transform3D(-0.0192417, 0.562011, -0.826906, 0.0130742, 0.82713, 0.561859, 0.999729, 0, -0.0232632, -7.42661, 5.25305, 0.529863)
 cull_mask = 1048573
 
 [node name="debugA" type="MeshInstance3D" parent="."]

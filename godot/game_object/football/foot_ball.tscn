@@ -14,6 +14,7 @@ radius = 0.1015
 mass = 0.4
 physics_material_override = SubResource("PhysicsMaterial_10k5e")
 model = NodePath("Mesh")
+approximate_length = 0.2
 
 [node name="Mesh" parent="." index="1" instance=ExtResource("2_01p0p")]
 

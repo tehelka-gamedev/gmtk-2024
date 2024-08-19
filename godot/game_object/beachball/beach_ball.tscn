@@ -15,6 +15,7 @@ mass = 0.28
 physics_material_override = SubResource("PhysicsMaterial_3tmhj")
 model = NodePath("Mesh")
 scale_factor = 2.0
+approximate_length = 0.2
 min_scale = 1.0
 max_scale = 20.0
 
