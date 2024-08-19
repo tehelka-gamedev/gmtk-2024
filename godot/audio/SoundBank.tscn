@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://beev21n37oask"]
+[gd_scene load_steps=7 format=3 uid="uid://beev21n37oask"]
 
 [ext_resource type="Script" path="res://audio/sound_bank.gd" id="1_wrl1i"]
 [ext_resource type="AudioStream" uid="uid://cmc6ks7js1x0e" path="res://audio/data/ambience-Mainmenu.mp3" id="2_4ohnk"]
 [ext_resource type="AudioStream" uid="uid://bkqhnompum2q8" path="res://audio/data/fanfare3-win.ogg" id="3_ycdwg"]
 [ext_resource type="AudioStream" uid="uid://bj7wd6aa3soaf" path="res://audio/data/snd_grab.wav" id="4_3ytqe"]
-[ext_resource type="AudioStream" uid="uid://bnxrmyjntjpi3" path="res://audio/data/snd_whush.wav" id="5_pvfl2"]
+[ext_resource type="AudioStream" uid="uid://b2vm3ixse3336" path="res://audio/data/snd_release2.wav" id="5_e3gr0"]
+[ext_resource type="AudioStream" uid="uid://c8u0usmwkbk1s" path="res://audio/data/newhomemusic.mp3" id="6_p5dck"]
 
 [node name="SoundBank" type="Node"]
 script = ExtResource("1_wrl1i")
 main_menu_music = ExtResource("2_4ohnk")
 win_music = ExtResource("3_ycdwg")
 grab_se = ExtResource("4_3ytqe")
-drop_se = ExtResource("5_pvfl2")
+drop_se = ExtResource("5_e3gr0")
+game_music = ExtResource("6_p5dck")

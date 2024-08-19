@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cduummsvefesk"]
+[gd_scene load_steps=11 format=3 uid="uid://cduummsvefesk"]
 
 [ext_resource type="Script" path="res://main/main_menu.gd" id="1_hjvb3"]
 [ext_resource type="Script" path="res://hud/ButtonWithSound.gd" id="2_dlb6r"]
@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://fg00hg2ot87u" path="res://levels/level_1.tscn" id="3_ymn5e"]
 [ext_resource type="PackedScene" uid="uid://dg1tid3vprjl0" path="res://levels/level_2.tscn" id="4_jsgpt"]
 [ext_resource type="PackedScene" uid="uid://dyuoaywmnvenj" path="res://levels/level_3.tscn" id="5_8eejo"]
+[ext_resource type="Texture2D" uid="uid://cyehn5qqyysmw" path="res://main/main-menu/RightOnTop.png" id="6_338e8"]
 [ext_resource type="Texture2D" uid="uid://djc4mk8rfgm1w" path="res://main/gmtk2024-logo.png" id="7_0w4br"]
 [ext_resource type="PackedScene" uid="uid://cyiio111ful15" path="res://main/main-menu/mute_sounds_container.tscn" id="8_c51y2"]
+[ext_resource type="Theme" uid="uid://bxvd01pckxok2" path="res://ui/custom_theme.tres" id="10_gfbr4"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_play", "button_quit", "nb_item_slider", "nb_item_label", "target_height_slider", "target_height_label")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_play", "button_credits", "button_quit", "levels_container", "nb_item_slider", "nb_item_label", "target_height_slider", "target_height_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,43 +19,158 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hjvb3")
-button_play = NodePath("VBoxContainer/ButtonPlay")
-button_quit = NodePath("VBoxContainer/ButtonQuit")
+button_play = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/ButtonPlay")
+button_credits = NodePath("MarginContainer/VBoxContainer/BottomButtons/ButtonCredits")
+button_quit = NodePath("MarginContainer/VBoxContainer/BottomButtons/ButtonQuit")
 play_scene = ExtResource("2_wvtln")
+levels_container = NodePath("MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/LevelsContainer")
 levels = Array[PackedScene]([ExtResource("3_ymn5e"), ExtResource("4_jsgpt"), ExtResource("5_8eejo")])
-nb_item_slider = NodePath("debugTest/HBoxContainer/NbItemSlider")
-nb_item_label = NodePath("debugTest/HBoxContainer/NbItemLabel")
-target_height_slider = NodePath("debugTest/HBoxContainer2/TargetHeightSlider")
-target_height_label = NodePath("debugTest/HBoxContainer2/TargetHeightLabel")
+nb_item_slider = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer/NbItemSlider")
+nb_item_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer/NbItemLabel")
+target_height_slider = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer2/TargetHeightSlider")
+target_height_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer2/TargetHeightLabel")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 384.0
-offset_top = 38.0
-offset_right = 687.0
-offset_bottom = 107.0
-theme_override_font_sizes/font_size = 50
-text = "Right on Top
-"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.411765, 0.411765, 0.411765, 1)
 
-[node name="LevelsContainer" type="HBoxContainer" parent="Label"]
-unique_name_in_owner = true
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-offset_left = -84.0
-offset_top = 128.0
-offset_right = 24.0
-offset_bottom = 173.0
 
-[node name="Label" type="Label" parent="Label/LevelsContainer"]
+[node name="TitleLogo" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("6_338e8")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="LevelsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 4
+
+[node name="LevelsLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/LevelsContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Levels"
 
-[node name="VSeparator" type="VSeparator" parent="Label/LevelsContainer"]
+[node name="SandboxMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 32
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="SandboxTest" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest"]
+layout_mode = 2
+text = "Sandbox parameters"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Number of items"
+
+[node name="NbItemSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 3.0
+max_value = 50.0
+value = 4.0
+
+[node name="NbItemLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer"]
+layout_mode = 2
+text = "XX"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Target Height"
+
+[node name="TargetHeightSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 2.0
+max_value = 50.0
+step = 0.1
+value = 2.0
+
+[node name="TargetHeightLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer2"]
+layout_mode = 2
+text = "XXmXX"
+
+[node name="ButtonPlay" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start Sandbox"
+script = ExtResource("2_dlb6r")
+
+[node name="BottomButtons" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonCredits" type="Button" parent="MarginContainer/VBoxContainer/BottomButtons"]
+custom_minimum_size = Vector2(128, 24)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+theme = ExtResource("10_gfbr4")
+text = "Credits"
+script = ExtResource("2_dlb6r")
+
+[node name="ButtonQuit" type="Button" parent="MarginContainer/VBoxContainer/BottomButtons"]
+custom_minimum_size = Vector2(128, 24)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+theme = ExtResource("10_gfbr4")
+text = "Quit"
+script = ExtResource("2_dlb6r")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -68,79 +185,7 @@ offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ButtonPlay" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Play"
-script = ExtResource("2_dlb6r")
-
-[node name="ButtonQuit" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Quit"
-script = ExtResource("2_dlb6r")
-
-[node name="debugTest" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.596
-anchor_top = 0.462
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 25.408
-offset_top = 37.624
-offset_right = -73.0
-offset_bottom = -97.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_group_ = true
-
-[node name="Label" type="Label" parent="debugTest"]
-layout_mode = 2
-text = "Test parameters"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="debugTest"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="debugTest/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Number of items"
-
-[node name="NbItemSlider" type="HSlider" parent="debugTest/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-min_value = 3.0
-max_value = 50.0
-value = 4.0
-
-[node name="NbItemLabel" type="Label" parent="debugTest/HBoxContainer"]
-layout_mode = 2
-text = "XX"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="debugTest"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="debugTest/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Target Height"
-
-[node name="TargetHeightSlider" type="HSlider" parent="debugTest/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-min_value = 2.0
-max_value = 50.0
-step = 0.1
-value = 2.0
-
-[node name="TargetHeightLabel" type="Label" parent="debugTest/HBoxContainer2"]
-layout_mode = 2
-text = "XXmXX"
-
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="GMTKLogo" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 982.0
 offset_top = 561.0

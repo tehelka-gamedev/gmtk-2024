@@ -1,8 +1,10 @@
 extends Control
 
 @export var button_play:Button = null
+@export var button_credits:Button = null
 @export var button_quit:Button = null
 @export var play_scene:PackedScene = null
+@export var levels_container:BoxContainer = null
 @export var levels: Array[PackedScene]
 
 @export_category("Debug variables")
@@ -10,8 +12,6 @@ extends Control
 @export var nb_item_label:Label = null
 @export var target_height_slider:Slider = null
 @export var target_height_label:Label = null
-
-@onready var levels_container: HBoxContainer = %LevelsContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,6 +24,8 @@ func _ready() -> void:
 		)
 	else:
 		push_error("No scene set for play button, cannot play !")
+	
+	button_credits.pressed.connect(show_credits)
 	
 	if OS.has_feature("web"):
 		button_quit.queue_free()
@@ -59,3 +61,6 @@ func _ready() -> void:
 			get_tree().change_scene_to_packed(level)
 		)
 		levels_container.add_child(button)
+
+func show_credits() -> void:
+	pass

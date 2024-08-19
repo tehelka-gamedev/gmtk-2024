@@ -18,10 +18,13 @@ func _ready():
 	mute_bgm_button.toggled.connect(_on_mute_bgm_button_toggled)
 	
 	
-	if OS.has_feature("editor"):
-		mute_bgm_button.set_pressed_no_signal(true)
-		_on_mute_bgm_button_toggled(true)
-
+	#if OS.has_feature("editor"):
+		#mute_bgm_button.set_pressed_no_signal(true)
+		#_on_mute_bgm_button_toggled(true)
+	
+	var is_muted:bool = AudioManager.is_bgm_muted()
+	mute_bgm_button.set_pressed_no_signal(is_muted)
+	_on_mute_bgm_button_toggled(is_muted)
 
 
 

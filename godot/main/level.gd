@@ -34,6 +34,8 @@ var _stats:WinStats = WinStats.new()
 @export var _win_viewport:WinViewport = null
 
 func _ready() -> void:
+	AudioManager.play_music(SoundBank.game_music, 1)
+	
 	if not Events.replay_requested.is_connected(reload_level):
 		Events.replay_requested.connect(reload_level)
 		
