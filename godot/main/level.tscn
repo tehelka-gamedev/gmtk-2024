@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://jeihxw20nydi"]
 
-[ext_resource type="Script" path="res://main/main.gd" id="1_tycjl"]
+[ext_resource type="Script" path="res://main/level.gd" id="1_tycjl"]
 [ext_resource type="PackedScene" uid="uid://b3osahesu8vvn" path="res://camera/player_camera.tscn" id="1_y5qgp"]
 [ext_resource type="Script" path="res://main/height_detector.gd" id="2_11x3m"]
 [ext_resource type="PackedScene" uid="uid://dn3bd5aclabxe" path="res://game_object/table/table.tscn" id="2_kp88t"]
@@ -56,7 +56,7 @@ _data = {
 }
 point_count = 5
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("_win_viewport")]
+[node name="Level" type="Node3D" node_paths=PackedStringArray("_win_viewport")]
 script = ExtResource("1_tycjl")
 object_pool = Array[PackedScene]([ExtResource("2_kp88t"), ExtResource("3_rfsl0"), ExtResource("4_xan4c"), ExtResource("5_7w4q0"), ExtResource("6_wbhtt"), ExtResource("8_gx5w5"), ExtResource("8_ylhf7"), ExtResource("7_c0m3e"), ExtResource("10_xpell"), ExtResource("11_qnvhb"), ExtResource("12_oqme4"), ExtResource("13_du4r6"), ExtResource("14_tgja4"), ExtResource("15_tuxhw"), ExtResource("16_knfnx")])
 no_movement_duration_before_game_win = 1.0

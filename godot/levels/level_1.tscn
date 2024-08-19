@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://fg00hg2ot87u"]
+
+[ext_resource type="PackedScene" uid="uid://jeihxw20nydi" path="res://main/level.tscn" id="1_cnwo1"]
+[ext_resource type="PackedScene" uid="uid://btil01b1js8kr" path="res://game_object/bucket/bucket.tscn" id="2_e5aom"]
+[ext_resource type="PackedScene" uid="uid://clngcuh1vawvw" path="res://game_object/golfball/golf_ball.tscn" id="3_wn5k0"]
+
+[node name="Level1" instance=ExtResource("1_cnwo1")]
+level_name = "Golf"
+sandbox_mode = false
+
+[node name="Bucket" parent="Objects" index="0" instance=ExtResource("2_e5aom")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10887, 0.168076, 0.221133)
+
+[node name="GolfBall" parent="Objects" index="1" instance=ExtResource("3_wn5k0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.033902, 0.159458, 0.182455)
+
+[node name="GolfBall2" parent="Objects" index="2" instance=ExtResource("3_wn5k0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0890135, 0.143986, 0.182506)
+
+[node name="GolfBall3" parent="Objects" index="3" instance=ExtResource("3_wn5k0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.057248, 0.152632, 0.232122)
+
+[node name="GolfBall4" parent="Objects" index="4" instance=ExtResource("3_wn5k0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15612, 0.158474, 0.201261)
+
+[node name="GolfBall5" parent="Objects" index="5" instance=ExtResource("3_wn5k0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.101036, 0.169389, 0.228729)
+
+[node name="GolfBall6" parent="Objects" index="6" instance=ExtResource("3_wn5k0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.163176, 0.107923, 0.224272)
+
+[node name="GolfBall7" parent="Objects" index="7" instance=ExtResource("3_wn5k0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.123975, 0.119258, 0.2541)
+
+[node name="GolfBall8" parent="Objects" index="8" instance=ExtResource("3_wn5k0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.140933, 0.169013, 0.224889)
+
+[editable path="HUD"]

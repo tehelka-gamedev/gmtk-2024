@@ -15,14 +15,17 @@ Processus d'import des assets 3D
 
 
 ### Choses à faire en priorité
+- Ajouter une barre UI à côté d'un objet sélectionné pour indiquer combien
+	on peut encore le scale up/down
+- Bloquer le zoom in/out à une certaine profondeur
 - Integrate main menu music and grab sound effect
 - Photo de la tour à la fin
 - Voir pour le focus de la souris sur l'export web
-- Bloquer le zoom in/out à une certaine profondeur
 - Mettre un grand cylindre de collision arène
 
 
 ### Choses pour plus tard
+- fix le bug pour la roue qui rotate brusquement quand on la rotate (après être tombée au sol)
 - améliorer le marqueur de placement sous l'objet
 - mettre un bouton pour faire tourner la caméra autour de l'objet sélectionné
 - maybe update the heightlabel when the game is launcherz

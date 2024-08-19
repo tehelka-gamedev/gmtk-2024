@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://xlpgwschco4n"]
 
-[ext_resource type="PackedScene" uid="uid://jeihxw20nydi" path="res://main/main.tscn" id="1_ewsf1"]
+[ext_resource type="PackedScene" uid="uid://jeihxw20nydi" path="res://main/level.tscn" id="1_ewsf1"]
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="2_k2p07"]
 
 [node name="MainTestTehelka" instance=ExtResource("1_ewsf1")]

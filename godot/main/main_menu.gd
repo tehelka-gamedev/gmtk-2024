@@ -3,12 +3,15 @@ extends Control
 @export var button_play:Button = null
 @export var button_quit:Button = null
 @export var play_scene:PackedScene = null
+@export var levels: Array[PackedScene]
 
 @export_category("Debug variables")
 @export var nb_item_slider:Slider = null
 @export var nb_item_label:Label = null
 @export var target_height_slider:Slider = null
 @export var target_height_label:Label = null
+
+@onready var levels_container: HBoxContainer = %LevelsContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,3 +45,14 @@ func _ready() -> void:
 	target_height_slider.value = GameSettings.target_height
 	nb_item_slider.value = GameSettings.number_items_to_spawn
 	nb_item_label.text = "%d" % int(nb_item_slider.value)
+	
+	
+	for level: PackedScene in levels:
+		var button: ButtonWithSound = ButtonWithSound.new()
+		for i: int in level.get_state().get_node_property_count(0):
+			if level.get_state().get_node_property_name(0, i) == "level_name":
+				button.text = str(level.get_state().get_node_property_value(0, i))
+		button.pressed.connect(func():
+			get_tree().change_scene_to_packed(level)
+		)
+		levels_container.add_child(button)

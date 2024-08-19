@@ -1,9 +1,12 @@
 extends Node3D
 
 
+@export var target_height: float = 5.0
 @export var object_pool:Array[PackedScene] = []
 @export var select_max_distance: float = 5.0
 @export var no_movement_duration_before_game_win: float = 3.0
+@export var level_name: String
+@export var sandbox_mode: bool = true
 @export_file("*.tscn") var main_menu_scene: String
 
 var _current_height: float = 0.0
@@ -25,12 +28,14 @@ var _last_frame_object_position: Dictionary = {}
 @export var _win_viewport:WinViewport = null
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	seed(randi())
 	
 	@warning_ignore("return_value_discarded")
 	_height_detector.max_height_changed.connect(_on_max_height_changed)
 	_billboard.set_target_height(GameSettings.target_height)
-	#start_game()
+	if sandbox_mode:
+		start_game()
 	
 	for object: GameObject in _objects.get_children():
 		_last_frame_object_position[object] = object.global_position
