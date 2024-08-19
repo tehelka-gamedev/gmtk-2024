@@ -1,9 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://dg1tid3vprjl0"]
+[gd_scene load_steps=4 format=3 uid="uid://dg1tid3vprjl0"]
 
 [ext_resource type="PackedScene" uid="uid://jeihxw20nydi" path="res://main/level.tscn" id="1_yt1jq"]
+[ext_resource type="PackedScene" uid="uid://dn3bd5aclabxe" path="res://game_object/table/table.tscn" id="2_7nkod"]
+[ext_resource type="PackedScene" uid="uid://dwl2tiq2c2xy4" path="res://game_object/joystick/joystick.tscn" id="3_fku1n"]
 
 [node name="Level2" instance=ExtResource("1_yt1jq")]
+target_height = 6.4
+no_movement_duration_before_game_win = 3.0
 level_name = "Hello"
 sandbox_mode = false
+
+[node name="Table" parent="Objects" index="0" instance=ExtResource("2_7nkod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.318699, 0)
+scaling_cost = 1.0
+
+[node name="Joystick" parent="Objects" index="1" instance=ExtResource("3_fku1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0104568, 0.82736, 0)
+
+[node name="ScalingGauge" parent="." index="9"]
+max_value = 100.0
+_initial_value = null
 
 [editable path="HUD"]

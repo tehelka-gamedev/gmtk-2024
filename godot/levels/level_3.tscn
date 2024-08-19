@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyuoaywmnvenj"]
+
+[ext_resource type="PackedScene" uid="uid://jeihxw20nydi" path="res://main/level.tscn" id="1_pmudx"]
+[ext_resource type="PackedScene" uid="uid://dn3bd5aclabxe" path="res://game_object/table/table.tscn" id="2_8assn"]
+[ext_resource type="PackedScene" uid="uid://btil01b1js8kr" path="res://game_object/bucket/bucket.tscn" id="3_grymi"]
+[ext_resource type="PackedScene" uid="uid://b4ckgjiuaqsuw" path="res://game_object/beachball/beach_ball.tscn" id="4_0etsp"]
+
+[node name="Level3" instance=ExtResource("1_pmudx")]
+target_height = 3.1
+level_name = "The ball"
+sandbox_mode = false
+
+[node name="Table2" parent="Objects" index="0" instance=ExtResource("2_8assn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.329584, 0.345389, 2.47656)
+
+[node name="Bucket" parent="Objects" index="1" instance=ExtResource("3_grymi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13198, 0.171086, 2.49199)
+
+[node name="BeachBall" parent="Objects" index="2" instance=ExtResource("4_0etsp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.315199, 4.15945, 2.51358)
+
+[editable path="HUD"]

@@ -33,16 +33,18 @@ func _ready() -> void:
 	
 	@warning_ignore("return_value_discarded")
 	_height_detector.max_height_changed.connect(_on_max_height_changed)
-	_billboard.set_target_height(GameSettings.target_height)
 	if sandbox_mode:
+		_billboard.set_target_height(GameSettings.target_height)
 		start_game()
+	else:
+		_billboard.set_target_height(target_height)
 	
 	for object: GameObject in _objects.get_children():
 		_last_frame_object_position[object] = object.global_position
 
 
 func _physics_process(delta: float) -> void:
-	if _current_height >= GameSettings.target_height:
+	if _current_height >= target_height:
 		if _no_object_has_moved_last_frame():
 			_last_time_something_has_moved += delta
 		

@@ -25,6 +25,10 @@ Processus d'import des assets 3D
 
 
 ### Choses pour plus tard
+- mettre plus de chiffres sur l'UI pour que le joueur sente mieux les différences
+	de scaling factor entre les objets ? Voire les indiquer directement d'une
+	manière ou d'une autre
+- ajouter un bouton pour relance le niveau en cours (et pas aller au menu principal)
 - fix le bug pour la roue qui rotate brusquement quand on la rotate (après être tombée au sol)
 - améliorer le marqueur de placement sous l'objet
 - mettre un bouton pour faire tourner la caméra autour de l'objet sélectionné

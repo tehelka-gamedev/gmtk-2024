@@ -11,7 +11,7 @@ extends RigidBody3D
 
 @export_category("Gameplay parameters")
 ## Amount of unit scaling the object cost
-@export var scaling_cost:int = 1
+@export var scaling_cost: float = 1.0
 @export var min_scale:float = 0.5
 @export var max_scale:float = 2.0
 
@@ -126,7 +126,7 @@ func stop_hover() -> void:
 ## Scale up one time
 ## Returns true if the scaling could be done, false otherwise
 func scale_up() -> bool:
-	if object_scale*scale_sentitivity > max_scale:
+	if object_scale > max_scale:
 		return false
 	object_scale *= scale_sentitivity
 	return true
@@ -134,7 +134,7 @@ func scale_up() -> bool:
 ## Scale down one time
 ## Returns true if the scaling could be done, false otherwise
 func scale_down() -> bool:
-	if object_scale/scale_sentitivity < min_scale:
+	if object_scale < min_scale:
 		return false
 	object_scale /= scale_sentitivity
 	return true

@@ -7,7 +7,7 @@
 [node name="PlayerCamera" type="CharacterBody3D"]
 collision_layer = 4
 script = ExtResource("1_3wptn")
-object_3d_physics_layer = 1
+object_3d_physics_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_p57kn")

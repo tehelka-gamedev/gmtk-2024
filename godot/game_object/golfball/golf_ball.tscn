@@ -8,12 +8,15 @@
 bounce = 0.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qsjnc"]
-radius = 0.03
+radius = 0.02
 
 [node name="GolfBall" node_paths=PackedStringArray("model") instance=ExtResource("1_0pysw")]
 mass = 0.046
 physics_material_override = SubResource("PhysicsMaterial_idfn3")
 model = NodePath("Mesh")
+scaling_cost = 0.1
+min_scale = 1.0
+max_scale = 10.0
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_nppoh")]
 
