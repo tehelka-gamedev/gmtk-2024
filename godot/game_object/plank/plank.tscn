@@ -1,20 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbfqri6wfv86j"]
+[gd_scene load_steps=5 format=3 uid="uid://cbfqri6wfv86j"]
 
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_qni2k"]
 [ext_resource type="PackedScene" uid="uid://wfjvhkffmwyr" path="res://game_object/plank/plank_low.fbx" id="2_idxm4"]
-[ext_resource type="Texture2D" uid="uid://dhjacyej22qf7" path="res://game_object/plank/Texture_export/plank_low_plank_mat_BaseColor.png" id="3_dwq2c"]
-[ext_resource type="Texture2D" uid="uid://cos6ay0vvgkwy" path="res://game_object/plank/Texture_export/plank_low_plank_mat_Metallic.png" id="5_lwaal"]
-[ext_resource type="Texture2D" uid="uid://uvuv68b1322g" path="res://game_object/plank/Texture_export/plank_low_plank_mat_Normal.png" id="6_pggg5"]
-[ext_resource type="Texture2D" uid="uid://dm6r5bmi87ibv" path="res://game_object/plank/Texture_export/plank_low_plank_mat_Roughness.png" id="7_4xfoy"]
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="8_55kpv"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwq2f"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("3_dwq2c")
-metallic_texture = ExtResource("5_lwaal")
-roughness_texture = ExtResource("7_4xfoy")
-normal_enabled = true
-normal_texture = ExtResource("6_pggg5")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bjaic"]
 points = PackedVector3Array(-0.135648, 0.0559333, -0.637704, 0.0298981, 0.03523, 0.666047, 0.00920488, 0.0559333, 0.666047, -0.135648, -0.0268476, 0.666047, 0.0298981, -0.0268476, -0.658448, -0.135648, -0.0268476, -0.637704, 0.00920488, 0.0559333, -0.658448, -0.135648, 0.0559333, 0.645304, 0.0298981, -0.0268476, 0.666047, 0.0298981, 0.03523, -0.658448, -0.0528748, -0.0268476, -0.658448, -0.135648, 0.03523, 0.666047, -0.0528748, 0.0559333, -0.658448, -0.0528748, 0.0559333, 0.666047)
@@ -29,9 +17,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0613661, -0.0110761, 0)
 
 [node name="plank" parent="Mesh" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="plank_low" parent="Mesh/plank" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_mwq2f")
 
 [node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061, 0.011, 0)

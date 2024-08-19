@@ -84,3 +84,5 @@ script = ExtResource("2_6og2l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121789, 0.133695, -0.000717163)
 shape = SubResource("BoxShape3D_1jf6a")
 script = ExtResource("2_6og2l")
+
+[editable path="Mesh"]

@@ -141,4 +141,7 @@ mesh = SubResource("BoxMesh_3e5qp")
 visible = false
 mesh = SubResource("SphereMesh_xg4oo")
 
+[node name="Anvil" parent="." instance=ExtResource("8_ylhf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25619, 1.03904, 0.790102)
+
 [editable path="HUD"]

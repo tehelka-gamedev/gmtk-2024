@@ -1,25 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://46v17b0hf4ta"]
+[gd_scene load_steps=21 format=3 uid="uid://46v17b0hf4ta"]
 
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_44yly"]
 [ext_resource type="PackedScene" uid="uid://b3vqs4jrcsgql" path="res://game_object/crown/crown_low.fbx" id="2_axs46"]
-[ext_resource type="Texture2D" uid="uid://be51pq62vb4sl" path="res://game_object/crown/Texture_export/crown_low_crown_mat_BaseColor.png" id="3_whww6"]
-[ext_resource type="Texture2D" uid="uid://ceqmluwjbg5bj" path="res://game_object/crown/Texture_export/crown_low_crown_mat_Metallic.png" id="5_rqxfy"]
-[ext_resource type="Texture2D" uid="uid://bgrbymoqxcido" path="res://game_object/crown/Texture_export/crown_low_crown_mat_Normal.png" id="6_802ed"]
-[ext_resource type="Texture2D" uid="uid://d2dfbqpl02tvm" path="res://game_object/crown/Texture_export/crown_low_crown_mat_Roughness.png" id="7_pee8o"]
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="8_cux8b"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0my34"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8ht4"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("3_whww6")
-metallic_texture = ExtResource("5_rqxfy")
-roughness_texture = ExtResource("7_pee8o")
-normal_enabled = true
-normal_texture = ExtResource("6_802ed")
-heightmap_enabled = true
-heightmap_texture = SubResource("CompressedTexture2D_0my34")
-heightmap_flip_texture = true
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jcpab"]
 points = PackedVector3Array(-0.00597143, -0.0133897, -0.0607316, 0.0224988, 0.0085151, -0.0454024, -0.00597143, 0.0435516, -0.0585407, 0.0115475, -0.00681824, -0.0694952, -0.00597143, 0.0369801, -0.067302, 0.0268857, -0.0133897, -0.0475933, -0.00597143, -0.000246807, -0.0519751, 0.0268857, -0.00681824, -0.0651111, 0.0268857, 0.0391706, -0.0519751, 0.0246922, 0.0369801, -0.0651111, -0.00597143, -0.00900871, -0.0694952, 0.0181215, 0.0435516, -0.0651111, -0.00597143, -0.0133897, -0.0541636, 0.015928, 0.0369801, -0.067302, -0.00597143, 0.0107056, -0.0519751, 0.0181215, -0.00900871, -0.067302, 0.0268857, 0.0391706, -0.0629202, -0.00597143, 0.0085151, -0.0694952, 0.0268857, -0.000246807, -0.0454024, 0.015928, 0.0435516, -0.0563545, 0.0115475, 0.00632462, -0.0694952, -0.00526497, 0.0423273, -0.0647816, 0.0246922, -0.000246807, -0.0454024, 0.0246922, 0.0391706, -0.0519751, 0.0268857, 0.0107056, -0.0454024, 0.0203117, 0.00632462, -0.067302, 0.0246922, 0.0413611, -0.0563545)
@@ -80,12 +63,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0945478, 0)
 
 [node name="crown" parent="Mesh" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="crown_low" parent="Mesh/crown/low" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_i8ht4")
-
-[node name="jewelz_low" parent="Mesh/crown/low" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_i8ht4")
 
 [node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.095, 0)

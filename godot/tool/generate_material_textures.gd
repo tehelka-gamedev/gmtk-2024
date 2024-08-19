@@ -32,14 +32,21 @@ func _post_import(scene):
 	mat.normal_enabled = true
 	mat.normal_texture = find_texture(base_dir, "_Normal.png")
 	mat.roughness_texture = find_texture(base_dir, "_Roughness.png")
-	mat.metallic_texture = find_texture(base_dir, "_Metallic.png")
+	
+	var metallic_texture:Texture2D = find_texture(base_dir, "_Metallic.png")
+	
+	if metallic_texture:
+		mat.metallic_texture = metallic_texture
+		mat.metallic = 1
+	else:
+		mat.metallic_texture = null
+		mat.metallic = 0
 	mat.heightmap_enabled = USE_HEIGHTMAP
 	if USE_HEIGHTMAP:
 		mat.heightmap_texture = find_texture(base_dir, "_Height.exr")
+		mat.heightmap_flip_texture = true
 	else:
 		mat.heightmap_texture = null
-	mat.heightmap_flip_texture = true
-	mat.resource_local_to_scene = true
 	
 	var output_mat_path := "%s/%s.material" % [
 		get_source_file().get_base_dir(),

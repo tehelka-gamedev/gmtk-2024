@@ -19,6 +19,7 @@ Processus d'import des assets 3D
 - Photo de la tour à la fin
 - Voir pour le focus de la souris sur l'export web
 - Mettre un grand cylindre de collision arène
+- tutoriel
 
 
 ### Choses pour plus tard

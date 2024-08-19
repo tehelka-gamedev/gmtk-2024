@@ -1,20 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://btil01b1js8kr"]
+[gd_scene load_steps=24 format=3 uid="uid://btil01b1js8kr"]
 
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_c3c10"]
 [ext_resource type="PackedScene" uid="uid://fqouxctecjum" path="res://game_object/bucket/bucket_low.fbx" id="2_pjr0a"]
-[ext_resource type="Texture2D" uid="uid://8j17qbpceagy" path="res://game_object/bucket/Texture_export/bucket_low_bucket_mat_BaseColor.png" id="3_w2keg"]
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="3_xeil1"]
-[ext_resource type="Texture2D" uid="uid://jb46073qol5f" path="res://game_object/bucket/Texture_export/bucket_low_bucket_mat_Metallic.png" id="5_ytxw0"]
-[ext_resource type="Texture2D" uid="uid://cwg3uecqd13n3" path="res://game_object/bucket/Texture_export/bucket_low_bucket_mat_Normal.png" id="6_3520g"]
-[ext_resource type="Texture2D" uid="uid://531c6a1sxw5s" path="res://game_object/bucket/Texture_export/bucket_low_bucket_mat_Roughness.png" id="7_xrss7"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kbw1f"]
-resource_local_to_scene = true
-albedo_texture = ExtResource("3_w2keg")
-metallic_texture = ExtResource("5_ytxw0")
-roughness_texture = ExtResource("7_xrss7")
-normal_enabled = true
-normal_texture = ExtResource("6_3520g")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3v7yb"]
 points = PackedVector3Array(0.109414, 0.272657, 0.126688, 0, 0.0998952, 0.103663, 0.0115276, 0.0998952, 0.0979052, 0.051832, 0.0998952, 0.132446, 0, 0.272657, 0.167003, 0.109414, 0.272657, 0.0806222, 0.115149, 0.0998952, 0.0806222, 0, 0.272657, 0.138204, 0, 0.111428, 0.143962, 0.051832, 0.261107, 0.161237, 0.0559642, 0.0901, 0.0757246, 0.143968, 0.255357, 0.0806222, 0.0863584, 0.0998952, 0.11518, 0, 0.122945, 0.103663, 0.132441, 0.249608, 0.103663, 0.0978719, 0.255357, 0.138204, 0, 0.0998952, 0.138204, 0.115149, 0.0998952, 0.0863888, 0.143968, 0.272657, 0.0863888, 0.0057638, 0.255357, 0.167003, 0.051832, 0.157494, 0.143962, 0.051832, 0.272657, 0.161237, 0, 0.151744, 0.109422, 0.0057638, 0.111428, 0.143962, 0.143968, 0.255357, 0.0863888, 0.0978719, 0.197793, 0.126688, 0, 0.226575, 0.126688, 0.0288049, 0.0998952, 0.138204, 0.138204, 0.255357, 0.0979052, 0.0806087, 0.111428, 0.120938, 0.0978719, 0.272657, 0.138204, 0.0633596, 0.220808, 0.14972)
@@ -87,12 +75,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.207628, 0)
 
 [node name="bucket" parent="Mesh" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0533098, 0)
-
-[node name="bucket_low" parent="Mesh/bucket/low" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_kbw1f")
-
-[node name="holder_low" parent="Mesh/bucket/low" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_kbw1f")
 
 [node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.208, 0)

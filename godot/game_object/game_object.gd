@@ -66,6 +66,7 @@ func _ready() -> void:
 			_collision_detector_shapes.append(duplicate)
 	
 	_mesh_instances = _get_mesh_instances(self)
+	_duplicate_mesh_material()
 	center_of_mass = _mass_center.position + _mass_center.get_parent().position
 
 
@@ -165,6 +166,7 @@ func _set_scale(value: float) -> void:
 
 
 func _get_mesh_instances(current_node: Node) -> Array[MeshInstance3D]:
+	# Tehelka: this is 
 	if current_node is MeshInstance3D and current_node is not HeightLine:
 		return [current_node]
 	elif current_node.get_child_count() == 0:
@@ -176,6 +178,14 @@ func _get_mesh_instances(current_node: Node) -> Array[MeshInstance3D]:
 	
 	return array_piece
 
+
+## Since we change the material color, we duplicate it and link each mesh to it
+func _duplicate_mesh_material() -> void:
+	if len(_mesh_instances) == 0:
+		return
+	var mesh_material:StandardMaterial3D = _mesh_instances[0].get_surface_override_material(0).duplicate()
+	for mesh in _mesh_instances:
+		mesh.set_surface_override_material(0, mesh_material)
 
 func _enable_height_line(value: bool) -> void:
 	_height_line.visible = value

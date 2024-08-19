@@ -54,7 +54,6 @@ transform = Transform3D(1, 0, 0, 0, 0.999995, -0.00307177, 0, 0.00307177, 0.9999
 mass = 20.0
 center_of_mass = Vector3(0, 0.26, 0)
 model = NodePath("Mesh")
-scaling_cost = 3
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_4bckg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.742082, -0.0841687)
@@ -136,3 +135,5 @@ script = ExtResource("3_y4tbl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.044356, 0.231006)
 shape = SubResource("ConvexPolygonShape3D_gc6sx")
 script = ExtResource("3_y4tbl")
+
+[editable path="Mesh"]

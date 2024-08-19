@@ -265,3 +265,5 @@ shape = SubResource("ConvexPolygonShape3D_3cx6s")
 [node name="CollisionShape3D33" type="CollisionShape3D" parent="." index="37"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015837, 1.07728, -0.00258121)
 shape = SubResource("ConvexPolygonShape3D_m7oqn")
+
+[editable path="tree3_low"]

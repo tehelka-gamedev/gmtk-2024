@@ -25,3 +25,5 @@ max_scale = 20.0
 [node name="ScallableCollisionShape3D" type="CollisionShape3D" parent="." index="2"]
 shape = SubResource("SphereShape3D_r36vj")
 script = ExtResource("3_0twcd")
+
+[editable path="Mesh"]
