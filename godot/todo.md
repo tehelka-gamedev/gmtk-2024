@@ -20,7 +20,6 @@ Processus d'import des assets 3D
 - Voir pour le focus de la souris sur l'export web
 - Bloquer le zoom in/out à une certaine profondeur
 - Mettre un grand cylindre de collision arène
-- Mettre collision caméra / world
 
 
 ### Choses pour plus tard

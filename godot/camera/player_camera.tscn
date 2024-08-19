@@ -1,14 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3osahesu8vvn"]
+[gd_scene load_steps=3 format=3 uid="uid://b3osahesu8vvn"]
 
 [ext_resource type="Script" path="res://camera/player_camera.gd" id="1_3wptn"]
 
-[node name="PlayerCamera" type="Node3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_p57kn"]
+
+[node name="PlayerCamera" type="CharacterBody3D"]
+collision_layer = 4
 script = ExtResource("1_3wptn")
-object_3d_physics_layer = 2
+object_3d_physics_layer = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_p57kn")
 
 [node name="CameraRotation" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="CameraRotation"]
+current = true
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="CameraRotation"]
 update_rotation = false

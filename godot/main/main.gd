@@ -30,7 +30,7 @@ func _ready() -> void:
 	@warning_ignore("return_value_discarded")
 	_height_detector.max_height_changed.connect(_on_max_height_changed)
 	_billboard.set_target_height(GameSettings.target_height)
-	start_game()
+	#start_game()
 	
 	for object: GameObject in _objects.get_children():
 		_last_frame_object_position[object] = object.global_position

@@ -1,5 +1,5 @@
 class_name PlayerCamera
-extends Node3D
+extends CharacterBody3D
 
 const CAMERA_X_ROT_MIN: float = deg_to_rad(-89.9)
 const CAMERA_X_ROT_MAX: float = deg_to_rad(70)
@@ -43,7 +43,8 @@ func _process(delta: float) -> void:
 	
 	var movement_speed:float = running_speed if Input.is_action_pressed("run") else moving_speed
 	
-	position += movement_speed * delta * motion_vector
+	velocity = movement_speed * motion_vector
+	move_and_slide()
 
 	var attached_object_zoom: float = Input.get_action_strength("zoom_object_in") - Input.get_action_strength("zoom_object_out")
 	if not is_zero_approx(attached_object_zoom):
