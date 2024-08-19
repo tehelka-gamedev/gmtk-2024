@@ -13,6 +13,7 @@ points = PackedVector3Array(0.0431579, -0.106611, -0.422725, 0.507582, 0.0759552
 [node name="Rock3" node_paths=PackedStringArray("model") instance=ExtResource("1_ftpqv")]
 mass = 100.0
 model = NodePath("Mesh")
+approximate_length = 1.0
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_qdx4c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.242158, 0, 0.0660431)

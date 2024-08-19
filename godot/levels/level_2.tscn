@@ -7,7 +7,7 @@
 [node name="Level2" instance=ExtResource("1_yt1jq")]
 target_height = 6.5
 no_movement_duration_before_game_win = 3.0
-level_name = "Joystick"
+level_name = "1. The Joystick (easy)"
 sandbox_mode = false
 
 [node name="Table" parent="Objects" index="0" instance=ExtResource("2_7nkod")]

@@ -18,6 +18,7 @@ radius = 0.075815
 mass = 0.6
 model = NodePath("Mesh")
 scale_factor = 2.0
+approximate_length = 0.4
 min_scale = 1.0
 max_scale = 15.0
 

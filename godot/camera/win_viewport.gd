@@ -28,9 +28,11 @@ func _place_camera(objects:Array[Node3D]) -> void:
 	## Compute barycenter of all objects
 	var barycenter:Vector3 = Vector3.ZERO
 	
-	for obj in objects:
-		barycenter += obj.global_position
-	barycenter /= objects.size()
+	var approximate_length_sum: float = 0
+	for obj: GameObject in objects:
+		barycenter += obj.global_position * (obj.approximate_length * obj.object_scale)
+		approximate_length_sum += obj.approximate_length * obj.object_scale
+	barycenter /= approximate_length_sum
 	
 	if debugA:
 		debugA.global_position=barycenter

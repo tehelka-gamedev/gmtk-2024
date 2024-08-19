@@ -8,6 +8,7 @@ extends RigidBody3D
 @export_color_no_alpha var invalid_color: Color = Color.RED
 @export var model: Node3D
 @export var scale_factor: float = 1 # in pourcentage
+@export var approximate_length: float # in meter
 
 
 @export_category("Gameplay parameters")

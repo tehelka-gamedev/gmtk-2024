@@ -67,6 +67,7 @@ points = PackedVector3Array(-0.00537924, 0.0901, 0.000155352, -0.0978939, 0.0998
 [node name="Bucket" node_paths=PackedStringArray("model") instance=ExtResource("1_c3c10")]
 model = NodePath("Mesh")
 scale_factor = 1.5
+approximate_length = 0.33
 min_scale = 1.0
 max_scale = 10.0
 

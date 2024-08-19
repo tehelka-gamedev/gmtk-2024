@@ -10,6 +10,7 @@ points = PackedVector3Array(-0.135648, 0.0559333, -0.637704, 0.0298981, 0.03523,
 [node name="Plank" node_paths=PackedStringArray("model") instance=ExtResource("1_qni2k")]
 mass = 8.0
 model = NodePath("Mesh")
+approximate_length = 0.5
 min_scale = 1.0
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_idxm4")]

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ckgjiuaqsuw" path="res://game_object/beachball/beach_ball.tscn" id="4_0etsp"]
 
 [node name="Level3" instance=ExtResource("1_pmudx")]
-level_name = "The ball"
+level_name = "2. The bucketball (easy)"
 sandbox_mode = false
 
 [node name="Table2" parent="Objects" index="0" instance=ExtResource("2_8assn")]

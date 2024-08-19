@@ -57,6 +57,7 @@ points = PackedVector3Array(0.0641221, 0.041362, -0.0169238, 0.0575455, 0.041362
 
 [node name="Crown" node_paths=PackedStringArray("model") instance=ExtResource("1_44yly")]
 model = NodePath("Mesh")
+approximate_length = 0.14
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_axs46")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0945478, 0)
