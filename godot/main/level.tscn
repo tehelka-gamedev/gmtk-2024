@@ -132,7 +132,6 @@ debugB = NodePath("../debugB")
 [node name="ScreenshotCamera" type="Camera3D" parent="WinViewport"]
 transform = Transform3D(0.438669, 0, 0.898649, 0, 1, 0, -0.898649, 0, 0.438669, -23.0012, -33.9494, 4.12803)
 cull_mask = 1048573
-v_offset = -1.0
 
 [node name="debugA" type="MeshInstance3D" parent="."]
 visible = false
@@ -141,8 +140,5 @@ mesh = SubResource("BoxMesh_3e5qp")
 [node name="debugB" type="MeshInstance3D" parent="."]
 visible = false
 mesh = SubResource("SphereMesh_xg4oo")
-
-[node name="Anvil" parent="." instance=ExtResource("8_ylhf7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25619, 1.03904, 0.790102)
 
 [editable path="HUD"]

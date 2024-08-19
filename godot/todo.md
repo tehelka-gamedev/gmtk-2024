@@ -15,39 +15,48 @@ Processus d'import des assets 3D
 
 
 ### Choses à faire en priorité
-- Bloquer le zoom in/out à une certaine profondeur
-- Photo de la tour à la fin
-- Voir pour le focus de la souris sur l'export web
+- Ajouter le scale factor à l'UI
+- Faire la page Itch.io
+- Faire environment
+	- Ajouter des arbres
+	- Faire backdrop ou je sais pas quoi
+	- Trouver une texture pour le sol
+	- Mettre de l'herbe
+- Menu pause avec bouton pour relancer le niveau (et pas aller au menu principal)
+	- Afficher les controls sur le menu pause
+- Améliorer le menu principale
+	- renommer bouton play en sandbox et le déplacer sans les paramètres (renommer label debug paramètres)
+	- mettre les niveaux en liste vbox sur la gauche
+- Intégrer le titre au menu principal
 - Mettre un grand cylindre de collision arène
-- tutoriel
+- Intégrer les musiques
+- Ecrire les crédits !
+- Bruit de collision
+- Faire quelques niveaux en plus
+
+### Chose à polish
+- Photo de la tour à la fin (angle et distance par exemple)
+	- Faire un barycentre pondéré par la taille des objets
+- Bloquer le zoom in/out à une certaine profondeur
+- Tuto interactif avec label3d
+- Demander à Meru de faire de l'UI ingame HUD voir pour les menus
+- Faire en sorte que le score bouge pas quand on lâche un objet de haut
 
 
 ### Choses pour plus tard
-- tweak end photo, adapt to the target height
 - mettre plus de chiffres sur l'UI pour que le joueur sente mieux les différences
 	de scaling factor entre les objets ? Voire les indiquer directement d'une
 	manière ou d'une autre
-- ajouter un bouton pour relance le niveau en cours (et pas aller au menu principal)
 - fix le bug pour la roue qui rotate brusquement quand on la rotate (après être tombée au sol)
-- améliorer le marqueur de placement sous l'objet
 - mettre un bouton pour faire tourner la caméra autour de l'objet sélectionné
 - maybe update the heightlabel when the game is launcherz
 	-> currently, 1 second is elapsed before the first update
 	-> problem is if we use _detect_current_max_height at launched,
 	main.gd has not connected the signal yet to change the heighlabel on the billboard
 - pause menu
-- end menu
-- main menu
-- improve worldEnvironment and polish
 - center camera on selected object (done for now, object is moving and not the camera)
 - improve object rotation
-- mode avec predefined object (like a puzzle level)
-- mettre des limites au zoom/dezoom
-- mettre des limites pour qu'on puisse pas bouger la caméra à l'infini
-- add a feedback to project the drop in place of the selected object
-- reduire la taille de l'export pck si possible
-- take picture of the final tower as end game gift
-- ecrire les crédits !
+- Fond interractif pour le menu principal
 
 
 ### Basic level

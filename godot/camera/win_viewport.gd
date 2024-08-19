@@ -1,6 +1,8 @@
 class_name WinViewport
 extends SubViewport
 
+const CAMERA_DISTANCE_FACTOR: float = 1.2
+
 @export var camera_distance:float = 10
 @onready var screenshot_camera:Camera3D = $ScreenshotCamera
 
@@ -38,7 +40,7 @@ func _place_camera(objects:Array[Node3D]) -> void:
 	## Place the camera on a sphere at a distance r = camera_distance
 	## within certain angle
 	## (use mathematical conventions, see https://en.wikipedia.org/wiki/Spherical_coordinate_system)
-	var r:float = camera_distance
+	var r:float = camera_distance * CAMERA_DISTANCE_FACTOR
 	var theta:float = randf_range(2*PI/8, 3*PI/8)
 	var phi:float = randf_range(0, 2*PI)
 	
