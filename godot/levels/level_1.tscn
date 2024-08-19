@@ -6,7 +6,7 @@
 
 [node name="Level1" instance=ExtResource("1_cnwo1")]
 target_height = 2.7
-level_name = "Golf"
+level_name = "3. A bit of golf (medium)"
 sandbox_mode = false
 
 [node name="GolfBall" parent="Objects" index="0" instance=ExtResource("3_wn5k0")]
