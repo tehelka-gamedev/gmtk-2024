@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_ftpqv"]
 [ext_resource type="PackedScene" uid="uid://3f8675htwpm4" path="res://game_object/rocks/rock3/rock3_low.fbx" id="2_qdx4c"]
 [ext_resource type="Texture2D" uid="uid://dsw1hrvfs3cmc" path="res://game_object/rocks/rock3/Texture_export/rock3_low_rock3_mat_BaseColor.png" id="3_5w3hh"]
-[ext_resource type="Texture2D" uid="uid://cedruuj4v4xcd" path="res://game_object/rocks/rock3/Texture_export/rock3_low_rock3_mat_Height.exr" id="4_sktbv"]
 [ext_resource type="Texture2D" uid="uid://blc1xmm7u5he5" path="res://game_object/rocks/rock3/Texture_export/rock3_low_rock3_mat_Metallic.png" id="5_4j7uk"]
 [ext_resource type="Texture2D" uid="uid://dxdufh1dfrfpq" path="res://game_object/rocks/rock3/Texture_export/rock3_low_rock3_mat_Normal.png" id="6_us8t8"]
 [ext_resource type="Texture2D" uid="uid://b13syn3oj26n1" path="res://game_object/rocks/rock3/Texture_export/rock3_low_rock3_mat_Roughness.png" id="7_7xu6n"]
@@ -16,9 +15,6 @@ metallic_texture = ExtResource("5_4j7uk")
 roughness_texture = ExtResource("7_7xu6n")
 normal_enabled = true
 normal_texture = ExtResource("6_us8t8")
-heightmap_enabled = true
-heightmap_texture = ExtResource("4_sktbv")
-heightmap_flip_texture = true
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vmxg6"]
 points = PackedVector3Array(0.0383105, 0.0131415, 0.76865, 0.056687, -0.0460553, 0.729402, 0.391588, -0.282293, 0.847489, 0.293252, 0.288049, 0.925879, 0.213309, 0.252288, 0.569511, 0.410032, -0.298145, 0.632358, 0.468059, 0.408037, 0.683087, 0.070651, 0.3361, 0.708678, 0.446069, 0.0778231, 0.550989, 0.182007, -0.0761088, 0.550989, 0.136509, -0.00645032, 0.925423, 0.270086, -0.362294, 0.727107, 0.466528, 0.0708972, 0.902949, 0.532984, -0.227059, 0.76904, 0.37331, 0.41457, 0.829409, 0.4575, -0.378864, 0.707893, 0.409592, -0.044885, 0.923465, 0.0761103, 0.289264, 0.78853, 0.40203, 0.408037, 0.639067, 0.534374, 0.274313, 0.769161, 0.0677669, 0.319524, 0.667256, 0.574389, 0.0328466, 0.729014, 0.182007, -0.274237, 0.727107, 0.233378, 0.311598, 0.908369, 0.380039, -0.120137, 0.550989, 0.119095, -0.0448495, 0.903991, 0.0290175, 0.215625, 0.769337, 0.550342, -0.0661119, 0.808405, 0.512099, 0.364009, 0.705078, 0.428282, 0.34087, 0.845411, 0.46957, -0.339612, 0.690331, 0.371511, -0.221767, 0.886057)

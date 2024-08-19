@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_qni2k"]
 [ext_resource type="PackedScene" uid="uid://wfjvhkffmwyr" path="res://game_object/plank/plank_low.fbx" id="2_idxm4"]
 [ext_resource type="Texture2D" uid="uid://dhjacyej22qf7" path="res://game_object/plank/Texture_export/plank_low_plank_mat_BaseColor.png" id="3_dwq2c"]
-[ext_resource type="Texture2D" uid="uid://dq64stf06n3w5" path="res://game_object/plank/Texture_export/plank_low_plank_mat_Height.exr" id="4_3go2i"]
 [ext_resource type="Texture2D" uid="uid://cos6ay0vvgkwy" path="res://game_object/plank/Texture_export/plank_low_plank_mat_Metallic.png" id="5_lwaal"]
 [ext_resource type="Texture2D" uid="uid://uvuv68b1322g" path="res://game_object/plank/Texture_export/plank_low_plank_mat_Normal.png" id="6_pggg5"]
 [ext_resource type="Texture2D" uid="uid://dm6r5bmi87ibv" path="res://game_object/plank/Texture_export/plank_low_plank_mat_Roughness.png" id="7_4xfoy"]
@@ -16,9 +15,6 @@ metallic_texture = ExtResource("5_lwaal")
 roughness_texture = ExtResource("7_4xfoy")
 normal_enabled = true
 normal_texture = ExtResource("6_pggg5")
-heightmap_enabled = true
-heightmap_texture = ExtResource("4_3go2i")
-heightmap_flip_texture = true
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bjaic"]
 points = PackedVector3Array(-0.135648, 0.0559333, -0.637704, 0.0298981, 0.03523, 0.666047, 0.00920488, 0.0559333, 0.666047, -0.135648, -0.0268476, 0.666047, 0.0298981, -0.0268476, -0.658448, -0.135648, -0.0268476, -0.637704, 0.00920488, 0.0559333, -0.658448, -0.135648, 0.0559333, 0.645304, 0.0298981, -0.0268476, 0.666047, 0.0298981, 0.03523, -0.658448, -0.0528748, -0.0268476, -0.658448, -0.135648, 0.03523, 0.666047, -0.0528748, 0.0559333, -0.658448, -0.0528748, 0.0559333, 0.666047)

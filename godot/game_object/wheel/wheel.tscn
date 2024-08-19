@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dj2jnwbtf22ct" path="res://game_object/wheel/wheel_low.fbx" id="2_8cp7n"]
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="3_7h7qu"]
 [ext_resource type="Texture2D" uid="uid://dod536cjfl8g5" path="res://game_object/wheel/Texture_export/wheel_low_wheel_mat_BaseColor.png" id="3_8gnyq"]
-[ext_resource type="Texture2D" uid="uid://2am2vnulnena" path="res://game_object/wheel/Texture_export/wheel_low_wheel_mat_Height.exr" id="4_7xsoh"]
 [ext_resource type="Texture2D" uid="uid://cs6gq80o8u783" path="res://game_object/wheel/Texture_export/wheel_low_wheel_mat_Metallic.png" id="5_ecvjp"]
 [ext_resource type="Texture2D" uid="uid://cmsxmawm1ar48" path="res://game_object/wheel/Texture_export/wheel_low_wheel_mat_Normal.png" id="6_5liis"]
 [ext_resource type="Texture2D" uid="uid://to45n64m2dh2" path="res://game_object/wheel/Texture_export/wheel_low_wheel_mat_Roughness.png" id="7_ta0pb"]
@@ -16,9 +15,6 @@ metallic_texture = ExtResource("5_ecvjp")
 roughness_texture = ExtResource("7_ta0pb")
 normal_enabled = true
 normal_texture = ExtResource("6_5liis")
-heightmap_enabled = true
-heightmap_texture = ExtResource("4_7xsoh")
-heightmap_flip_texture = true
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cwxqo"]
 points = PackedVector3Array(0.0938498, 0.038136, -0.0414, -0.100122, -0.0181582, -0.0414, -0.0969859, -0.0306833, -0.0414, 0.0737875, -0.023983, 0.0392533, -0.0375735, 0.0944946, 0.0305759, -0.0188074, -0.0996798, 0.0306102, 0.0531776, -0.0869774, -0.0414, -0.0281667, 0.0975859, -0.0414, -0.10029, 0.0162679, 0.0306134, 0.0654241, 0.0784998, 0.0304376, 0.0938451, -0.0400701, 0.0305594, -0.034389, -0.0963003, -0.0413641, -0.0812459, -0.0618908, 0.0305231, -0.0844609, 0.0569138, -0.0414, 0.037536, 0.0944498, -0.0414, -0.0735796, 0.0251329, 0.0391406, 0.0343676, -0.0962399, 0.0305138, 0.0969859, -0.0306637, -0.0414, 0.100291, 0.0162484, 0.0306137, 0.012531, 0.100926, 0.0306247, -0.015345, -0.0761249, 0.0391778, 0.0245249, 0.0741554, 0.0391275, -0.0687895, 0.0756592, 0.0305474, 0.0187582, -0.0995221, -0.0414, -0.06248, -0.0806318, -0.0413437, 0.0812459, -0.0618908, 0.0305231, -0.10021, -0.0181747, 0.0305884, -0.0531818, -0.087004, 0.0305634, 0.0748457, 0.0692118, -0.0412774, 0.0844686, 0.0568993, 0.0305638, -0.0562942, 0.0850609, -0.0414, 0.0813306, -0.061956, -0.0413931)

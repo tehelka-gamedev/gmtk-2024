@@ -1,6 +1,8 @@
 @tool # Needed so it runs in editor.
 extends EditorScenePostImport
 
+const USE_HEIGHTMAP = false
+
 const TEXTURE_FOLDER = "Texture_export"
 const SURFACE_MATERIAL_IDX = 0
 
@@ -31,8 +33,11 @@ func _post_import(scene):
 	mat.normal_texture = find_texture(base_dir, "_Normal.png")
 	mat.roughness_texture = find_texture(base_dir, "_Roughness.png")
 	mat.metallic_texture = find_texture(base_dir, "_Metallic.png")
-	mat.heightmap_enabled = true
-	mat.heightmap_texture = find_texture(base_dir, "_Height.exr")
+	mat.heightmap_enabled = USE_HEIGHTMAP
+	if USE_HEIGHTMAP:
+		mat.heightmap_texture = find_texture(base_dir, "_Height.exr")
+	else:
+		mat.heightmap_texture = null
 	mat.heightmap_flip_texture = true
 	mat.resource_local_to_scene = true
 	

@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_dyhrf"]
 [ext_resource type="PackedScene" uid="uid://c6w25r0hyfrv6" path="res://game_object/joystick/joystick_low.fbx" id="2_hx1em"]
 [ext_resource type="Texture2D" uid="uid://b86uvidww4j8c" path="res://game_object/joystick/Texture_export/joystick_low_crown_mat_BaseColor.png" id="3_vfr84"]
-[ext_resource type="Texture2D" uid="uid://bb8g8xe3tkf5o" path="res://game_object/joystick/Texture_export/joystick_low_crown_mat_Height.exr" id="4_dgsbj"]
 [ext_resource type="Texture2D" uid="uid://dp1p6r4quoq2c" path="res://game_object/joystick/Texture_export/joystick_low_crown_mat_Metallic.png" id="5_e5jd0"]
 [ext_resource type="Texture2D" uid="uid://btj6qux7ba6ph" path="res://game_object/joystick/Texture_export/joystick_low_crown_mat_Normal.png" id="6_ewm0b"]
 [ext_resource type="Texture2D" uid="uid://k2lfahqdobfk" path="res://game_object/joystick/Texture_export/joystick_low_crown_mat_Roughness.png" id="7_lfd45"]
@@ -16,9 +15,6 @@ metallic_texture = ExtResource("5_e5jd0")
 roughness_texture = ExtResource("7_lfd45")
 normal_enabled = true
 normal_texture = ExtResource("6_ewm0b")
-heightmap_enabled = true
-heightmap_texture = ExtResource("4_dgsbj")
-heightmap_flip_texture = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t4dgv"]
 size = Vector3(0.3277, 0.129769, 0.323441)

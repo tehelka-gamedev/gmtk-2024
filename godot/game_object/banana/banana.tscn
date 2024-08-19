@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_a2chc"]
 [ext_resource type="PackedScene" uid="uid://8bvfb0rinoku" path="res://game_object/banana/banana_low.fbx" id="2_c8gtv"]
 [ext_resource type="Texture2D" uid="uid://e0s38tmeo416" path="res://game_object/banana/Texture_export/banana_low_banana_BaseColor.png" id="3_cq6xf"]
-[ext_resource type="Texture2D" uid="uid://bk8qoiuvfkf70" path="res://game_object/banana/Texture_export/banana_low_banana_Height.exr" id="4_in8e4"]
 [ext_resource type="Texture2D" uid="uid://ih840haf1np6" path="res://game_object/banana/Texture_export/banana_low_banana_Metallic.png" id="5_8otko"]
 [ext_resource type="Texture2D" uid="uid://b4a7quj5yh4gn" path="res://game_object/banana/Texture_export/banana_low_banana_Normal.png" id="6_ox1hk"]
 [ext_resource type="Texture2D" uid="uid://1u8fak10c0gh" path="res://game_object/banana/Texture_export/banana_low_banana_Roughness.png" id="7_qw3bw"]
@@ -16,9 +15,6 @@ metallic_texture = ExtResource("5_8otko")
 roughness_texture = ExtResource("7_qw3bw")
 normal_enabled = true
 normal_texture = ExtResource("6_ox1hk")
-heightmap_enabled = true
-heightmap_texture = ExtResource("4_in8e4")
-heightmap_flip_texture = true
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jl1d8"]
 points = PackedVector3Array(-0.00149588, -0.00289606, 0.065993, 0.00619115, -0.0438932, -0.0186073, 0.0122177, 0.00976839, -0.0282571, -0.0216095, 0.00131373, -0.0282571, -0.0181238, -0.0302557, 0.0294943, 0.0198732, -0.0181765, 0.0362511, 0.000945065, 0.0125905, 0.0647596, 0.0263143, -0.021234, -0.0282571, 0.00604498, -0.0379436, 0.0346104, -0.0159709, -0.0381433, -0.025437, 0.015037, 0.00131373, 0.0591289, -0.0103322, 0.00695211, 0.0562991, 0.0178563, -0.0381433, -0.0141564, 0.00608016, -0.0182515, 0.0596038, -0.0131516, 0.00695211, -0.0282571, -0.00187426, -0.0437874, -0.0282571, -0.0136331, -0.020695, 0.0493449, 0.0035737, -0.0426974, 0.0174134, -0.018585, -0.00839164, 0.0272198, 0.0263143, -0.0156072, -0.025437, 0.0122177, -0.0437874, -0.025437, 0.00939834, 0.00695211, 0.0675894, -0.0191657, -0.0309297, -0.0232257, -0.00469358, 0.00695211, 0.0704095, -0.00187426, 0.00976839, -0.0282571, 0.0106178, -0.039445, 0.0199029, 0.023495, -0.0296944, -0.0141564, -0.0185973, -0.0330294, 0.0173862, -0.0216095, 0.00131373, -0.0197967, -0.00469358, -0.0437874, -0.0226168, 0.00116096, -0.0301327, 0.0461288, 0.00831004, -0.034879, 0.038944)

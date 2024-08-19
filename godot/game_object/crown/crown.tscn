@@ -3,11 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_44yly"]
 [ext_resource type="PackedScene" uid="uid://b3vqs4jrcsgql" path="res://game_object/crown/crown_low.fbx" id="2_axs46"]
 [ext_resource type="Texture2D" uid="uid://be51pq62vb4sl" path="res://game_object/crown/Texture_export/crown_low_crown_mat_BaseColor.png" id="3_whww6"]
-[ext_resource type="Texture2D" uid="uid://w0fx8ridgj2" path="res://game_object/crown/Texture_export/crown_low_crown_mat_Height.exr" id="4_1rpti"]
 [ext_resource type="Texture2D" uid="uid://ceqmluwjbg5bj" path="res://game_object/crown/Texture_export/crown_low_crown_mat_Metallic.png" id="5_rqxfy"]
 [ext_resource type="Texture2D" uid="uid://bgrbymoqxcido" path="res://game_object/crown/Texture_export/crown_low_crown_mat_Normal.png" id="6_802ed"]
 [ext_resource type="Texture2D" uid="uid://d2dfbqpl02tvm" path="res://game_object/crown/Texture_export/crown_low_crown_mat_Roughness.png" id="7_pee8o"]
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="8_cux8b"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0my34"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8ht4"]
 resource_local_to_scene = true
@@ -17,7 +18,7 @@ roughness_texture = ExtResource("7_pee8o")
 normal_enabled = true
 normal_texture = ExtResource("6_802ed")
 heightmap_enabled = true
-heightmap_texture = ExtResource("4_1rpti")
+heightmap_texture = SubResource("CompressedTexture2D_0my34")
 heightmap_flip_texture = true
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jcpab"]
