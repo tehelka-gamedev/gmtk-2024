@@ -21,63 +21,66 @@ size = Vector3(0.107666, 0.0692139, 1.16873)
 
 [node name="Table" node_paths=PackedStringArray("model") instance=ExtResource("1_2ki5n")]
 mass = 40.0
-scale_pivot = Vector3(0, 0.552, 0)
-model = NodePath("table_low")
+model = NodePath("Mesh")
 scaling_cost = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.336, 0.234, 0.51288)
+[node name="Mesh" parent="." index="0" instance=ExtResource("2_8gfti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.311979, 0)
+
+[node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.336, -0.0779786, 0.51288)
 shape = SubResource("BoxShape3D_ibiky")
 script = ExtResource("2_6og2l")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.332, 0.234, 0.513)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.332, -0.0779786, 0.513)
 shape = SubResource("BoxShape3D_ibiky")
 script = ExtResource("2_6og2l")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.335906, 0.23423, -0.495987)
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.335906, -0.0777486, -0.495987)
 shape = SubResource("BoxShape3D_ibiky")
 script = ExtResource("2_6og2l")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.332476, 0.23423, -0.495987)
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.332476, -0.0777486, -0.495987)
 shape = SubResource("BoxShape3D_ibiky")
 script = ExtResource("2_6og2l")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.552, 0)
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.240021, 0)
 shape = SubResource("BoxShape3D_cn2n3")
 script = ExtResource("2_6og2l")
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.327945, 0.353244, 0.00961304)
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.327945, 0.0412654, 0.00961304)
 shape = SubResource("BoxShape3D_kxdpi")
 script = ExtResource("2_6og2l")
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.336037, 0.353244, 0.00961304)
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.336037, 0.0412654, 0.00961304)
 shape = SubResource("BoxShape3D_kxdpi")
 script = ExtResource("2_6og2l")
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="." index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014267, 0.35685, 0.512759)
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014267, 0.0448714, 0.512759)
 shape = SubResource("BoxShape3D_uqghh")
 script = ExtResource("2_6og2l")
 
-[node name="CollisionShape3D9" type="CollisionShape3D" parent="." index="8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014267, 0.35685, -0.505282)
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014267, 0.0448714, -0.505282)
 shape = SubResource("BoxShape3D_uqghh")
 script = ExtResource("2_6og2l")
 
-[node name="CollisionShape3D10" type="CollisionShape3D" parent="." index="9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123277, 0.445674, -0.00109863)
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123277, 0.133695, -0.00109863)
 shape = SubResource("BoxShape3D_1jf6a")
 script = ExtResource("2_6og2l")
 
-[node name="CollisionShape3D11" type="CollisionShape3D" parent="." index="10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121789, 0.445674, -0.000717163)
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121789, 0.133695, -0.000717163)
 shape = SubResource("BoxShape3D_1jf6a")
 script = ExtResource("2_6og2l")
-
-[node name="table_low" parent="." index="11" instance=ExtResource("2_8gfti")]

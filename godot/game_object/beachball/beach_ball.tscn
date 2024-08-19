@@ -13,9 +13,11 @@ radius = 0.1
 [node name="BeachBall" node_paths=PackedStringArray("model") instance=ExtResource("1_ljb3l")]
 mass = 0.28
 physics_material_override = SubResource("PhysicsMaterial_3tmhj")
-model = NodePath("beachball")
+model = NodePath("Mesh")
 
-[node name="beachball" parent="." index="0" instance=ExtResource("2_agl27")]
+[node name="Mesh" parent="." index="0" instance=ExtResource("2_agl27")]
+
+[node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
 
 [node name="ScallableCollisionShape3D" type="CollisionShape3D" parent="." index="2"]
 shape = SubResource("SphereShape3D_r36vj")

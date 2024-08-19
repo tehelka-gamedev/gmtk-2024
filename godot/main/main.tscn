@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://jeihxw20nydi"]
+[gd_scene load_steps=32 format=3 uid="uid://jeihxw20nydi"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_tycjl"]
 [ext_resource type="PackedScene" uid="uid://b3osahesu8vvn" path="res://camera/player_camera.tscn" id="1_y5qgp"]
@@ -10,15 +10,25 @@
 [ext_resource type="PackedScene" uid="uid://b4ckgjiuaqsuw" path="res://game_object/beachball/beach_ball.tscn" id="5_7w4q0"]
 [ext_resource type="PackedScene" uid="uid://be0p0p4t8aqt6" path="res://hud/hud.tscn" id="6_ufsw2"]
 [ext_resource type="PackedScene" uid="uid://dvex3p54ywo5a" path="res://game_object/stepladder/step_ladder.tscn" id="6_wbhtt"]
+[ext_resource type="PackedScene" uid="uid://6o1e2bom3n0q" path="res://game_object/banana/banana.tscn" id="7_c0m3e"]
 [ext_resource type="PackedScene" uid="uid://d16adc8cfh5cy" path="res://main/gameplay/scaling_gauge.tscn" id="8_7lvbe"]
+[ext_resource type="PackedScene" uid="uid://hrg6wqxvcyb6" path="res://game_object/wheel/wheel.tscn" id="8_gx5w5"]
+[ext_resource type="PackedScene" uid="uid://bbyw2biblghj5" path="res://game_object/anvil/anvil.tscn" id="8_ylhf7"]
 [ext_resource type="Script" path="res://main/gameplay/scaling_gauge.gd" id="9_6u6kg"]
+[ext_resource type="PackedScene" uid="uid://btil01b1js8kr" path="res://game_object/bucket/bucket.tscn" id="10_xpell"]
+[ext_resource type="PackedScene" uid="uid://46v17b0hf4ta" path="res://game_object/crown/crown.tscn" id="11_qnvhb"]
+[ext_resource type="PackedScene" uid="uid://cbfqri6wfv86j" path="res://game_object/plank/plank.tscn" id="12_oqme4"]
+[ext_resource type="PackedScene" uid="uid://304lx1qxb5wi" path="res://game_object/rocks/rock1/rock1.tscn" id="13_du4r6"]
 [ext_resource type="Script" path="res://camera/win_viewport.gd" id="13_jcre4"]
+[ext_resource type="PackedScene" uid="uid://rhpvvtu8fhvt" path="res://game_object/rocks/rock2/rock2.tscn" id="14_tgja4"]
+[ext_resource type="PackedScene" uid="uid://jmieyh71fv35" path="res://game_object/rocks/rock3/rock3.tscn" id="15_tuxhw"]
+[ext_resource type="PackedScene" uid="uid://dwl2tiq2c2xy4" path="res://game_object/joystick/joystick.tscn" id="16_knfnx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_d0g7d"]
 size = Vector3(100, 10, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85j64"]
-albedo_color = Color(0.25459, 0.356683, 0.349198, 1)
+albedo_color = Color(0.368102, 0.368102, 0.368102, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_s75uj"]
 
@@ -26,10 +36,11 @@ albedo_color = Color(0.25459, 0.356683, 0.349198, 1)
 size = Vector3(100, 1, 100)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5jlxj"]
-sky_top_color = Color(1, 0.454902, 0.54902, 1)
-sky_horizon_color = Color(0.647059, 0.533333, 0.670588, 1)
+sky_top_color = Color(0.704639, 0.704639, 0.704639, 1)
+sky_horizon_color = Color(0.701315, 0.701314, 0.701315, 1)
 sky_curve = 0.130582
-ground_horizon_color = Color(0.0431373, 0.690196, 0.670588, 1)
+ground_bottom_color = Color(0.368627, 0.368627, 0.368627, 1)
+ground_horizon_color = Color(0.701961, 0.701961, 0.701961, 1)
 
 [sub_resource type="Sky" id="Sky_eouk7"]
 sky_material = SubResource("ProceduralSkyMaterial_5jlxj")
@@ -47,7 +58,7 @@ point_count = 5
 
 [node name="Main" type="Node3D" node_paths=PackedStringArray("_win_viewport")]
 script = ExtResource("1_tycjl")
-object_pool = Array[PackedScene]([ExtResource("2_kp88t"), ExtResource("3_rfsl0"), ExtResource("4_xan4c"), ExtResource("5_7w4q0"), ExtResource("6_wbhtt")])
+object_pool = Array[PackedScene]([ExtResource("2_kp88t"), ExtResource("3_rfsl0"), ExtResource("4_xan4c"), ExtResource("5_7w4q0"), ExtResource("6_wbhtt"), ExtResource("8_gx5w5"), ExtResource("8_ylhf7"), ExtResource("7_c0m3e"), ExtResource("10_xpell"), ExtResource("11_qnvhb"), ExtResource("12_oqme4"), ExtResource("13_du4r6"), ExtResource("14_tgja4"), ExtResource("15_tuxhw"), ExtResource("16_knfnx")])
 no_movement_duration_before_game_win = 1.0
 main_menu_scene = "res://main/main_menu.tscn"
 _win_viewport = NodePath("WinViewport")
@@ -87,6 +98,7 @@ environment = SubResource("Environment_4nusp")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 8.30557, 3.48861)
+light_color = Color(0.641934, 0.641934, 0.641934, 1)
 shadow_enabled = true
 
 [node name="HUD" parent="." instance=ExtResource("6_ufsw2")]

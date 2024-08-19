@@ -1,9 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://6o1e2bom3n0q"]
+[gd_scene load_steps=12 format=3 uid="uid://6o1e2bom3n0q"]
 
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_a2chc"]
 [ext_resource type="PackedScene" uid="uid://8bvfb0rinoku" path="res://game_object/banana/banana_low.fbx" id="2_c8gtv"]
+[ext_resource type="Texture2D" uid="uid://e0s38tmeo416" path="res://game_object/banana/Texture_export/banana_low_banana_BaseColor.png" id="3_cq6xf"]
+[ext_resource type="Texture2D" uid="uid://bk8qoiuvfkf70" path="res://game_object/banana/Texture_export/banana_low_banana_Height.exr" id="4_in8e4"]
+[ext_resource type="Texture2D" uid="uid://ih840haf1np6" path="res://game_object/banana/Texture_export/banana_low_banana_Metallic.png" id="5_8otko"]
+[ext_resource type="Texture2D" uid="uid://b4a7quj5yh4gn" path="res://game_object/banana/Texture_export/banana_low_banana_Normal.png" id="6_ox1hk"]
+[ext_resource type="Texture2D" uid="uid://1u8fak10c0gh" path="res://game_object/banana/Texture_export/banana_low_banana_Roughness.png" id="7_qw3bw"]
+[ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="8_o0qpk"]
 
-[node name="Banana" instance=ExtResource("1_a2chc")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_det6w"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_cq6xf")
+metallic_texture = ExtResource("5_8otko")
+roughness_texture = ExtResource("7_qw3bw")
+normal_enabled = true
+normal_texture = ExtResource("6_ox1hk")
+heightmap_enabled = true
+heightmap_texture = ExtResource("4_in8e4")
+heightmap_flip_texture = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jl1d8"]
+points = PackedVector3Array(-0.00149588, -0.00289606, 0.065993, 0.00619115, -0.0438932, -0.0186073, 0.0122177, 0.00976839, -0.0282571, -0.0216095, 0.00131373, -0.0282571, -0.0181238, -0.0302557, 0.0294943, 0.0198732, -0.0181765, 0.0362511, 0.000945065, 0.0125905, 0.0647596, 0.0263143, -0.021234, -0.0282571, 0.00604498, -0.0379436, 0.0346104, -0.0159709, -0.0381433, -0.025437, 0.015037, 0.00131373, 0.0591289, -0.0103322, 0.00695211, 0.0562991, 0.0178563, -0.0381433, -0.0141564, 0.00608016, -0.0182515, 0.0596038, -0.0131516, 0.00695211, -0.0282571, -0.00187426, -0.0437874, -0.0282571, -0.0136331, -0.020695, 0.0493449, 0.0035737, -0.0426974, 0.0174134, -0.018585, -0.00839164, 0.0272198, 0.0263143, -0.0156072, -0.025437, 0.0122177, -0.0437874, -0.025437, 0.00939834, 0.00695211, 0.0675894, -0.0191657, -0.0309297, -0.0232257, -0.00469358, 0.00695211, 0.0704095, -0.00187426, 0.00976839, -0.0282571, 0.0106178, -0.039445, 0.0199029, 0.023495, -0.0296944, -0.0141564, -0.0185973, -0.0330294, 0.0173862, -0.0216095, 0.00131373, -0.0197967, -0.00469358, -0.0437874, -0.0226168, 0.00116096, -0.0301327, 0.0461288, 0.00831004, -0.034879, 0.038944)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tr2ak"]
+points = PackedVector3Array(0.00939834, 0.0125932, -0.0282571, 0.000945065, 0.0125932, -0.0282571, 0.00657902, 0.0746095, -0.11001, -0.0184172, -0.00168815, -0.0801204, -0.0216095, 0.00414437, -0.0282571, 0.01992, 0.00838929, -0.0796658, 0.0263143, -0.0155928, -0.0282571, 0.00856697, -0.00696679, -0.087781, -0.00469358, 0.0717701, -0.0959013, -0.0173971, -0.0319869, -0.0309504, -0.0161804, 0.0228053, -0.0925972, 0.00939834, 0.0717701, -0.101543, 0.0178563, -0.03533, -0.031082, 0.00855649, 0.0104499, -0.0976707, 0.020808, 0.0277014, -0.0851229, 0.0011173, -0.0216953, -0.0703694, -0.0186294, 0.0277397, -0.0728331, -0.00469358, 0.0717701, -0.107185, -0.00187426, 0.0717701, -0.0930925, 0.00112491, 0.0104968, -0.0974013, 0.0122177, -0.0409626, -0.0395485, 0.0232416, -0.00178666, -0.0630012, -0.0190937, -0.0249512, -0.0451686, 0.000945065, 0.0661375, -0.11001, 0.00102138, -0.0405801, -0.0304738, 0.0178563, 0.0013165, -0.0282571, 0.0206756, -0.0296859, -0.0367237, 0.0037597, 0.0717701, -0.0930925, 0.00364095, -0.0362062, -0.0471958, -0.0162743, -0.0193574, -0.0604476, -0.0179954, 0.00584349, -0.0870868, 0.00113577, -0.00652235, -0.0874106)
+
+[node name="Banana" node_paths=PackedStringArray("model") instance=ExtResource("1_a2chc")]
 mass = 0.226
+model = NodePath("Mesh")
 
-[node name="banana" parent="." index="1" instance=ExtResource("2_c8gtv")]
+[node name="Mesh" parent="." index="0" instance=ExtResource("2_c8gtv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00284571, 0.011695)
+
+[node name="low" parent="Mesh/banana" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00287651, 0.00067261)
+
+[node name="banana_low" parent="Mesh/banana/low" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000411661, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_det6w")
+
+[node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.003, -0.012)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00613388, 0.0123676)
+shape = SubResource("ConvexPolygonShape3D_jl1d8")
+script = ExtResource("8_o0qpk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00613388, 0.0123676)
+shape = SubResource("ConvexPolygonShape3D_tr2ak")
+script = ExtResource("8_o0qpk")
+
+[editable path="Mesh"]

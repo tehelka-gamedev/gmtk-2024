@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbyw2biblghj5"]
+
+[ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_istwb"]
+[ext_resource type="PackedScene" uid="uid://bxs6ttrmayygb" path="res://game_object/anvil/anvil.fbx" id="2_vlyvm"]
+[ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="3_a2tnr"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uwphs"]
+points = PackedVector3Array(0.0699, 0.147172, 0.245208, -0.0376933, 0.00993362, -0.0733849, 0.0381017, 0.00510187, -0.0787532, 0.00704709, 0.146253, -0.281194, -0.0720318, 0.119889, 0.281194, 0.0391192, 0.00306694, 0.105328, -0.065456, 0.1481, -0.112154, 0.0699, 0.147172, -0.110711, 0.0773524, 0.111111, 0.272386, -0.0368645, 0.0847463, -0.237209, -0.0385509, 0.00852997, 0.0974372, -0.065456, 0.1481, 0.256438, 0.0421997, 0.0847463, -0.228456, -0.0720318, 0.0847463, 0.140597, 0.0773524, 0.0935396, 0.158158, -0.0544408, 0.0935396, -0.202087, 0.0680535, 0.106738, -0.10767, -0.0456526, 0.128682, -0.228456, 0.0421997, 0.128682, -0.246017, 0.0627621, 0.1481, 0.256438, -0.0720318, 0.111111, 0.272386, 0.0334116, 0.0759839, -0.228456, -0.0674606, 0.141953, -0.123723, 0.0773524, 0.119889, 0.281194, -0.0105, 0.146253, -0.281194, 0.0509879, 0.0847463, -0.202087, 0.0627621, 0.1481, -0.120186, 0.00681714, 0.117587, -0.266454, -0.0579716, 0.0830969, -0.106981, 0.0334116, 0.13746, -0.254825, 0.0694727, 0.13884, -0.117886, -0.0456526, 0.0847463, -0.219648)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f36d3"]
+points = PackedVector3Array(-0.0398708, -0.0129171, -0.0716686, 0.094927, -0.117341, 0.202075, 0.0892411, -0.1481, 0.192256, -0.0983936, -0.117341, 0.202075, -0.0927077, -0.1481, -0.121958, 0.094927, -0.126115, -0.131777, 0.0400912, -0.00667488, 0.110442, 0.039329, -0.00797109, -0.0798111, -0.0927077, -0.1481, 0.192256, -0.0411232, -0.0107864, 0.106089, -0.0983936, -0.126115, -0.131777, 0.0892411, -0.1481, -0.121958, 0.094927, -0.117341, -0.122984, -0.0983936, -0.117341, 0.105391, -0.0413695, -0.0183016, 0.114471)
+
+[node name="Anvil" node_paths=PackedStringArray("model") instance=ExtResource("1_istwb")]
+mass = 60.0
+model = NodePath("Mesh")
+
+[node name="Mesh" parent="." index="0" instance=ExtResource("2_vlyvm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.203534, 0)
+
+[node name="anvil" parent="Mesh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.157364, 0)
+
+[node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.204, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00123082, -0.0218839)
+shape = SubResource("ConvexPolygonShape3D_uwphs")
+script = ExtResource("3_a2tnr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00123082, -0.0218839)
+shape = SubResource("ConvexPolygonShape3D_f36d3")
+script = ExtResource("3_a2tnr")
+
+[editable path="Mesh"]

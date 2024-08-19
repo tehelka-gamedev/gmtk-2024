@@ -53,79 +53,86 @@ points = PackedVector3Array(0.268447, -0.472622, 0.2689, -0.271587, -0.540127, 0
 transform = Transform3D(1, 0, 0, 0, 0.999995, -0.00307177, 0, 0.00307177, 0.999995, 0, 0, 0)
 mass = 20.0
 center_of_mass = Vector3(0, 0.26, 0)
-scale_pivot = Vector3(0, 0.602, 0)
-model = NodePath("stepladder")
+model = NodePath("Mesh")
 scaling_cost = 3
 
-[node name="stepladder" parent="." index="0" instance=ExtResource("2_4bckg")]
+[node name="Mesh" parent="." index="0" instance=ExtResource("2_4bckg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.742082, -0.0841687)
+
+[node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.895176, 0.0567386)
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.755921, 0.127416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0138391, 0.0432473)
 shape = SubResource("ConvexPolygonShape3D_6fugg")
 script = ExtResource("3_y4tbl")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.755921, 0.127416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0138391, 0.0432473)
 shape = SubResource("ConvexPolygonShape3D_1jms0")
 script = ExtResource("3_y4tbl")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.755921, 0.127416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0138391, 0.0432473)
 shape = SubResource("ConvexPolygonShape3D_4osvf")
 script = ExtResource("3_y4tbl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.755921, 0.127416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0138391, 0.0432473)
 shape = SubResource("ConvexPolygonShape3D_qf8ta")
 script = ExtResource("3_y4tbl")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57628e-08, 0.789824, -0.0828235)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57628e-08, 0.0477421, -0.166992)
 shape = SubResource("ConvexPolygonShape3D_w6w07")
 script = ExtResource("3_y4tbl")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="." index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57628e-08, 0.789824, -0.0828235)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57628e-08, 0.0477421, -0.166992)
 shape = SubResource("ConvexPolygonShape3D_a1v44")
 script = ExtResource("3_y4tbl")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="." index="8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57628e-08, 0.789824, -0.0828235)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57628e-08, 0.0477421, -0.166992)
 shape = SubResource("ConvexPolygonShape3D_ompyf")
 script = ExtResource("3_y4tbl")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.742082, -0.0841687)
 shape = SubResource("ConvexPolygonShape3D_2jpbx")
 script = ExtResource("3_y4tbl")
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.742082, -0.0841687)
 shape = SubResource("ConvexPolygonShape3D_0b866")
 script = ExtResource("3_y4tbl")
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.742082, -0.0841687)
 shape = SubResource("ConvexPolygonShape3D_7i63o")
 script = ExtResource("3_y4tbl")
 
 [node name="CollisionShape3D10" type="CollisionShape3D" parent="." index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.742082, -0.0841687)
 shape = SubResource("ConvexPolygonShape3D_r7tb8")
 script = ExtResource("3_y4tbl")
 
 [node name="CollisionShape3D15" type="CollisionShape3D" parent="." index="13"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.697726, 0.315175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.044356, 0.231006)
 shape = SubResource("ConvexPolygonShape3D_y6mum")
 script = ExtResource("3_y4tbl")
 
 [node name="CollisionShape3D14" type="CollisionShape3D" parent="." index="14"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.697726, 0.315175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.044356, 0.231006)
 shape = SubResource("ConvexPolygonShape3D_lslwv")
 script = ExtResource("3_y4tbl")
 
 [node name="CollisionShape3D13" type="CollisionShape3D" parent="." index="15"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.697726, 0.315175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.044356, 0.231006)
 shape = SubResource("ConvexPolygonShape3D_1jnb3")
 script = ExtResource("3_y4tbl")
 
 [node name="CollisionShape3D12" type="CollisionShape3D" parent="." index="16"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.697726, 0.315175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.044356, 0.231006)
 shape = SubResource("ConvexPolygonShape3D_gc6sx")
 script = ExtResource("3_y4tbl")

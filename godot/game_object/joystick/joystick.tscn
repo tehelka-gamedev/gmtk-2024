@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://dwl2tiq2c2xy4"]
+
+[ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_dyhrf"]
+[ext_resource type="PackedScene" uid="uid://c6w25r0hyfrv6" path="res://game_object/joystick/joystick_low.fbx" id="2_hx1em"]
+[ext_resource type="Texture2D" uid="uid://b86uvidww4j8c" path="res://game_object/joystick/Texture_export/joystick_low_crown_mat_BaseColor.png" id="3_vfr84"]
+[ext_resource type="Texture2D" uid="uid://bb8g8xe3tkf5o" path="res://game_object/joystick/Texture_export/joystick_low_crown_mat_Height.exr" id="4_dgsbj"]
+[ext_resource type="Texture2D" uid="uid://dp1p6r4quoq2c" path="res://game_object/joystick/Texture_export/joystick_low_crown_mat_Metallic.png" id="5_e5jd0"]
+[ext_resource type="Texture2D" uid="uid://btj6qux7ba6ph" path="res://game_object/joystick/Texture_export/joystick_low_crown_mat_Normal.png" id="6_ewm0b"]
+[ext_resource type="Texture2D" uid="uid://k2lfahqdobfk" path="res://game_object/joystick/Texture_export/joystick_low_crown_mat_Roughness.png" id="7_lfd45"]
+[ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="8_65qm2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ctx4"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_vfr84")
+metallic_texture = ExtResource("5_e5jd0")
+roughness_texture = ExtResource("7_lfd45")
+normal_enabled = true
+normal_texture = ExtResource("6_ewm0b")
+heightmap_enabled = true
+heightmap_texture = ExtResource("4_dgsbj")
+heightmap_flip_texture = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t4dgv"]
+size = Vector3(0.3277, 0.129769, 0.323441)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5du51"]
+height = 0.149757
+radius = 0.0282894
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_b80pe"]
+radius = 0.075815
+
+[node name="Joystick" node_paths=PackedStringArray("model") instance=ExtResource("1_dyhrf")]
+mass = 0.6
+model = NodePath("Mesh")
+
+[node name="Mesh" parent="." index="0" instance=ExtResource("2_hx1em")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.137589, 0)
+
+[node name="joystick" parent="Mesh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="base_low" parent="Mesh/joystick/low" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5ctx4")
+
+[node name="stick_low" parent="Mesh/joystick/low" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5ctx4")
+
+[node name="ball_low" parent="Mesh/joystick/low" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5ctx4")
+
+[node name="buttonbottomleft_low" parent="Mesh/joystick/low" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5ctx4")
+
+[node name="buttonleft_low" parent="Mesh/joystick/low" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5ctx4")
+
+[node name="basefirst_low" parent="Mesh/joystick/low" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5ctx4")
+
+[node name="basesecond_low" parent="Mesh/joystick/low" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5ctx4")
+
+[node name="buttonbottomright_low" parent="Mesh/joystick/low" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5ctx4")
+
+[node name="buttonright_low" parent="Mesh/joystick/low" index="8"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5ctx4")
+
+[node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0311795, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00158871, -0.136232, 0.000353321)
+shape = SubResource("BoxShape3D_t4dgv")
+script = ExtResource("8_65qm2")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00278103, 0)
+shape = SubResource("CylinderShape3D_5du51")
+script = ExtResource("8_65qm2")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.129131, 0)
+shape = SubResource("SphereShape3D_b80pe")
+script = ExtResource("8_65qm2")
+
+[editable path="Mesh"]

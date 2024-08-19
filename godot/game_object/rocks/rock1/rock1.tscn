@@ -1,0 +1,47 @@
+[gd_scene load_steps=11 format=3 uid="uid://304lx1qxb5wi"]
+
+[ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_j744h"]
+[ext_resource type="PackedScene" uid="uid://yjcf38ev1mw3" path="res://game_object/rocks/rock1/rock1_low.fbx" id="2_es1pw"]
+[ext_resource type="Texture2D" uid="uid://cao4xm8lrib2e" path="res://game_object/rocks/rock1/Texture_export/rock1_low_rock1_mat_BaseColor.png" id="3_mjwho"]
+[ext_resource type="Texture2D" uid="uid://ccy6kchca0tub" path="res://game_object/rocks/rock1/Texture_export/rock1_low_rock1_mat_Height.exr" id="4_oeybb"]
+[ext_resource type="Texture2D" uid="uid://by7kdp6kqp6od" path="res://game_object/rocks/rock1/Texture_export/rock1_low_rock1_mat_Metallic.png" id="5_qg1h5"]
+[ext_resource type="Texture2D" uid="uid://dm3ntowovyi20" path="res://game_object/rocks/rock1/Texture_export/rock1_low_rock1_mat_Normal.png" id="6_c373o"]
+[ext_resource type="Texture2D" uid="uid://blfqbqpfx7m6g" path="res://game_object/rocks/rock1/Texture_export/rock1_low_rock1_mat_Roughness.png" id="7_5ta0w"]
+[ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="8_yo4vg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tae0w"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_mjwho")
+metallic_texture = ExtResource("5_qg1h5")
+roughness_texture = ExtResource("7_5ta0w")
+normal_enabled = true
+normal_texture = ExtResource("6_c373o")
+heightmap_enabled = true
+heightmap_texture = ExtResource("4_oeybb")
+heightmap_flip_texture = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5c5pk"]
+points = PackedVector3Array(0.21278, 0.17114, 0.113219, -0.0378835, 0.0502895, -0.187109, -0.0721783, -0.00662115, -0.176779, -0.323384, 0.129491, 0.0841657, 0.336399, -0.0863261, 0.0158677, 0.00759151, 0.259806, -0.126282, -0.258905, -0.015474, 0.149119, 0.0514621, 0.13957, 0.225608, 0.255054, 0.0616198, -0.141775, -0.00352304, 0.293876, 0.0820901, -0.29997, 0.152193, -0.0978912, -0.293976, -0.0612145, 0.0635495, 0.350953, 0.0955179, 0.0270423, 0.246796, -0.0612145, -0.140694, -0.34543, 0.0271106, -0.0637197, -0.282832, 0.218202, -0.039828, 0.0516095, 0.0733512, 0.226521, 0.0185, -0.0937093, 0.0715572, 0.24129, 0.195753, -0.0174484, 0.174005, 0.117621, -0.184015, 0.376248, 0.0507341, 0.0494405, 0.0406065, -0.0704272, -0.0946018, -0.0147772, 0.128837, 0.227559, -0.0480212, 0.250953, -0.139488, 0.152182, 0.251517, 0.071653, -0.352672, 0.0372434, 0.0968657, 0.387241, 0.0146059, 0.00426493, 0.165938, 0.186084, -0.154231, -0.311139, -0.00692875, -0.0750403, -0.199256, 0.193584, 0.103182, 0.0403967, -0.0468776, 0.125633, 0.250859, 0.0291102, 0.12666)
+
+[node name="Rock1" node_paths=PackedStringArray("model") instance=ExtResource("1_j744h")]
+mass = 40.0
+model = NodePath("Mesh")
+
+[node name="Mesh" parent="." index="0" instance=ExtResource("2_es1pw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.120205, 0)
+
+[node name="rock1" parent="Mesh" index="0"]
+transform = Transform3D(0.999779, -0.0210301, 0, 0.0210301, 0.999779, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="rock1_low" parent="Mesh/rock1" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_tae0w")
+
+[node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(0.999779, -0.0210301, 0, 0.0210301, 0.999779, 0, 0, 0, 1, -0.0552059, -0.0725733, 0)
+shape = SubResource("ConvexPolygonShape3D_5c5pk")
+script = ExtResource("8_yo4vg")
+
+[editable path="Mesh"]
