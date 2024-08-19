@@ -14,6 +14,9 @@ Processus d'import des assets 3D
 - retype les collisions shapes en ScallableCollisionShape3D
 
 
+### À faire graphique
+- Table avec un pied cassé
+
 ### Choses à faire en priorité
 - Faire la page Itch.io
 - Faire environment
