@@ -3,21 +3,21 @@
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_c56hq"]
 [ext_resource type="PackedScene" uid="uid://dj2jnwbtf22ct" path="res://game_object/wheel/wheel_low.fbx" id="2_8cp7n"]
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="3_7h7qu"]
-[ext_resource type="Texture2D" uid="uid://dod536cjfl8g5" path="res://game_object/wheel/Texture_export/wheel_low_wheel_mat_BaseColor.png" id="3_dhoxy"]
-[ext_resource type="Texture2D" uid="uid://2am2vnulnena" path="res://game_object/wheel/Texture_export/wheel_low_wheel_mat_Height.exr" id="4_fsvgk"]
-[ext_resource type="Texture2D" uid="uid://cs6gq80o8u783" path="res://game_object/wheel/Texture_export/wheel_low_wheel_mat_Metallic.png" id="5_sde1h"]
-[ext_resource type="Texture2D" uid="uid://cmsxmawm1ar48" path="res://game_object/wheel/Texture_export/wheel_low_wheel_mat_Normal.png" id="6_urbxh"]
-[ext_resource type="Texture2D" uid="uid://to45n64m2dh2" path="res://game_object/wheel/Texture_export/wheel_low_wheel_mat_Roughness.png" id="7_tfu2t"]
+[ext_resource type="Texture2D" uid="uid://dod536cjfl8g5" path="res://game_object/wheel/Texture_export/wheel_low_wheel_mat_BaseColor.png" id="3_8gnyq"]
+[ext_resource type="Texture2D" uid="uid://2am2vnulnena" path="res://game_object/wheel/Texture_export/wheel_low_wheel_mat_Height.exr" id="4_7xsoh"]
+[ext_resource type="Texture2D" uid="uid://cs6gq80o8u783" path="res://game_object/wheel/Texture_export/wheel_low_wheel_mat_Metallic.png" id="5_ecvjp"]
+[ext_resource type="Texture2D" uid="uid://cmsxmawm1ar48" path="res://game_object/wheel/Texture_export/wheel_low_wheel_mat_Normal.png" id="6_5liis"]
+[ext_resource type="Texture2D" uid="uid://to45n64m2dh2" path="res://game_object/wheel/Texture_export/wheel_low_wheel_mat_Roughness.png" id="7_ta0pb"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8rum6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l4xmd"]
 resource_local_to_scene = true
-albedo_texture = ExtResource("3_dhoxy")
-metallic_texture = ExtResource("5_sde1h")
-roughness_texture = ExtResource("7_tfu2t")
+albedo_texture = ExtResource("3_8gnyq")
+metallic_texture = ExtResource("5_ecvjp")
+roughness_texture = ExtResource("7_ta0pb")
 normal_enabled = true
-normal_texture = ExtResource("6_urbxh")
+normal_texture = ExtResource("6_5liis")
 heightmap_enabled = true
-heightmap_texture = ExtResource("4_fsvgk")
+heightmap_texture = ExtResource("4_7xsoh")
 heightmap_flip_texture = true
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cwxqo"]
@@ -109,13 +109,13 @@ model = NodePath("Mesh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33876, 0)
 
 [node name="wheelinterior_low" parent="Mesh/wheelwood/low" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_8rum6")
+surface_material_override/0 = SubResource("StandardMaterial3D_l4xmd")
 
 [node name="wheelexterior_low" parent="Mesh/wheelwood/low" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_8rum6")
+surface_material_override/0 = SubResource("StandardMaterial3D_l4xmd")
 
 [node name="wheelwood_low" parent="Mesh/wheelwood/low" index="2"]
-surface_material_override/0 = SubResource("StandardMaterial3D_8rum6")
+surface_material_override/0 = SubResource("StandardMaterial3D_l4xmd")
 
 [node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.339, 0)
