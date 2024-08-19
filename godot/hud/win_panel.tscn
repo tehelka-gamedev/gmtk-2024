@@ -9,6 +9,7 @@
 bg_color = Color(0.180005, 0.180005, 0.180005, 1)
 
 [node name="WinPanel" type="PanelContainer" node_paths=PackedStringArray("stats_zone", "photo_zone", "button_replay", "button_menu")]
+self_modulate = Color(1, 1, 1, 0.94902)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

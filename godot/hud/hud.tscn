@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://be0p0p4t8aqt6"]
+[gd_scene load_steps=7 format=3 uid="uid://be0p0p4t8aqt6"]
 
 [ext_resource type="Script" path="res://hud/hud.gd" id="1_5pbm8"]
 [ext_resource type="Texture2D" uid="uid://46pg3af12jhy" path="res://hud/crosshair.png" id="1_bqivw"]
 [ext_resource type="PackedScene" uid="uid://dxpw7bpabpgo4" path="res://debug/debug_window.tscn" id="2_51vf8"]
-[ext_resource type="Script" path="res://debug/debug_window.gd" id="3_gp178"]
 [ext_resource type="Script" path="res://hud/gauge_bar.gd" id="5_v7uf2"]
 [ext_resource type="PackedScene" uid="uid://cyiio111ful15" path="res://main/main-menu/mute_sounds_container.tscn" id="6_1omwq"]
 [ext_resource type="PackedScene" uid="uid://dbbye1j2u3f12" path="res://hud/win_panel.tscn" id="7_g03qq"]
@@ -35,7 +34,6 @@ texture = ExtResource("1_bqivw")
 
 [node name="DebugWindow" parent="." instance=ExtResource("2_51vf8")]
 layout_mode = 1
-script = ExtResource("3_gp178")
 metadata/_edit_lock_ = true
 
 [node name="GaugeZone" type="MarginContainer" parent="."]
@@ -105,7 +103,8 @@ theme_override_constants/margin_bottom = 16
 [node name="VBoxContainer" type="VBoxContainer" parent="ObjectScaleGauge"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ObjectScaleGauge/VBoxContainer"]
+[node name="ObjectScaleLabel" type="Label" parent="ObjectScaleGauge/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Object Scale"

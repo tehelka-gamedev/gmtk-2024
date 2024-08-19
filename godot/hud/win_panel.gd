@@ -13,8 +13,7 @@ func _ready() -> void:
 		Events.replay_requested.emit()
 	)
 	button_menu.pressed.connect(_on_button_menu_pressed)
-	print(main_menu_scene)
-	print("READY")
+
 
 func setup_win(win_stats:WinStats, photo:Texture2D) -> void:
 	stats_zone.set_stats(win_stats)

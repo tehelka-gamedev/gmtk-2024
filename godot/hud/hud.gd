@@ -8,6 +8,7 @@ extends Control
 @onready var object_max_scale: Label = %ObjectMaxScale
 @onready var object_scale_gauge: MarginContainer = %ObjectScaleGauge
 @onready var object_scale_bar: ProgressBar = %ObjectScaleBar
+@onready var object_scale_label: Label = %ObjectScaleLabel
 
 
 func _ready() -> void:
@@ -26,6 +27,7 @@ func on_select(object: GameObject) -> void:
 	object_scale_bar.min_value = object.min_scale
 	object_scale_bar.max_value = object.max_scale
 	object_scale_bar.value = object.object_scale
+	object_scale_label.text = "Current object scale: %.2f" % [object.object_scale]
 	object_scale_gauge.visible = true
 	
 	
@@ -35,3 +37,4 @@ func on_unselect_object() -> void:
 
 func on_object_scale_changed(new_scale: float) -> void:
 	object_scale_bar.value = new_scale
+	object_scale_label.text = "Current object scale: %.2f" % [new_scale]
