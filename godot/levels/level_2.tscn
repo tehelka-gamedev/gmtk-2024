@@ -5,14 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://dwl2tiq2c2xy4" path="res://game_object/joystick/joystick.tscn" id="3_fku1n"]
 
 [node name="Level2" instance=ExtResource("1_yt1jq")]
-target_height = 6.4
+target_height = 6.5
 no_movement_duration_before_game_win = 3.0
-level_name = "Hello"
+level_name = "Joystick"
 sandbox_mode = false
 
 [node name="Table" parent="Objects" index="0" instance=ExtResource("2_7nkod")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.318699, 0)
-scaling_cost = 1.0
 
 [node name="Joystick" parent="Objects" index="1" instance=ExtResource("3_fku1n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0104568, 0.82736, 0)

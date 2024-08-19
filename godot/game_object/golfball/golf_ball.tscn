@@ -14,9 +14,9 @@ radius = 0.02
 mass = 0.046
 physics_material_override = SubResource("PhysicsMaterial_idfn3")
 model = NodePath("Mesh")
-scaling_cost = 0.1
+scale_factor = 20.0
 min_scale = 1.0
-max_scale = 10.0
+max_scale = 50.0
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_nppoh")]
 

@@ -25,6 +25,7 @@ collision_layer = 0
 collision_mask = 3
 
 [node name="HeightLine" type="MeshInstance3D" parent="."]
+visible = false
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_h0i61")
 surface_material_override/0 = ExtResource("2_5pu22")
@@ -35,6 +36,7 @@ target_position = Vector3(0, -10, 0)
 collision_mask = 3
 
 [node name="HeightLineImpact" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("SphereMesh_yni0n")
 surface_material_override/0 = ExtResource("2_5pu22")
 script = ExtResource("2_3o2uw")

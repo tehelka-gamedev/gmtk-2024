@@ -127,14 +127,14 @@ func _handle_selected_object_input(event: InputEvent) -> void:
 		return
 	## Handle selected object resize	
 	if event.is_action("scale_up"):
-		if _scaling_gauge.can_pay(_current_selected_object.scaling_cost):
+		if _scaling_gauge.can_pay(1.0):
 			if _current_selected_object.scale_up():
-				_scaling_gauge.pay(_current_selected_object.scaling_cost)
+				_scaling_gauge.pay(1.0)
 				_hud.on_object_scale_changed(_current_selected_object.object_scale)
 	elif event.is_action("scale_down"):
 		if not _scaling_gauge.isFull():
 			if _current_selected_object.scale_down():
-				_scaling_gauge.restore(_current_selected_object.scaling_cost)
+				_scaling_gauge.restore(1.0)
 				_hud.on_object_scale_changed(_current_selected_object.object_scale)
 
 

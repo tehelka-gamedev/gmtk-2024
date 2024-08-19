@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b4ckgjiuaqsuw" path="res://game_object/beachball/beach_ball.tscn" id="4_0etsp"]
 
 [node name="Level3" instance=ExtResource("1_pmudx")]
-target_height = 3.1
 level_name = "The ball"
 sandbox_mode = false
 

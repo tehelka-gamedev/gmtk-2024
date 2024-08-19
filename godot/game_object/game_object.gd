@@ -2,17 +2,16 @@ class_name GameObject
 extends RigidBody3D
 
 
-@export var scale_sentitivity: float = 1.01
 @export var mouse_sensitivity: float = 0.05
 @export_color_no_alpha var hover_color: Color = Color.YELLOW
 @export_color_no_alpha var valid_color: Color = Color.GREEN
 @export_color_no_alpha var invalid_color: Color = Color.RED
 @export var model: Node3D
+@export var scale_factor: float = 1 # in pourcentage
 
 
 @export_category("Gameplay parameters")
 ## Amount of unit scaling the object cost
-@export var scaling_cost: float = 1.0
 @export var min_scale:float = 0.5
 @export var max_scale:float = 2.0
 
@@ -135,7 +134,7 @@ func stop_hover() -> void:
 func scale_up() -> bool:
 	if object_scale > max_scale:
 		return false
-	object_scale *= scale_sentitivity
+	object_scale *= 1 + scale_factor/100
 	return true
 	
 ## Scale down one time
@@ -143,7 +142,7 @@ func scale_up() -> bool:
 func scale_down() -> bool:
 	if object_scale < min_scale:
 		return false
-	object_scale /= scale_sentitivity
+	object_scale /= 1 + scale_factor/100
 	return true
 
 
