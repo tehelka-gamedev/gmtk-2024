@@ -130,10 +130,12 @@ func _handle_selected_object_input(event: InputEvent) -> void:
 		if _scaling_gauge.can_pay(_current_selected_object.scaling_cost):
 			if _current_selected_object.scale_up():
 				_scaling_gauge.pay(_current_selected_object.scaling_cost)
+				_hud.on_object_scale_changed(_current_selected_object.object_scale)
 	elif event.is_action("scale_down"):
 		if not _scaling_gauge.isFull():
 			if _current_selected_object.scale_down():
 				_scaling_gauge.restore(_current_selected_object.scaling_cost)
+				_hud.on_object_scale_changed(_current_selected_object.object_scale)
 
 
 func _unselect_current_object() -> void:
@@ -143,6 +145,7 @@ func _unselect_current_object() -> void:
 	GameState.current_game_state = Enum.GameState.FREE_CAMERA
 	_current_selected_object = null
 	_player_camera.detach_object()
+	_hud.on_unselect_object()
 
 
 func _on_max_height_changed(max_height: float) -> void:
@@ -187,6 +190,7 @@ func select(object: GameObject) -> void:
 	if GameState.current_game_state == Enum.GameState.FREE_CAMERA:
 		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
 		
+		_hud.on_select(object)
 		object.global_position = _player_camera.global_position + _player_camera.get_forward_direction() * (object.global_position - _player_camera.global_position).length()
 		# tween way, commented out for now
 		#var new_object_position: Vector3 = _player_camera.global_position + _player_camera.get_forward_direction() * (object.global_position - _player_camera.global_position).length()

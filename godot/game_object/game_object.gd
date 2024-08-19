@@ -9,6 +9,7 @@ extends RigidBody3D
 @export_color_no_alpha var invalid_color: Color = Color.RED
 @export var model: Node3D
 
+
 @export_category("Gameplay parameters")
 ## Amount of unit scaling the object cost
 @export var scaling_cost: float = 1.0
@@ -48,9 +49,10 @@ var _initial_mass: float = mass
 @onready var _collision_detector: Area3D = $CollisionDetector
 @onready var _initial_model_position: Vector3 = model.position
 @onready var _height_line: MeshInstance3D = $HeightLine
-@onready var _height_ray_cast: RayCast3D = $HeightLine/RayCast3D
-@onready var _remote_transform_3d: RemoteTransform3D = $RemoteTransform3D
+@onready var _height_ray_cast: RayCast3D = $RayCast3D
 @onready var _mass_center: Marker3D = $Mesh/MassCenter
+@onready var _height_line_impact: MeshInstance3D = $HeightLineImpact
+@onready var _height_line_material: StandardMaterial3D = _height_line.get_surface_override_material(0)
 
 
 func _ready() -> void:
@@ -82,24 +84,29 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotation_degrees = object_rot
 
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not selected:
 		return
-
 	if is_not_colliding():
 		_set_albedo_color(valid_color)
 	else:
 		_set_albedo_color(invalid_color)
 	
+	_height_ray_cast.global_rotation = Vector3.ZERO
+	_height_ray_cast.force_raycast_update()
 	if _height_ray_cast.is_colliding():
 		var collision_point: Vector3 = _height_ray_cast.get_collision_point()
-		var height_vector: Vector3 = collision_point - position
+		_height_line_impact.global_position = collision_point
+		var height_vector: Vector3 = collision_point - global_position
 		var line_mesh: CylinderMesh = _height_line.mesh as CylinderMesh
 		line_mesh.height = height_vector.length()
-		_remote_transform_3d.position = height_vector/2
+		_height_line.global_rotation = Vector3.ZERO
+		_height_line.position = (height_vector/2) * global_basis
+		_height_line_impact.visible = true
 		_height_line.visible = true
 	else:
 		_height_line.visible = false
+		_height_line_impact.visible = false
 
 
 func is_not_colliding() -> bool:
@@ -144,6 +151,7 @@ func _set_albedo_color(color: Color) -> void:
 	for mesh_instance in _mesh_instances:
 		var _mesh_instance_override_material: StandardMaterial3D = mesh_instance.get_surface_override_material(0) as StandardMaterial3D
 		_mesh_instance_override_material.albedo_color = color
+		_height_line_material.albedo_color = Color(color, _height_line_material.albedo_color.a)
 
 
 func _set_scale(value: float) -> void:
@@ -171,8 +179,6 @@ func _get_mesh_instances(current_node: Node) -> Array[MeshInstance3D]:
 
 
 func _enable_height_line(value: bool) -> void:
-	if value == true:
-		_height_line.process_mode = Node.PROCESS_MODE_INHERIT
-	else:
-		_height_line.process_mode = Node.PROCESS_MODE_DISABLED
 	_height_line.visible = value
+	_height_ray_cast.enabled = value
+	_height_line_impact.visible = value
