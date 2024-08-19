@@ -13,6 +13,7 @@ radius = 0.1
 [node name="BeachBall" node_paths=PackedStringArray("model") instance=ExtResource("1_ljb3l")]
 mass = 0.28
 physics_material_override = SubResource("PhysicsMaterial_3tmhj")
+scale_sentitivity = 1.05
 model = NodePath("Mesh")
 min_scale = 1.0
 max_scale = 20.0

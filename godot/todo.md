@@ -15,8 +15,6 @@ Processus d'import des assets 3D
 
 
 ### Choses à faire en priorité
-- Ajouter une barre UI à côté d'un objet sélectionné pour indiquer combien
-	on peut encore le scale up/down
 - Bloquer le zoom in/out à une certaine profondeur
 - Photo de la tour à la fin
 - Voir pour le focus de la souris sur l'export web
