@@ -15,7 +15,6 @@ Processus d'import des assets 3D
 
 
 ### Choses à faire en priorité
-- Ajouter le scale factor à l'UI
 - Faire la page Itch.io
 - Faire environment
 	- Ajouter des arbres
