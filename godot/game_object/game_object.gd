@@ -38,7 +38,7 @@ var object_scale: float = 1.0:
 	set(value):
 		object_scale = value
 		_set_scale(object_scale)
-		mass = _initial_mass * value
+		mass = _initial_mass * value * value
 
 var _collision_shapes: Array[ScallableCollisionShape3D] = []
 var _collision_detector_shapes: Array[ScallableCollisionShape3D] = []
