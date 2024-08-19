@@ -82,6 +82,7 @@ layout_mode = 1
 grow_horizontal = 1
 
 [node name="WinPanel" parent="." instance=ExtResource("7_g03qq")]
+visible = false
 layout_mode = 1
 offset_left = 48.0
 offset_top = 27.0
