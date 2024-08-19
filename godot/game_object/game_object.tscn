@@ -1,23 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://cohw3wvy4s1n4"]
+[gd_scene load_steps=6 format=3 uid="uid://cohw3wvy4s1n4"]
 
 [ext_resource type="Script" path="res://game_object/game_object.gd" id="1_nluqi"]
 [ext_resource type="Script" path="res://game_object/height_line.gd" id="2_3o2uw"]
+[ext_resource type="Material" uid="uid://bh6d8q35uvph1" path="res://game_object/height_line_material.tres" id="2_5pu22"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_h0i61"]
 top_radius = 0.01
 bottom_radius = 0.01
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lbyyp"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.454902)
-
 [sub_resource type="SphereMesh" id="SphereMesh_yni0n"]
 radius = 0.1
 height = 0.2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nuw0d"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.454902)
 
 [node name="GameObject" type="RigidBody3D"]
 collision_layer = 2
@@ -34,7 +27,7 @@ collision_mask = 3
 [node name="HeightLine" type="MeshInstance3D" parent="."]
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_h0i61")
-surface_material_override/0 = SubResource("StandardMaterial3D_lbyyp")
+surface_material_override/0 = ExtResource("2_5pu22")
 script = ExtResource("2_3o2uw")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
@@ -43,5 +36,5 @@ collision_mask = 3
 
 [node name="HeightLineImpact" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_yni0n")
-surface_material_override/0 = SubResource("StandardMaterial3D_nuw0d")
+surface_material_override/0 = ExtResource("2_5pu22")
 script = ExtResource("2_3o2uw")

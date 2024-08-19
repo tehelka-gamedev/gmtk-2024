@@ -9,6 +9,7 @@ extends RigidBody3D
 @export_color_no_alpha var invalid_color: Color = Color.RED
 @export var model: Node3D
 
+
 @export_category("Gameplay parameters")
 ## Amount of unit scaling the object cost
 @export var scaling_cost: float = 1.0
@@ -51,6 +52,7 @@ var _initial_mass: float = mass
 @onready var _height_ray_cast: RayCast3D = $RayCast3D
 @onready var _mass_center: Marker3D = $Mesh/MassCenter
 @onready var _height_line_impact: MeshInstance3D = $HeightLineImpact
+@onready var _height_line_material: StandardMaterial3D = _height_line.get_surface_override_material(0)
 
 
 func _ready() -> void:
@@ -149,6 +151,7 @@ func _set_albedo_color(color: Color) -> void:
 	for mesh_instance in _mesh_instances:
 		var _mesh_instance_override_material: StandardMaterial3D = mesh_instance.get_surface_override_material(0) as StandardMaterial3D
 		_mesh_instance_override_material.albedo_color = color
+		_height_line_material.albedo_color = Color(color, _height_line_material.albedo_color.a)
 
 
 func _set_scale(value: float) -> void:
