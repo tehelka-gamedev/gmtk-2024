@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if _current_selected_object == null:
-		var mouse_position: Vector2 = get_viewport().get_mouse_position()
+		var mouse_position: Vector2 = get_viewport().get_visible_rect().size / 2
 		var object: GameObject = _player_camera.get_object_under_mouse(mouse_position, select_max_distance)
 		if object != null:
 			if _current_hovered_object != null:
