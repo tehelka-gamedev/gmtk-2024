@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhebufpm7wqai"]
+
+[ext_resource type="PackedScene" uid="uid://jeihxw20nydi" path="res://main/level.tscn" id="1_i22by"]
+[ext_resource type="PackedScene" uid="uid://bbyw2biblghj5" path="res://game_object/anvil/anvil.tscn" id="2_tpx3k"]
+
+[node name="Level5" instance=ExtResource("1_i22by")]
+level_name = "Start here!"
+sandbox_mode = false
+
+[node name="Anvil" parent="Objects" index="0" instance=ExtResource("2_tpx3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.169893, 0)
+
+[node name="Anvil2" parent="Objects" index="1" instance=ExtResource("2_tpx3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.410219, 0.167453, 0)
+
+[editable path="Environment/ControlSign"]
+[editable path="Environment/ControlSign/sign_low"]
+[editable path="Environment/ControlSign6"]
+[editable path="Environment/ControlSign6/sign_low"]
+[editable path="Environment/ControlSign3"]
+[editable path="Environment/ControlSign3/sign_low"]
+[editable path="Environment/ControlSign2"]
+[editable path="Environment/ControlSign2/sign_low"]
+[editable path="Environment/ControlSign4"]
+[editable path="Environment/ControlSign4/sign_low"]
+[editable path="Environment/ControlSign5"]
+[editable path="Environment/ControlSign5/sign_low"]
+[editable path="HUD"]
