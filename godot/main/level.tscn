@@ -248,8 +248,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.28193, 0, -1.09977)
 [node name="Tree2" parent="Environment/Trees" instance=ExtResource("20_v7c3k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.83434, 0, -1.7589)
 
+[node name="Tree5" parent="Environment/Trees" instance=ExtResource("20_v7c3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.94554, 0, 0.2411)
+
+[node name="Tree6" parent="Environment/Trees" instance=ExtResource("20_v7c3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.32665, 0, -3.84903)
+
+[node name="Tree7" parent="Environment/Trees" instance=ExtResource("20_v7c3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80695, 0, 5.63509)
+
 [node name="Tree3" parent="Environment/Trees" instance=ExtResource("21_walo6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+transform = Transform3D(0.99998, 0, -0.00635298, 0, 1, 0, 0.00635298, 0, 0.99998, -0.29674, 0, 6.82825)
 
 [node name="Rocks" type="Node3D" parent="Environment"]
 
@@ -266,7 +275,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.93461, 0.0737691, -0.10084
 transform = Transform3D(2.3, 0, 0, 0, -0.0600868, -2.29922, 0, 2.29922, -0.0600868, -7.51486, 0.219525, 0.996654)
 
 [node name="Rock3" parent="Environment/Rocks" instance=ExtResource("21_bwmd0")]
-transform = Transform3D(0.269643, 0, 0.96296, 0, 1, 0, -0.96296, 0, 0.269643, -1.55767, 0.0460605, 6.66355)
+transform = Transform3D(0.269643, 0, 0.96296, 0, 1, 0, -0.96296, 0, 0.269643, 1.43222, 0.046061, 7.1511)
 
 [node name="Sign" parent="Environment" instance=ExtResource("24_d35s3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.349699, 0.0179738, -2.05747)

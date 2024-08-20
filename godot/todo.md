@@ -33,6 +33,7 @@ Processus d'import des assets 3D
 	- Faire backdrop ou je sais pas quoi
 	- Trouver une texture pour le sol
 	- Mettre de l'herbe
+- Revoir le cercle de jeu pour mettre un peu de transparence sur les bords peut-être
 - Menu pause avec bouton pour relancer le niveau (et pas aller au menu principal)
 	- Afficher les controls sur le menu pause
 - Améliorer le menu principale
