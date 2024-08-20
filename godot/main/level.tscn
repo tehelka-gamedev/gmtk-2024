@@ -345,7 +345,7 @@ moving_speed = 4.0
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Billboard" parent="." instance=ExtResource("3_a3m6j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83523, -5.15605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27225, -5.15605)
 
 [node name="HeightDetector" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.2368, 0)
@@ -367,8 +367,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_v118n")
 environment = SubResource("Environment_4nusp")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 8.30557, 3.48861)
-light_color = Color(0.641934, 0.641934, 0.641934, 1)
+transform = Transform3D(0.972435, -0.211876, 0.0973581, 0, 0.417534, 0.908661, -0.233174, -0.883614, 0.406025, 0, 8.30557, 3.48861)
 shadow_enabled = true
 
 [node name="HUD" parent="." instance=ExtResource("6_ufsw2")]

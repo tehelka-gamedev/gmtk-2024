@@ -1,4 +1,4 @@
-@tool
+
 class_name Billboard
 extends StaticBody3D
 
