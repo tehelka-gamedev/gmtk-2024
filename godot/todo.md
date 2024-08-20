@@ -14,14 +14,10 @@ Processus d'import des assets 3D
 - retype les collisions shapes en ScallableCollisionShape3D
 
 
-### À faire graphique
-- Table avec un pied cassé
-- Habillage menu?
 
 ### Choses à faire en priorité
 - Resize le textures de la dumbell
 - Voir l'éclairage du niveau
-- Changer les couleurs du ciel
 - Voir pourquoi la wheel est mal setup
 - Ajouter des explications au début du jeu
 - Tester sur différents navigateurs
