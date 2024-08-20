@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cduummsvefesk"]
+[gd_scene load_steps=12 format=3 uid="uid://cduummsvefesk"]
 
 [ext_resource type="Script" path="res://main/main_menu.gd" id="1_hjvb3"]
 [ext_resource type="Script" path="res://hud/ButtonWithSound.gd" id="2_dlb6r"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://br45w6vtn6a67" path="res://levels/level_4.tscn" id="6_782ro"]
 [ext_resource type="Texture2D" uid="uid://djc4mk8rfgm1w" path="res://main/gmtk2024-logo.png" id="7_0w4br"]
 [ext_resource type="PackedScene" uid="uid://cyiio111ful15" path="res://main/main-menu/mute_sounds_container.tscn" id="8_c51y2"]
-[ext_resource type="Theme" uid="uid://bxvd01pckxok2" path="res://ui/custom_theme.tres" id="10_gfbr4"]
 [ext_resource type="PackedScene" uid="uid://c147pno6pry8i" path="res://main/main-menu/credits_panel.tscn" id="11_e4c84"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("button_play", "button_credits", "button_quit", "levels_container", "credit_panel", "title_logo", "nb_item_slider", "nb_item_label", "target_height_slider", "target_height_label")]
@@ -170,7 +169,6 @@ custom_minimum_size = Vector2(128, 24)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 10
-theme = ExtResource("10_gfbr4")
 text = "Credits"
 script = ExtResource("2_dlb6r")
 
@@ -179,7 +177,6 @@ custom_minimum_size = Vector2(128, 24)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 10
-theme = ExtResource("10_gfbr4")
 text = "Quit"
 script = ExtResource("2_dlb6r")
 
