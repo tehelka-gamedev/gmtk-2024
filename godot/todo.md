@@ -16,15 +16,11 @@ Processus d'import des assets 3D
 
 
 ### Choses à faire en priorité
-- Resize le textures de la dumbell
 - Voir l'éclairage du niveau
 - Voir pourquoi la wheel est mal setup
-- Ajouter des explications au début du jeu
 - Tester sur différents navigateurs
 - Finir la page Itch.io
 - Revoir le cercle de jeu pour mettre un peu de transparence sur les bords peut-être
-- Menu pause avec bouton pour relancer le niveau (et pas aller au menu principal)
-	- Afficher les controls sur le menu pause
 - Ecrire les crédits !
 - Faire quelques niveaux en plus
 
