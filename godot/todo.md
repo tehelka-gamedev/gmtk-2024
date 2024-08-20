@@ -16,8 +16,17 @@ Processus d'import des assets 3D
 
 ### À faire graphique
 - Table avec un pied cassé
+- Mesh rond central (peu importe)
+- Mesh pour plane de base rond également
+- Mesh pour le billboard
+- Habillage menu?
 
 ### Choses à faire en priorité
+- Ajouter un paneau avec les controls
+- Ajouter la dumbell
+- Voir pourquoi la wheel est mal setup
+- Ajouter des explications au début du jeu
+- Tester sur différents navigateurs
 - Faire la page Itch.io
 - Faire environment
 	- Ajouter des arbres

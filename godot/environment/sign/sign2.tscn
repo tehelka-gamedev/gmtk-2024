@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpnpkyoi4o5wn"]
+
+[ext_resource type="PackedScene" uid="uid://dwhdy7qkx258o" path="res://environment/sign/sign_low.fbx" id="1_par8r"]
+
+[node name="Sign" instance=ExtResource("1_par8r")]
+
+[node name="sign" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.241543, 0)
+
+[node name="Label3D" type="Label3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0151578, 0.704389, 0.0738186)
+modulate = Color(0.329412, 0.227451, 0.0666667, 1)
+outline_modulate = Color(0.73468, 0.73468, 0.73468, 1)
+text = "TOWER
+HERE"

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddjn1k2nxe7i"]
+
+[ext_resource type="PackedScene" uid="uid://dswicwr0njddc" path="res://environment/sign/sign_low.fbx" id="1_par8r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_42keo"]
+size = Vector3(0.916138, 0.0969849, 0.0978851)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nhfhg"]
+height = 0.5
+radius = 0.07
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ld1j"]
+size = Vector3(0.918823, 0.438477, 0.135132)
+
+[node name="Sign" type="StaticBody3D"]
+collision_mask = 0
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.723076, 0.690769, 0, -0.690769, 0.723076, -0.000915527, 0.890659, -0.00168067)
+shape = SubResource("BoxShape3D_42keo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249291, 0)
+shape = SubResource("CylinderShape3D_nhfhg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010376, 0.671227, -0.000183105)
+shape = SubResource("BoxShape3D_0ld1j")
+
+[node name="sign_low" parent="." instance=ExtResource("1_par8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.242, 0)
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0151578, 0.704389, 0.0738186)
+modulate = Color(0.329412, 0.227451, 0.0666667, 1)
+outline_modulate = Color(0.73468, 0.73468, 0.73468, 1)
+text = "TOWER
+HERE"

@@ -1,9 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcqgjd3l2f1sm"]
 
 [ext_resource type="Script" path="res://billboard/billboard.gd" id="1_d844d"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_q0u76"]
-size = Vector3(15, 4, 0.5)
+[ext_resource type="PackedScene" uid="uid://dswicwr0njddc" path="res://environment/sign/sign_low.fbx" id="2_euc4p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5a4v"]
 size = Vector3(15, 4, 0.5)
@@ -13,20 +11,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.80494, -5.69024)
 collision_mask = 0
 script = ExtResource("1_d844d")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-layers = 2
-mesh = SubResource("BoxMesh_q0u76")
+[node name="sign_low" parent="." instance=ExtResource("2_euc4p")]
+transform = Transform3D(18, 0, 0, 0, 18, 0, 0, 0, 18, 0, -7.01771, -0.601643)
+
+[node name="trunk_low" parent="sign_low/sign/low" index="0"]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_d5a4v")
 
 [node name="TargetHeightLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92223, 0.26)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.918, 0.462368)
 layers = 2
 text = "target height: "
 font_size = 256
 
 [node name="HeightLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.699453, 0.26)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.303, 0.462)
 layers = 2
 font_size = 256
+
+[editable path="sign_low"]
