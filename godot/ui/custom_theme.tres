@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bxvd01pckxok2"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bxvd01pckxok2"]
 
 [ext_resource type="Texture2D" uid="uid://cr8elnpf2dbol" path="res://ui/pink-button-blank-half.png" id="1_hvrub"]
 [ext_resource type="Texture2D" uid="uid://4vgyo44v1v7q" path="res://ui/button-blank-half.png" id="2_syr7s"]
@@ -21,7 +21,10 @@ texture_margin_bottom = 9.0
 region_rect = Rect2(0, 0, 193, 57)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sthw0"]
-bg_color = Color(0.988235, 0.909804, 0.964706, 1)
+bg_color = Color(0.1474, 0.19943, 0.22, 0.756863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_koqox"]
+bg_color = Color(0.36, 0.4185, 0.45, 0.705882)
 
 [resource]
 default_font = ExtResource("3_ju5pf")
@@ -44,3 +47,5 @@ LabelTitle/colors/font_outline_color = Color(0, 0, 0, 1)
 LabelTitle/constants/outline_size = 4
 LabelTitle/font_sizes/font_size = 32
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_sthw0")
+WinPanel/base_type = &"PanelContainer"
+WinPanel/styles/panel = SubResource("StyleBoxFlat_koqox")
