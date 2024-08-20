@@ -1,7 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcqgjd3l2f1sm"]
+[gd_scene load_steps=8 format=3 uid="uid://bcqgjd3l2f1sm"]
 
 [ext_resource type="Script" path="res://billboard/billboard.gd" id="1_d844d"]
 [ext_resource type="PackedScene" uid="uid://dswicwr0njddc" path="res://environment/sign/sign_low.fbx" id="2_euc4p"]
+[ext_resource type="Texture2D" uid="uid://cnvw3xs3jftal" path="res://environment/sign/Texture_export/sign_low_sign_mat_BaseColor.png" id="3_5dt7q"]
+[ext_resource type="Texture2D" uid="uid://cxuxayuusogs4" path="res://environment/sign/Texture_export/sign_low_sign_mat_Normal.png" id="4_3fls3"]
+[ext_resource type="Texture2D" uid="uid://jtfln521qcp4" path="res://environment/sign/Texture_export/sign_low_sign_mat_Roughness.png" id="5_f0ppb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uc4er"]
+albedo_color = Color(0.701189, 0.386703, 0.215699, 1)
+albedo_texture = ExtResource("3_5dt7q")
+roughness_texture = ExtResource("5_f0ppb")
+normal_enabled = true
+normal_texture = ExtResource("4_3fls3")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5a4v"]
 size = Vector3(15, 4, 0.5)
@@ -16,6 +26,9 @@ transform = Transform3D(18, 0, 0, 0, 18, 0, 0, 0, 18, 0, -7.01771, -0.601643)
 
 [node name="trunk_low" parent="sign_low/sign/low" index="0"]
 visible = false
+
+[node name="sign_low" parent="sign_low/sign/low" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_uc4er")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_d5a4v")
