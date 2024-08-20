@@ -16,30 +16,17 @@ Processus d'import des assets 3D
 
 ### À faire graphique
 - Table avec un pied cassé
-- Mesh rond central (peu importe)
-- Mesh pour plane de base rond également
-- Mesh pour le billboard
 - Habillage menu?
 
 ### Choses à faire en priorité
-- Ajouter un paneau avec les controls
 - Ajouter la dumbell
 - Voir pourquoi la wheel est mal setup
 - Ajouter des explications au début du jeu
 - Tester sur différents navigateurs
 - Faire la page Itch.io
-- Faire environment
-	- Ajouter des arbres
-	- Faire backdrop ou je sais pas quoi
-	- Trouver une texture pour le sol
-	- Mettre de l'herbe
 - Revoir le cercle de jeu pour mettre un peu de transparence sur les bords peut-être
 - Menu pause avec bouton pour relancer le niveau (et pas aller au menu principal)
 	- Afficher les controls sur le menu pause
-- Améliorer le menu principale
-	- renommer bouton play en sandbox et le déplacer sans les paramètres (renommer label debug paramètres)
-	- mettre les niveaux en liste vbox sur la gauche
-- Intégrer le titre au menu principal
 - Mettre un grand cylindre de collision arène
 - Intégrer les musiques
 - Ecrire les crédits !
@@ -47,10 +34,11 @@ Processus d'import des assets 3D
 - Faire quelques niveaux en plus
 
 ### Chose à polish
+- Menu principal
+- Polish le panneau avec les controls
 - Photo de la tour à la fin (angle et distance par exemple)
 	- Faire un barycentre pondéré par la taille des objets
 - Bloquer le zoom in/out à une certaine profondeur
-- Tuto interactif avec label3d
 - Demander à Meru de faire de l'UI ingame HUD voir pour les menus
 - Faire en sorte que le score bouge pas quand on lâche un objet de haut
 
@@ -69,6 +57,7 @@ Processus d'import des assets 3D
 - center camera on selected object (done for now, object is moving and not the camera)
 - improve object rotation
 - Fond interractif pour le menu principal
+- Tuto interactif avec label3d
 
 
 ### Basic level
