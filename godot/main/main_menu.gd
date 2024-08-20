@@ -7,10 +7,12 @@ extends Control
 @export var levels_container:BoxContainer = null
 @export var levels: Array[PackedScene]
 @export var credit_panel:PanelContainer = null
+@export var how_to_play_panel:PanelContainer = null
 
 # logo anim
 @export var title_logo:TextureRect = null
 var tween:Tween = null
+@export var menu_controls_to_hide:Array[Control] = []
 
 @export_category("Debug variables")
 @export var nb_item_slider:Slider = null
@@ -20,6 +22,7 @@ var tween:Tween = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	how_to_play_panel.visible = false
 	_animate_logo()
 	AudioManager.play_music(SoundBank.main_menu_music)
 	
@@ -71,6 +74,9 @@ func _ready() -> void:
 
 func show_credits() -> void:
 	credit_panel.show()
+	
+func show_how_to_play() -> void:
+	how_to_play_panel.show()
 
 func play_logo_impact_sound() -> void:
 	AudioManager.play_sound_effect(SoundBank.impact_wood)
@@ -80,9 +86,21 @@ func _animate_logo() -> void:
 	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	
 	#tween.tween_interval(1.0)
+	for obj in menu_controls_to_hide:
+		obj.modulate.a = 0
 	
 	var end_y:float = title_logo.global_position.y
 	var start_y:float = end_y-256
 	tween.tween_property(title_logo, "position:y", end_y, 2.2).from(start_y).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-	await tween.finished
-	AudioManager.play_sound_effect(SoundBank.impact_wood)
+	tween.tween_callback(AudioManager.play_sound_effect.bind(SoundBank.impact_wood))
+	tween.set_parallel(true)
+	for obj in menu_controls_to_hide:
+		tween.tween_property(obj, "modulate:a", 1, 1.0).from(0)
+	tween.set_parallel(false)
+	tween.tween_callback(show_how_to_play)
+	
+	#await tween.finished
+	#AudioManager.play_sound_effect(SoundBank.impact_wood)
+	#tween.stop()
+
+	

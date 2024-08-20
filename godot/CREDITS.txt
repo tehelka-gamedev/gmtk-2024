@@ -1,1 +1,17 @@
-Speaker and sound icon : Delapouite (https://delapouite.com/) (CC BY 3.0)
+Credits:
+
+Art:
+- Axel (modeling + UI) (https://www.artstation.com/axelbossard)
+- Meru (UI)
+Code:
+- Grominet
+- Tehelka (github: tehelka-gamedev)
+Music and sound design:
+- Meru
+
+Other credits (external assets):
+- Delapouite (CC-BY 3.0) (from game-icons.net)
+	- sound-on and sound-off icons
+	- speaker and speaker-off icons
+- Vladimir Nikolic (https://fonts.google.com/?query=Vladimir%20Nikolic)
+	- New Amsterdam font

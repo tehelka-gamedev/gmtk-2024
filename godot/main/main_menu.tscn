@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cduummsvefesk"]
+[gd_scene load_steps=16 format=3 uid="uid://cduummsvefesk"]
 
 [ext_resource type="Script" path="res://main/main_menu.gd" id="1_hjvb3"]
 [ext_resource type="Script" path="res://hud/ButtonWithSound.gd" id="2_dlb6r"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://djc4mk8rfgm1w" path="res://main/gmtk2024-logo.png" id="7_0w4br"]
 [ext_resource type="PackedScene" uid="uid://cyiio111ful15" path="res://main/main-menu/mute_sounds_container.tscn" id="8_c51y2"]
 [ext_resource type="PackedScene" uid="uid://c147pno6pry8i" path="res://main/main-menu/credits_panel.tscn" id="11_e4c84"]
+[ext_resource type="PackedScene" uid="uid://ckargo067wj6w" path="res://main/main-menu/quick_how_to_play.tscn" id="12_eaewe"]
 
 [sub_resource type="Gradient" id="Gradient_rq6me"]
 colors = PackedColorArray(0.4785, 0.837375, 0.87, 1, 0.99, 0.5346, 0.78507, 1)
@@ -20,7 +21,10 @@ gradient = SubResource("Gradient_rq6me")
 fill_from = Vector2(0, 0.0042735)
 fill_to = Vector2(0, 1)
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_play", "button_credits", "button_quit", "levels_container", "credit_panel", "title_logo", "nb_item_slider", "nb_item_label", "target_height_slider", "target_height_label")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55vpo"]
+bg_color = Color(0.1474, 0.19943, 0.22, 0.964706)
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_play", "button_credits", "button_quit", "levels_container", "credit_panel", "how_to_play_panel", "title_logo", "menu_controls_to_hide", "nb_item_slider", "nb_item_label", "target_height_slider", "target_height_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,7 +39,9 @@ play_scene = ExtResource("2_wvtln")
 levels_container = NodePath("MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/LevelsContainer")
 levels = Array[PackedScene]([ExtResource("4_jsgpt"), ExtResource("5_8eejo"), ExtResource("6_782ro"), ExtResource("3_ymn5e")])
 credit_panel = NodePath("CreditsPanel")
+how_to_play_panel = NodePath("QuickHowToPlay")
 title_logo = NodePath("MarginContainer/VBoxContainer/TitleLogo")
+menu_controls_to_hide = [NodePath("MarginContainer/VBoxContainer/HBoxContainer"), NodePath("MarginContainer/VBoxContainer/BottomButtons")]
 nb_item_slider = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer/NbItemSlider")
 nb_item_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer/NbItemLabel")
 target_height_slider = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer2/TargetHeightSlider")
@@ -64,7 +70,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 109.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 16
@@ -197,19 +202,6 @@ size_flags_vertical = 10
 text = "Quit"
 script = ExtResource("2_dlb6r")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.47
-anchor_right = 0.403
-anchor_bottom = 1.0
-offset_left = 160.0
-offset_top = 41.44
-offset_right = -28.256
-offset_bottom = -21.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="GMTKLogo" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -234,8 +226,18 @@ offset_right = 127.0
 grow_horizontal = 1
 
 [node name="CreditsPanel" parent="." instance=ExtResource("11_e4c84")]
+visible = false
 layout_mode = 1
 offset_left = 62.0
 offset_top = 35.0
 offset_right = -62.0
 offset_bottom = -35.0
+
+[node name="QuickHowToPlay" parent="." instance=ExtResource("12_eaewe")]
+visible = false
+layout_mode = 1
+offset_left = 208.0
+offset_top = 59.0
+offset_right = -188.0
+offset_bottom = -77.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_55vpo")

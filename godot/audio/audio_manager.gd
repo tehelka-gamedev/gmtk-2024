@@ -13,10 +13,17 @@ var SE_bus_index = AudioServer.get_bus_index(SE_BUS)
 
 @onready var _music_player : AudioStreamPlayer = $MusicPlayer
 
+var volume_before_pause:float = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_music_player.bus = BGM_BUS
+	
+	Events.pause_game.connect(_on_game_paused)
+	Events.unpause_game.connect(_on_game_unpaused)
+	
 	await get_tree().create_timer(0.1).timeout
+	
 
 
 func play_music(stream:AudioStream, fade_in_time:float=0.25) -> void:
@@ -92,3 +99,11 @@ func is_bgm_muted() -> bool:
 
 func is_se_muted() -> bool:
 	return AudioServer.is_bus_mute(SE_bus_index)
+
+
+func _on_game_paused() -> void:
+	volume_before_pause = AudioServer.get_bus_volume_db(BGM_bus_index)
+	set_bgm_volume(volume_before_pause/2)
+
+func _on_game_unpaused() -> void:
+	set_bgm_volume(volume_before_pause)

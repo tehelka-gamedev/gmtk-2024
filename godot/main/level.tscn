@@ -344,7 +344,7 @@ moving_speed = 4.0
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Billboard" parent="." instance=ExtResource("3_a3m6j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55254, -5.15605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83523, -5.15605)
 
 [node name="HeightDetector" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.2368, 0)
