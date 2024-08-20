@@ -253,6 +253,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1402, 0, -1)
 
 [node name="Plane" type="MeshInstance3D" parent="Environment/RootGrass/PatchGrass"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+visible = false
 mesh = ExtResource("14_j5s05")
 skeleton = NodePath("../../..")
 
@@ -266,6 +267,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.92825, 0, -2.05059)
 
 [node name="Plane" type="MeshInstance3D" parent="Environment/RootGrass/PatchGrass2"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+visible = false
 mesh = ExtResource("14_j5s05")
 skeleton = NodePath("../../..")
 
@@ -279,6 +281,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.711788, 0, 7.68294)
 
 [node name="Plane" type="MeshInstance3D" parent="Environment/RootGrass/PatchGrass3"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+visible = false
 mesh = ExtResource("14_j5s05")
 skeleton = NodePath("../../..")
 
