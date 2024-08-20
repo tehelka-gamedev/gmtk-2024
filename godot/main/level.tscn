@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://jeihxw20nydi"]
+[gd_scene load_steps=62 format=3 uid="uid://jeihxw20nydi"]
 
 [ext_resource type="Script" path="res://main/level.gd" id="1_tycjl"]
 [ext_resource type="PackedScene" uid="uid://b3osahesu8vvn" path="res://camera/player_camera.tscn" id="1_y5qgp"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cbfqri6wfv86j" path="res://game_object/plank/plank.tscn" id="12_oqme4"]
 [ext_resource type="PackedScene" uid="uid://b3nwypvlqbmu6" path="res://environment/rocks/rock1/rock1.tscn" id="13_du4r6"]
 [ext_resource type="Script" path="res://camera/win_viewport.gd" id="13_jcre4"]
+[ext_resource type="PackedScene" uid="uid://brmidh11yp6u8" path="res://game_object/dumbell/dumbell.tscn" id="14_acahy"]
 [ext_resource type="ArrayMesh" uid="uid://dy04r7yyi6d1j" path="res://environment/grass/plain_disk.res" id="14_j5s05"]
 [ext_resource type="ArrayMesh" uid="uid://d718l51vudp6" path="res://environment/grass/circle_2_3.res" id="16_cwesl"]
 [ext_resource type="PackedScene" uid="uid://dwl2tiq2c2xy4" path="res://game_object/joystick/joystick.tscn" id="16_knfnx"]
@@ -157,7 +158,7 @@ point_count = 5
 
 [node name="Level" type="Node3D" node_paths=PackedStringArray("_win_viewport")]
 script = ExtResource("1_tycjl")
-object_pool = Array[PackedScene]([ExtResource("2_kp88t"), ExtResource("3_rfsl0"), ExtResource("4_xan4c"), ExtResource("5_7w4q0"), ExtResource("6_wbhtt"), ExtResource("8_gx5w5"), ExtResource("8_ylhf7"), ExtResource("7_c0m3e"), ExtResource("10_xpell"), ExtResource("11_qnvhb"), ExtResource("12_oqme4"), ExtResource("16_knfnx")])
+object_pool = Array[PackedScene]([ExtResource("2_kp88t"), ExtResource("3_rfsl0"), ExtResource("4_xan4c"), ExtResource("5_7w4q0"), ExtResource("6_wbhtt"), ExtResource("8_gx5w5"), ExtResource("8_ylhf7"), ExtResource("7_c0m3e"), ExtResource("10_xpell"), ExtResource("11_qnvhb"), ExtResource("12_oqme4"), ExtResource("16_knfnx"), ExtResource("14_acahy")])
 no_movement_duration_before_game_win = 1.0
 main_menu_scene = "res://main/main_menu.tscn"
 _win_viewport = NodePath("WinViewport")
@@ -344,7 +345,7 @@ moving_speed = 4.0
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Billboard" parent="." instance=ExtResource("3_a3m6j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55254, -5.15605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.78707, -5.15605)
 
 [node name="HeightDetector" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.2368, 0)

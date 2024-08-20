@@ -19,7 +19,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13198, 0.171086, 2.49199)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.315199, 4.15945, 2.51358)
 
 [node name="Billboard" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66064, -5.15605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81877, -5.15605)
 
 [editable path="Environment/ControlSign"]
 [editable path="Environment/ControlSign/sign_low"]
