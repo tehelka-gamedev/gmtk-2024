@@ -1,7 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://hrg6wqxvcyb6"]
+[gd_scene load_steps=32 format=3 uid="uid://hrg6wqxvcyb6"]
 
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_c56hq"]
 [ext_resource type="PackedScene" uid="uid://dj2jnwbtf22ct" path="res://game_object/wheel/wheel_low.fbx" id="2_8cp7n"]
+[ext_resource type="Material" uid="uid://cl12inrx2vjre" path="res://game_object/wheel/wheel_low.material" id="3_2o17e"]
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="3_7h7qu"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cwxqo"]
@@ -92,6 +93,15 @@ approximate_length = 0.68
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_8cp7n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33876, 0)
+
+[node name="wheelinterior_low" parent="Mesh/wheelwood/low" index="0"]
+surface_material_override/0 = ExtResource("3_2o17e")
+
+[node name="wheelexterior_low" parent="Mesh/wheelwood/low" index="1"]
+surface_material_override/0 = ExtResource("3_2o17e")
+
+[node name="wheelwood_low" parent="Mesh/wheelwood/low" index="2"]
+surface_material_override/0 = ExtResource("3_2o17e")
 
 [node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.339, 0)
