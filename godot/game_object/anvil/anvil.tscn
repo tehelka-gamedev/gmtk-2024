@@ -1,8 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbyw2biblghj5"]
+[gd_scene load_steps=11 format=3 uid="uid://bbyw2biblghj5"]
 
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_istwb"]
 [ext_resource type="PackedScene" uid="uid://bxs6ttrmayygb" path="res://game_object/anvil/anvil.fbx" id="2_vlyvm"]
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="3_a2tnr"]
+[ext_resource type="Texture2D" uid="uid://cuhido5l0j8c5" path="res://game_object/anvil/Texture_export/anvil_low_anvil_mat_BaseColor.png" id="3_t4bjc"]
+[ext_resource type="Texture2D" uid="uid://b3heaehgc8n2l" path="res://game_object/anvil/Texture_export/anvil_low_anvil_mat_Metallic.png" id="4_o01x2"]
+[ext_resource type="Texture2D" uid="uid://dbldqp3l5eej5" path="res://game_object/anvil/Texture_export/anvil_low_anvil_mat_Normal.png" id="5_j4p48"]
+[ext_resource type="Texture2D" uid="uid://buohdfunfbyjg" path="res://game_object/anvil/Texture_export/anvil_low_anvil_mat_Roughness.png" id="6_tdcvk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ha48q"]
+albedo_texture = ExtResource("3_t4bjc")
+metallic = 1.0
+metallic_texture = ExtResource("4_o01x2")
+metallic_texture_channel = 3
+roughness_texture = ExtResource("6_tdcvk")
+normal_enabled = true
+normal_texture = ExtResource("5_j4p48")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uwphs"]
 points = PackedVector3Array(0.0699, 0.147172, 0.245208, -0.0376933, 0.00993362, -0.0733849, 0.0381017, 0.00510187, -0.0787532, 0.00704709, 0.146253, -0.281194, -0.0720318, 0.119889, 0.281194, 0.0391192, 0.00306694, 0.105328, -0.065456, 0.1481, -0.112154, 0.0699, 0.147172, -0.110711, 0.0773524, 0.111111, 0.272386, -0.0368645, 0.0847463, -0.237209, -0.0385509, 0.00852997, 0.0974372, -0.065456, 0.1481, 0.256438, 0.0421997, 0.0847463, -0.228456, -0.0720318, 0.0847463, 0.140597, 0.0773524, 0.0935396, 0.158158, -0.0544408, 0.0935396, -0.202087, 0.0680535, 0.106738, -0.10767, -0.0456526, 0.128682, -0.228456, 0.0421997, 0.128682, -0.246017, 0.0627621, 0.1481, 0.256438, -0.0720318, 0.111111, 0.272386, 0.0334116, 0.0759839, -0.228456, -0.0674606, 0.141953, -0.123723, 0.0773524, 0.119889, 0.281194, -0.0105, 0.146253, -0.281194, 0.0509879, 0.0847463, -0.202087, 0.0627621, 0.1481, -0.120186, 0.00681714, 0.117587, -0.266454, -0.0579716, 0.0830969, -0.106981, 0.0334116, 0.13746, -0.254825, 0.0694727, 0.13884, -0.117886, -0.0456526, 0.0847463, -0.219648)
@@ -20,6 +33,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.203534, 0)
 
 [node name="anvil" parent="Mesh" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.157364, 0)
+
+[node name="anvil_low" parent="Mesh/anvil/low" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ha48q")
 
 [node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.204, 0)

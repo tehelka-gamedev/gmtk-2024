@@ -143,6 +143,8 @@ sky_material = SubResource("ProceduralSkyMaterial_5jlxj")
 [sub_resource type="Environment" id="Environment_4nusp"]
 background_mode = 2
 sky = SubResource("Sky_eouk7")
+ambient_light_source = 2
+ambient_light_color = Color(1, 0.904785, 0.8125, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_6nq7e"]
 _data = {
@@ -493,8 +495,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_v118n")
 environment = SubResource("Environment_4nusp")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.972435, -0.211876, 0.0973581, 0, 0.417534, 0.908661, -0.233174, -0.883614, 0.406025, 0, 8.30557, 3.48861)
+transform = Transform3D(0.972435, -0.211876, 0.0973579, 0.0449511, 0.580044, 0.813344, -0.2288, -0.786548, 0.573579, 0.453313, 4.78984, 1.94996)
+light_color = Color(1, 0.904785, 0.8125, 1)
+light_energy = 0.2
 shadow_enabled = true
+shadow_opacity = 0.47
 
 [node name="HUD" parent="." instance=ExtResource("6_ufsw2")]
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dn3bd5aclabxe"]
+[gd_scene load_steps=10 format=3 uid="uid://dn3bd5aclabxe"]
 
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_2ki5n"]
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="2_6og2l"]
 [ext_resource type="PackedScene" uid="uid://cvrjysx6odl16" path="res://game_object/table/table_low.fbx" id="2_8gfti"]
+[ext_resource type="Material" uid="uid://bpdq88b16fred" path="res://game_object/table/table_low.material" id="3_08r6i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ibiky"]
 size = Vector3(0.160538, 0.477829, 0.159424)
@@ -27,6 +28,30 @@ max_scale = 6.0
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_8gfti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.311979, 0)
+
+[node name="plank1_low" parent="Mesh/table/low" index="0"]
+surface_material_override/0 = ExtResource("3_08r6i")
+
+[node name="plank2_low" parent="Mesh/table/low" index="1"]
+surface_material_override/0 = ExtResource("3_08r6i")
+
+[node name="plank3_low" parent="Mesh/table/low" index="2"]
+surface_material_override/0 = ExtResource("3_08r6i")
+
+[node name="plank4_low" parent="Mesh/table/low" index="3"]
+surface_material_override/0 = ExtResource("3_08r6i")
+
+[node name="plank5_low" parent="Mesh/table/low" index="4"]
+surface_material_override/0 = ExtResource("3_08r6i")
+
+[node name="plank6_low" parent="Mesh/table/low" index="5"]
+surface_material_override/0 = ExtResource("3_08r6i")
+
+[node name="betweenfeet_low" parent="Mesh/table/low" index="6"]
+surface_material_override/0 = ExtResource("3_08r6i")
+
+[node name="feet_low" parent="Mesh/table/low" index="7"]
+surface_material_override/0 = ExtResource("3_08r6i")
 
 [node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

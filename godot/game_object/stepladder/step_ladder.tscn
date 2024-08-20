@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://dvex3p54ywo5a"]
+[gd_scene load_steps=20 format=3 uid="uid://dvex3p54ywo5a"]
 
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_b0xd1"]
 [ext_resource type="PackedScene" uid="uid://b2tdd1ub85smd" path="res://game_object/stepladder/stepladder_low.fbx" id="2_4bckg"]
+[ext_resource type="Material" uid="uid://drvti2xrh3265" path="res://game_object/stepladder/stepladder_low.material" id="3_etpfp"]
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="3_y4tbl"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6fugg"]
@@ -58,6 +59,27 @@ approximate_length = 1.2
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_4bckg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.742082, -0.0841687)
+
+[node name="sides_low" parent="Mesh/stepladder/low" index="0"]
+surface_material_override/0 = ExtResource("3_etpfp")
+
+[node name="table_low" parent="Mesh/stepladder/low" index="1"]
+surface_material_override/0 = ExtResource("3_etpfp")
+
+[node name="metaltop_low" parent="Mesh/stepladder/low" index="2"]
+surface_material_override/0 = ExtResource("3_etpfp")
+
+[node name="wood1_low" parent="Mesh/stepladder/low" index="3"]
+surface_material_override/0 = ExtResource("3_etpfp")
+
+[node name="wood2_low" parent="Mesh/stepladder/low" index="4"]
+surface_material_override/0 = ExtResource("3_etpfp")
+
+[node name="metalbot_low" parent="Mesh/stepladder/low" index="5"]
+surface_material_override/0 = ExtResource("3_etpfp")
+
+[node name="stairs_low" parent="Mesh/stepladder/low" index="6"]
+surface_material_override/0 = ExtResource("3_etpfp")
 
 [node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.895176, 0.0567386)

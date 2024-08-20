@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwl2tiq2c2xy4"]
+[gd_scene load_steps=8 format=3 uid="uid://dwl2tiq2c2xy4"]
 
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_dyhrf"]
 [ext_resource type="PackedScene" uid="uid://c6w25r0hyfrv6" path="res://game_object/joystick/joystick_low.fbx" id="2_hx1em"]
+[ext_resource type="Material" uid="uid://b6afl3npeacdt" path="res://game_object/joystick/joystick_low.material" id="3_lvwkv"]
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="8_65qm2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t4dgv"]
@@ -27,6 +28,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.137589, 0)
 
 [node name="joystick" parent="Mesh" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="base_low" parent="Mesh/joystick/low" index="0"]
+surface_material_override/0 = ExtResource("3_lvwkv")
+
+[node name="stick_low" parent="Mesh/joystick/low" index="1"]
+surface_material_override/0 = ExtResource("3_lvwkv")
+
+[node name="ball_low" parent="Mesh/joystick/low" index="2"]
+surface_material_override/0 = ExtResource("3_lvwkv")
+
+[node name="buttonbottomleft_low" parent="Mesh/joystick/low" index="3"]
+surface_material_override/0 = ExtResource("3_lvwkv")
+
+[node name="buttonleft_low" parent="Mesh/joystick/low" index="4"]
+surface_material_override/0 = ExtResource("3_lvwkv")
+
+[node name="basefirst_low" parent="Mesh/joystick/low" index="5"]
+surface_material_override/0 = ExtResource("3_lvwkv")
+
+[node name="basesecond_low" parent="Mesh/joystick/low" index="6"]
+surface_material_override/0 = ExtResource("3_lvwkv")
+
+[node name="buttonbottomright_low" parent="Mesh/joystick/low" index="7"]
+surface_material_override/0 = ExtResource("3_lvwkv")
+
+[node name="buttonright_low" parent="Mesh/joystick/low" index="8"]
+surface_material_override/0 = ExtResource("3_lvwkv")
 
 [node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0311795, 0)
