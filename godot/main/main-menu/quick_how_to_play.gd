@@ -4,5 +4,5 @@ extends PanelContainer
 
 func _ready() -> void:
 	quit_button.pressed.connect(func():
-		queue_free()
+		hide()
 	)

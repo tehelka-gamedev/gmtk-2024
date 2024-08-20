@@ -39,6 +39,10 @@ var _stats:WinStats = WinStats.new()
 func _ready() -> void:
 	AudioManager.play_music(SoundBank.game_music, 1)
 	
+	Events.unpause_game.connect(func():
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	)
+	
 	if not Events.replay_requested.is_connected(reload_level):
 		Events.replay_requested.connect(reload_level)
 		
@@ -96,7 +100,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Handle focus/unfocus with escape / click on the viewport
 	if event.is_action_pressed("ui_cancel"):
 		if GameState.current_game_state == Enum.GameState.FREE_CAMERA:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			Events.pause()
 		elif GameState.current_game_state == Enum.GameState.OBJECT_SELECTED:
 			_unselect_current_object()
 		get_viewport().set_input_as_handled()
@@ -121,10 +125,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		and GameState.current_game_state == Enum.GameState.ROTATING_OBJECT
 	):
 		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
-	elif event.is_action_pressed("reload_game"):
-		GameState.current_game_state = Enum.GameState.FREE_CAMERA
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		get_tree().change_scene_to_file(main_menu_scene)
 	
 	_handle_selected_object_input(event)
 	

@@ -24,7 +24,7 @@ fill_to = Vector2(0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55vpo"]
 bg_color = Color(0.1474, 0.19943, 0.22, 0.964706)
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_play", "button_credits", "button_quit", "levels_container", "credit_panel", "how_to_play_panel", "title_logo", "menu_controls_to_hide", "nb_item_slider", "nb_item_label", "target_height_slider", "target_height_label")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_play", "button_credits", "button_quit", "button_how_to_play", "levels_container", "credit_panel", "how_to_play_panel", "title_logo", "menu_controls_to_hide", "nb_item_slider", "nb_item_label", "target_height_slider", "target_height_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,6 +35,7 @@ script = ExtResource("1_hjvb3")
 button_play = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/ButtonPlay")
 button_credits = NodePath("MarginContainer/VBoxContainer/BottomButtons/ButtonCredits")
 button_quit = NodePath("MarginContainer/VBoxContainer/BottomButtons/ButtonQuit")
+button_how_to_play = NodePath("MarginContainer/VBoxContainer/BottomButtons/ButtonHowToPlay")
 play_scene = ExtResource("2_wvtln")
 levels_container = NodePath("MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/LevelsContainer")
 levels = Array[PackedScene]([ExtResource("4_jsgpt"), ExtResource("5_8eejo"), ExtResource("6_782ro"), ExtResource("3_ymn5e")])
@@ -185,6 +186,14 @@ script = ExtResource("2_dlb6r")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
+
+[node name="ButtonHowToPlay" type="Button" parent="MarginContainer/VBoxContainer/BottomButtons"]
+custom_minimum_size = Vector2(128, 24)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+text = "How to Play"
+script = ExtResource("2_dlb6r")
 
 [node name="ButtonCredits" type="Button" parent="MarginContainer/VBoxContainer/BottomButtons"]
 custom_minimum_size = Vector2(128, 24)

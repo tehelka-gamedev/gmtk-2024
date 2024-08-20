@@ -73,6 +73,7 @@ func fade_out_music(duration:float = 1.5) -> void:
 # Set BGM bus volume
 # volume: 0-100
 func set_bgm_volume(volume:float) -> void:
+	print("Set BGM volume : %s" % volume)
 	AudioServer.set_bus_volume_db(BGM_bus_index, linear_to_db(volume/100))
 
 # Set SE bus volume
@@ -103,7 +104,7 @@ func is_se_muted() -> bool:
 
 func _on_game_paused() -> void:
 	volume_before_pause = AudioServer.get_bus_volume_db(BGM_bus_index)
-	set_bgm_volume(volume_before_pause/2)
+	AudioServer.set_bus_volume_db(BGM_bus_index, volume_before_pause-9)
 
 func _on_game_unpaused() -> void:
-	set_bgm_volume(volume_before_pause)
+	AudioServer.set_bus_volume_db(BGM_bus_index, volume_before_pause)

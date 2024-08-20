@@ -3,6 +3,7 @@ extends Control
 @export var button_play:Button = null
 @export var button_credits:Button = null
 @export var button_quit:Button = null
+@export var button_how_to_play:Button = null
 @export var play_scene:PackedScene = null
 @export var levels_container:BoxContainer = null
 @export var levels: Array[PackedScene]
@@ -35,6 +36,7 @@ func _ready() -> void:
 		push_error("No scene set for play button, cannot play !")
 	
 	button_credits.pressed.connect(show_credits)
+	button_how_to_play.pressed.connect(show_how_to_play)
 	
 	if OS.has_feature("web"):
 		button_quit.queue_free()

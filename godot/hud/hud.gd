@@ -1,6 +1,7 @@
 class_name HUD
 extends Control
 
+@export var pause_menu:PauseMenu = null
 
 @onready var _win_panel: PanelContainer = $WinPanel
 
