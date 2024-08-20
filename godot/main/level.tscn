@@ -131,10 +131,10 @@ transparency = 1
 albedo_color = Color(1, 1, 1, 0.207843)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5jlxj"]
-sky_top_color = Color(0.807843, 0.909804, 0.878431, 1)
+sky_top_color = Color(0.669411, 0.94125, 0.943989, 1)
 sky_horizon_color = Color(0.701961, 0.803922, 0.788235, 1)
 sky_curve = 0.0430759
-ground_bottom_color = Color(0.663162, 0.753298, 0.714107, 1)
+ground_bottom_color = Color(0.583096, 0.774284, 0.738311, 1)
 ground_horizon_color = Color(0.701961, 0.803922, 0.788235, 1)
 ground_curve = 0.0146408
 
@@ -345,7 +345,7 @@ moving_speed = 4.0
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Billboard" parent="." instance=ExtResource("3_a3m6j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.78707, -5.15605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53728, -5.15605)
 
 [node name="HeightDetector" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.2368, 0)
