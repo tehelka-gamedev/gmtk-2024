@@ -1,6 +1,8 @@
 extends Node3D
 
 
+const TIME_BEFORE_WIN_WHEN_HEIGHT_IS_OVER_TARGET: float = 5.0
+
 @export var target_height: float = 5.0
 @export var object_pool:Array[PackedScene] = []
 @export var select_max_distance: float = 5.0
@@ -14,6 +16,7 @@ var _last_time_something_has_moved: float = 0.0
 var _current_selected_object: GameObject = null
 var _current_hovered_object: GameObject = null
 var _last_frame_object_position: Dictionary = {}
+var _last_time_height_changed: float = 0.0
 
 ## True if the player has won, false otherwise
 var _has_won:bool = false
@@ -55,11 +58,13 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	_last_time_height_changed += delta
 	if not _has_won and _current_height >= target_height:
 		if _no_object_has_moved_last_frame():
 			_last_time_something_has_moved += delta
 		
-		if _last_time_something_has_moved >= no_movement_duration_before_game_win:
+		if (_last_time_something_has_moved >= no_movement_duration_before_game_win
+			or _last_time_height_changed >= TIME_BEFORE_WIN_WHEN_HEIGHT_IS_OVER_TARGET):
 			win()
 
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
@@ -152,10 +157,13 @@ func _unselect_current_object() -> void:
 
 func _on_max_height_changed(max_height: float) -> void:
 	_billboard.set_max_height(max_height)
+	_last_time_height_changed = 0.0
 	_current_height = max_height
+
 
 func reload_level() -> void:
 	get_tree().reload_current_scene()
+	
 	
 func start_game() -> void:
 	_has_won = false

@@ -4,6 +4,8 @@ extends ShapeCast3D
 
 signal max_height_changed(max_height: float)
 
+var _current_height: float = 0
+
 @onready var _timer: Timer = $Timer
 
 
@@ -22,4 +24,6 @@ func _detect_current_max_height() -> void:
 		if collision.point.y > max_height:
 			max_height = collision.point.y
 
-	max_height_changed.emit(max_height)
+	if not is_equal_approx(_current_height, max_height):
+		_current_height = max_height
+		max_height_changed.emit(max_height)

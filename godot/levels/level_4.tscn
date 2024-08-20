@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://br45w6vtn6a67"]
+
+[ext_resource type="PackedScene" uid="uid://jeihxw20nydi" path="res://main/level.tscn" id="1_62bjm"]
+[ext_resource type="PackedScene" uid="uid://dvex3p54ywo5a" path="res://game_object/stepladder/step_ladder.tscn" id="2_78856"]
+[ext_resource type="PackedScene" uid="uid://dwl2tiq2c2xy4" path="res://game_object/joystick/joystick.tscn" id="3_li2kk"]
+
+[node name="Level4" instance=ExtResource("1_62bjm")]
+target_height = 8.0
+level_name = "4. The equilibrist"
+sandbox_mode = false
+
+[node name="Joystick" parent="Objects" index="0" instance=ExtResource("3_li2kk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12291, 0.210157, 0)
+
+[node name="StepLadder" parent="Objects" index="1" instance=ExtResource("2_78856")]
+transform = Transform3D(1, 0, 0, 0, 0.999995, -0.00307177, 0, 0.00307177, 0.999995, 0, 0.762001, 0)
+
+[node name="StepLadder2" parent="Objects" index="2" instance=ExtResource("2_78856")]
+transform = Transform3D(1, 0, 0, 0, 0.999995, -0.00307177, 0, 0.00307177, 0.999995, -1.15241, 0.762001, 0)
+
+[editable path="HUD"]
