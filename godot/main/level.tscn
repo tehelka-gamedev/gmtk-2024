@@ -371,16 +371,50 @@ surface_material_override/0 = SubResource("StandardMaterial3D_7gfe7")
 [node name="Label3D" parent="Environment/ControlSign" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0151577, 0.691235, 0.0738187)
 modulate = Color(1, 1, 1, 1)
-text = "Main controls
+text = "Select object 
+Mouse left
+"
+font_size = 32
+outline_size = 6
 
-WASDQA: move the camera
-P: restart the game
-Mouse left to select an object "
-font_size = 12
+[node name="ControlSign6" parent="Environment" instance=ExtResource("24_d35s3")]
+transform = Transform3D(-1.58398, 0, -1.22106, 0, 2, 0, 1.22106, 0, -1.58398, 3.93141, 0.0179738, 4.72356)
+
+[node name="trunk_low" parent="Environment/ControlSign6/sign_low/sign/low" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_7gfe7")
+
+[node name="sign_low" parent="Environment/ControlSign6/sign_low/sign/low" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_7gfe7")
+
+[node name="Label3D" parent="Environment/ControlSign6" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0151577, 0.691235, 0.0738187)
+modulate = Color(1, 1, 1, 1)
+text = "Move faster
+Shift
+"
+font_size = 32
+outline_size = 6
+
+[node name="ControlSign3" parent="Environment" instance=ExtResource("24_d35s3")]
+transform = Transform3D(0.0032447, 0, -1.99999, 0, 2, 0, 1.99999, 0, 0.0032447, 5.9609, 0.0179738, 1.0472)
+
+[node name="trunk_low" parent="Environment/ControlSign3/sign_low/sign/low" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_7gfe7")
+
+[node name="sign_low" parent="Environment/ControlSign3/sign_low/sign/low" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_7gfe7")
+
+[node name="Label3D" parent="Environment/ControlSign3" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0151577, 0.691235, 0.0738187)
+modulate = Color(1, 1, 1, 1)
+text = "Move camera
+WASDQE
+"
+font_size = 32
 outline_size = 6
 
 [node name="ControlSign2" parent="Environment" instance=ExtResource("24_d35s3")]
-transform = Transform3D(-1.32879, 0, -1.49476, 0, 2, 0, 1.49476, 0, -1.32879, 4.12412, 0.0179738, 4.60611)
+transform = Transform3D(-1.97242, 0, 0.330955, 0, 2, 0, -0.330955, 0, -1.97242, -1.08272, 0.0179742, 5.14828)
 
 [node name="trunk_low" parent="Environment/ControlSign2/sign_low/sign/low" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_73f5n")
@@ -391,12 +425,43 @@ surface_material_override/0 = SubResource("StandardMaterial3D_73f5n")
 [node name="Label3D" parent="Environment/ControlSign2" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00179982, 0.687972, 0.0602224)
 modulate = Color(1, 1, 1, 1)
-text = "When an object is selected:
+text = "Rotate object
+Hold mouse right"
+font_size = 28
+outline_size = 6
 
-Hold mouse right to rotate object
-Mouse wheel to scale it up/down
-Mouse left to drop the object "
-font_size = 12
+[node name="ControlSign4" parent="Environment" instance=ExtResource("24_d35s3")]
+transform = Transform3D(-1.58995, 0, 1.21328, 0, 2, 0, -1.21328, 0, -1.58995, -2.95803, 0.0179736, 4.13527)
+
+[node name="trunk_low" parent="Environment/ControlSign4/sign_low/sign/low" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_73f5n")
+
+[node name="sign_low" parent="Environment/ControlSign4/sign_low/sign/low" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_73f5n")
+
+[node name="Label3D" parent="Environment/ControlSign4" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00179982, 0.687972, 0.0602224)
+modulate = Color(1, 1, 1, 1)
+text = "Scale object
+Mouse wheel"
+font_size = 32
+outline_size = 6
+
+[node name="ControlSign5" parent="Environment" instance=ExtResource("24_d35s3")]
+transform = Transform3D(-1.14203, 0, 1.64188, 0, 2, 0, -1.64188, 0, -1.14203, -4.33529, 0.0179737, 2.64138)
+
+[node name="trunk_low" parent="Environment/ControlSign5/sign_low/sign/low" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_73f5n")
+
+[node name="sign_low" parent="Environment/ControlSign5/sign_low/sign/low" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_73f5n")
+
+[node name="Label3D" parent="Environment/ControlSign5" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00179982, 0.687972, 0.0602224)
+modulate = Color(1, 1, 1, 1)
+text = "Object zoom
+R/F"
+font_size = 32
 outline_size = 6
 
 [node name="PlayerCamera" parent="." instance=ExtResource("1_y5qgp")]
@@ -469,6 +534,14 @@ mesh = SubResource("SphereMesh_xg4oo")
 
 [editable path="Environment/ControlSign"]
 [editable path="Environment/ControlSign/sign_low"]
+[editable path="Environment/ControlSign6"]
+[editable path="Environment/ControlSign6/sign_low"]
+[editable path="Environment/ControlSign3"]
+[editable path="Environment/ControlSign3/sign_low"]
 [editable path="Environment/ControlSign2"]
 [editable path="Environment/ControlSign2/sign_low"]
+[editable path="Environment/ControlSign4"]
+[editable path="Environment/ControlSign4/sign_low"]
+[editable path="Environment/ControlSign5"]
+[editable path="Environment/ControlSign5/sign_low"]
 [editable path="HUD"]
