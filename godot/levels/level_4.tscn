@@ -6,7 +6,7 @@
 
 [node name="Level4" instance=ExtResource("1_62bjm")]
 target_height = 8.0
-level_name = "4. The equilibrist"
+level_name = "The equilibrist (easy)"
 sandbox_mode = false
 
 [node name="Joystick" parent="Objects" index="0" instance=ExtResource("3_li2kk")]
@@ -18,4 +18,11 @@ transform = Transform3D(1, 0, 0, 0, 0.999995, -0.00307177, 0, 0.00307177, 0.9999
 [node name="StepLadder2" parent="Objects" index="2" instance=ExtResource("2_78856")]
 transform = Transform3D(1, 0, 0, 0, 0.999995, -0.00307177, 0, 0.00307177, 0.999995, -1.15241, 0.762001, 0)
 
+[node name="Billboard" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67054, -5.15605)
+
+[editable path="Environment/ControlSign"]
+[editable path="Environment/ControlSign/sign_low"]
+[editable path="Environment/ControlSign2"]
+[editable path="Environment/ControlSign2/sign_low"]
 [editable path="HUD"]

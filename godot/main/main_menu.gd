@@ -57,12 +57,13 @@ func _ready() -> void:
 	nb_item_slider.value = GameSettings.number_items_to_spawn
 	nb_item_label.text = "%d" % int(nb_item_slider.value)
 	
-	
+	var level_number: int = 0
 	for level: PackedScene in levels:
+		level_number += 1
 		var button: ButtonWithSound = ButtonWithSound.new()
 		for i: int in level.get_state().get_node_property_count(0):
 			if level.get_state().get_node_property_name(0, i) == "level_name":
-				button.text = str(level.get_state().get_node_property_value(0, i))
+				button.text = str(level_number) + ". " + str(level.get_state().get_node_property_value(0, i))
 		button.pressed.connect(func():
 			get_tree().change_scene_to_packed(level)
 		)

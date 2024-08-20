@@ -6,7 +6,7 @@
 
 [node name="Level1" instance=ExtResource("1_cnwo1")]
 target_height = 2.7
-level_name = "3. A bit of golf (medium)"
+level_name = "A bit of golf (medium)"
 sandbox_mode = false
 
 [node name="GolfBall" parent="Objects" index="0" instance=ExtResource("3_wn5k0")]
@@ -48,8 +48,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05398, 0.0388628, 0)
 [node name="Plank8" parent="Objects" index="12" instance=ExtResource("4_8k8ti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.901979, 0.0388628, 0)
 
+[node name="Billboard" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52078, -5.15605)
+
 [node name="ScalingGauge" parent="." index="9"]
 max_value = 100.0
 _initial_value = null
 
+[editable path="Environment/ControlSign"]
+[editable path="Environment/ControlSign/sign_low"]
+[editable path="Environment/ControlSign2"]
+[editable path="Environment/ControlSign2/sign_low"]
 [editable path="HUD"]
