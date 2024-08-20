@@ -21,14 +21,9 @@ Processus d'import des assets 3D
 - Tester sur différents navigateurs
 - Finir la page Itch.io
 - Revoir le cercle de jeu pour mettre un peu de transparence sur les bords peut-être
-- Ecrire les crédits !
 - Faire quelques niveaux en plus
 
 ### Chose à polish
-- Menu principal
-- Polish le panneau avec les controls
-- Photo de la tour à la fin (angle et distance par exemple)
-	- Faire un barycentre pondéré par la taille des objets
 - Bloquer le zoom in/out à une certaine profondeur
 - Demander à Meru de faire de l'UI ingame HUD voir pour les menus
 - Faire en sorte que le score bouge pas quand on lâche un objet de haut
