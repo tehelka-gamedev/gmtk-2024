@@ -15,6 +15,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Logo/AnimationPlayer.play("logo_anim")
 	AudioManager.play_music(SoundBank.main_menu_music)
 	
 	if play_scene != null:
@@ -64,3 +65,6 @@ func _ready() -> void:
 
 func show_credits() -> void:
 	pass
+
+func play_logo_impact_sound() -> void:
+	AudioManager.play_sound_effect(SoundBank.impact_wood)
