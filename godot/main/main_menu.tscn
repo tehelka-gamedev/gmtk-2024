@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://cduummsvefesk"]
+[gd_scene load_steps=15 format=3 uid="uid://cduummsvefesk"]
 
 [ext_resource type="Script" path="res://main/main_menu.gd" id="1_hjvb3"]
 [ext_resource type="Script" path="res://hud/ButtonWithSound.gd" id="2_dlb6r"]
 [ext_resource type="PackedScene" uid="uid://jeihxw20nydi" path="res://main/level.tscn" id="2_wvtln"]
-[ext_resource type="PackedScene" uid="uid://fg00hg2ot87u" path="res://levels/level_1.tscn" id="3_ymn5e"]
 [ext_resource type="PackedScene" uid="uid://dg1tid3vprjl0" path="res://levels/level_2.tscn" id="4_jsgpt"]
 [ext_resource type="PackedScene" uid="uid://dyuoaywmnvenj" path="res://levels/level_3.tscn" id="5_8eejo"]
 [ext_resource type="Texture2D" uid="uid://cyehn5qqyysmw" path="res://main/main-menu/RightOnTop.png" id="6_338e8"]
@@ -38,7 +37,7 @@ button_quit = NodePath("MarginContainer/VBoxContainer/BottomButtons/ButtonQuit")
 button_how_to_play = NodePath("MarginContainer/VBoxContainer/BottomButtons/ButtonHowToPlay")
 play_scene = ExtResource("2_wvtln")
 levels_container = NodePath("MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/LevelsContainer")
-levels = Array[PackedScene]([ExtResource("4_jsgpt"), ExtResource("5_8eejo"), ExtResource("6_782ro"), ExtResource("3_ymn5e")])
+levels = Array[PackedScene]([ExtResource("4_jsgpt"), ExtResource("5_8eejo"), ExtResource("6_782ro")])
 credit_panel = NodePath("CreditsPanel")
 how_to_play_panel = NodePath("QuickHowToPlay")
 title_logo = NodePath("MarginContainer/VBoxContainer/TitleLogo")

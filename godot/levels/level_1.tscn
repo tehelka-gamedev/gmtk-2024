@@ -6,7 +6,7 @@
 
 [node name="Level1" instance=ExtResource("1_cnwo1")]
 target_height = 2.7
-level_name = "A bit of golf (medium)"
+level_name = "A bit of golf"
 sandbox_mode = false
 
 [node name="GolfBall" parent="Objects" index="0" instance=ExtResource("3_wn5k0")]
@@ -27,26 +27,146 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.215624, 0.109432, 0.227008
 [node name="Plank" parent="Objects" index="5" instance=ExtResource("4_8k8ti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.169313, 0.0388628, 0)
 
-[node name="Plank2" parent="Objects" index="6" instance=ExtResource("4_8k8ti")]
+[node name="Plank9" parent="Objects" index="6" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33493, 0.0388628, 0)
+
+[node name="Plank10" parent="Objects" index="7" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.86763, 0.0388628, 0)
+
+[node name="Plank11" parent="Objects" index="8" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61107, 0.0388628, 0)
+
+[node name="Plank12" parent="Objects" index="9" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25376, 0.0388628, 0)
+
+[node name="Plank13" parent="Objects" index="10" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86327, 0.0388628, 0)
+
+[node name="Plank14" parent="Objects" index="11" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60555, 0.0388628, 0)
+
+[node name="Plank15" parent="Objects" index="12" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10561, 0.0388628, 0)
+
+[node name="Plank16" parent="Objects" index="13" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9257, 0.0388628, 0)
+
+[node name="Plank2" parent="Objects" index="14" instance=ExtResource("4_8k8ti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.63311, 0.0388628, 0)
 
-[node name="Plank3" parent="Objects" index="7" instance=ExtResource("4_8k8ti")]
+[node name="Plank3" parent="Objects" index="15" instance=ExtResource("4_8k8ti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496804, 0.0388628, 0)
 
-[node name="Plank4" parent="Objects" index="8" instance=ExtResource("4_8k8ti")]
+[node name="Plank4" parent="Objects" index="16" instance=ExtResource("4_8k8ti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24171, 0.0388628, 0)
 
-[node name="Plank5" parent="Objects" index="9" instance=ExtResource("4_8k8ti")]
+[node name="Plank5" parent="Objects" index="17" instance=ExtResource("4_8k8ti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.804465, 0.0388628, 0)
 
-[node name="Plank6" parent="Objects" index="10" instance=ExtResource("4_8k8ti")]
+[node name="Plank6" parent="Objects" index="18" instance=ExtResource("4_8k8ti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53488, 0.0388628, 0)
 
-[node name="Plank7" parent="Objects" index="11" instance=ExtResource("4_8k8ti")]
+[node name="Plank7" parent="Objects" index="19" instance=ExtResource("4_8k8ti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05398, 0.0388628, 0)
 
-[node name="Plank8" parent="Objects" index="12" instance=ExtResource("4_8k8ti")]
+[node name="Plank8" parent="Objects" index="20" instance=ExtResource("4_8k8ti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.901979, 0.0388628, 0)
+
+[node name="Plank17" parent="Objects" index="21" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.169313, 0.0388628, 1.54396)
+
+[node name="Plank18" parent="Objects" index="22" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33493, 0.0388628, 1.54396)
+
+[node name="Plank19" parent="Objects" index="23" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.86763, 0.0388628, 1.54396)
+
+[node name="Plank20" parent="Objects" index="24" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61107, 0.0388628, 1.54396)
+
+[node name="Plank21" parent="Objects" index="25" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25376, 0.0388628, 1.54396)
+
+[node name="Plank22" parent="Objects" index="26" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86327, 0.0388628, 1.54396)
+
+[node name="Plank23" parent="Objects" index="27" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60555, 0.0388628, 1.54396)
+
+[node name="Plank24" parent="Objects" index="28" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10561, 0.0388628, 1.54396)
+
+[node name="Plank25" parent="Objects" index="29" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9257, 0.0388628, 1.54396)
+
+[node name="Plank26" parent="Objects" index="30" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.63311, 0.0388628, 1.54396)
+
+[node name="Plank27" parent="Objects" index="31" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496804, 0.0388628, 1.54396)
+
+[node name="Plank28" parent="Objects" index="32" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24171, 0.0388628, 1.54396)
+
+[node name="Plank29" parent="Objects" index="33" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.804465, 0.0388628, 1.54396)
+
+[node name="Plank30" parent="Objects" index="34" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53488, 0.0388628, 1.54396)
+
+[node name="Plank31" parent="Objects" index="35" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05398, 0.0388628, 1.54396)
+
+[node name="Plank32" parent="Objects" index="36" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.901979, 0.0388628, 1.54396)
+
+[node name="Plank33" parent="Objects" index="37" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.169313, 0.0388628, 2.939)
+
+[node name="Plank34" parent="Objects" index="38" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33493, 0.0388628, 2.939)
+
+[node name="Plank35" parent="Objects" index="39" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.86763, 0.0388628, 2.939)
+
+[node name="Plank36" parent="Objects" index="40" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61107, 0.0388628, 2.939)
+
+[node name="Plank37" parent="Objects" index="41" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25376, 0.0388628, 2.939)
+
+[node name="Plank38" parent="Objects" index="42" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86327, 0.0388628, 2.939)
+
+[node name="Plank39" parent="Objects" index="43" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60555, 0.0388628, 2.939)
+
+[node name="Plank40" parent="Objects" index="44" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10561, 0.0388628, 2.939)
+
+[node name="Plank41" parent="Objects" index="45" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9257, 0.0388628, 2.939)
+
+[node name="Plank42" parent="Objects" index="46" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.63311, 0.0388628, 2.939)
+
+[node name="Plank43" parent="Objects" index="47" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496804, 0.0388628, 2.939)
+
+[node name="Plank44" parent="Objects" index="48" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24171, 0.0388628, 2.939)
+
+[node name="Plank45" parent="Objects" index="49" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.804465, 0.0388628, 2.939)
+
+[node name="Plank46" parent="Objects" index="50" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.53488, 0.0388628, 2.939)
+
+[node name="Plank47" parent="Objects" index="51" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05398, 0.0388628, 2.939)
+
+[node name="Plank48" parent="Objects" index="52" instance=ExtResource("4_8k8ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.901979, 0.0388628, 2.939)
 
 [node name="Billboard" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52078, -5.15605)
@@ -57,6 +177,14 @@ _initial_value = null
 
 [editable path="Environment/ControlSign"]
 [editable path="Environment/ControlSign/sign_low"]
+[editable path="Environment/ControlSign6"]
+[editable path="Environment/ControlSign6/sign_low"]
+[editable path="Environment/ControlSign3"]
+[editable path="Environment/ControlSign3/sign_low"]
 [editable path="Environment/ControlSign2"]
 [editable path="Environment/ControlSign2/sign_low"]
+[editable path="Environment/ControlSign4"]
+[editable path="Environment/ControlSign4/sign_low"]
+[editable path="Environment/ControlSign5"]
+[editable path="Environment/ControlSign5/sign_low"]
 [editable path="HUD"]

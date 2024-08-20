@@ -7,7 +7,7 @@
 [node name="Level2" instance=ExtResource("1_yt1jq")]
 target_height = 6.5
 no_movement_duration_before_game_win = 3.0
-level_name = "The Joystick (easy)"
+level_name = "The Joystick"
 sandbox_mode = false
 
 [node name="Table" parent="Objects" index="0" instance=ExtResource("2_7nkod")]
@@ -25,6 +25,14 @@ _initial_value = null
 
 [editable path="Environment/ControlSign"]
 [editable path="Environment/ControlSign/sign_low"]
+[editable path="Environment/ControlSign6"]
+[editable path="Environment/ControlSign6/sign_low"]
+[editable path="Environment/ControlSign3"]
+[editable path="Environment/ControlSign3/sign_low"]
 [editable path="Environment/ControlSign2"]
 [editable path="Environment/ControlSign2/sign_low"]
+[editable path="Environment/ControlSign4"]
+[editable path="Environment/ControlSign4/sign_low"]
+[editable path="Environment/ControlSign5"]
+[editable path="Environment/ControlSign5/sign_low"]
 [editable path="HUD"]
