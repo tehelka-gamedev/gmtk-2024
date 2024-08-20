@@ -6,6 +6,7 @@ extends Control
 @export var play_scene:PackedScene = null
 @export var levels_container:BoxContainer = null
 @export var levels: Array[PackedScene]
+@export var credit_panel:PanelContainer = null
 
 @export_category("Debug variables")
 @export var nb_item_slider:Slider = null
@@ -64,7 +65,7 @@ func _ready() -> void:
 		levels_container.add_child(button)
 
 func show_credits() -> void:
-	pass
+	credit_panel.show()
 
 func play_logo_impact_sound() -> void:
 	AudioManager.play_sound_effect(SoundBank.impact_wood)

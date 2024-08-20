@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cduummsvefesk"]
+[gd_scene load_steps=15 format=3 uid="uid://cduummsvefesk"]
 
 [ext_resource type="Script" path="res://main/main_menu.gd" id="1_hjvb3"]
 [ext_resource type="Script" path="res://hud/ButtonWithSound.gd" id="2_dlb6r"]
@@ -10,6 +10,22 @@
 [ext_resource type="Texture2D" uid="uid://djc4mk8rfgm1w" path="res://main/gmtk2024-logo.png" id="7_0w4br"]
 [ext_resource type="PackedScene" uid="uid://cyiio111ful15" path="res://main/main-menu/mute_sounds_container.tscn" id="8_c51y2"]
 [ext_resource type="Theme" uid="uid://bxvd01pckxok2" path="res://ui/custom_theme.tres" id="10_gfbr4"]
+[ext_resource type="PackedScene" uid="uid://c147pno6pry8i" path="res://main/main-menu/credits_panel.tscn" id="11_e4c84"]
+
+[sub_resource type="Animation" id="Animation_gxkq5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ioenp"]
 resource_name = "logo_anim"
@@ -41,28 +57,13 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_gxkq5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4hcmx"]
 _data = {
 "RESET": SubResource("Animation_gxkq5"),
 "logo_anim": SubResource("Animation_ioenp")
 }
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_play", "button_credits", "button_quit", "levels_container", "nb_item_slider", "nb_item_label", "target_height_slider", "target_height_label")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_play", "button_credits", "button_quit", "levels_container", "credit_panel", "nb_item_slider", "nb_item_label", "target_height_slider", "target_height_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,6 +77,7 @@ button_quit = NodePath("MarginContainer/VBoxContainer/BottomButtons/ButtonQuit")
 play_scene = ExtResource("2_wvtln")
 levels_container = NodePath("MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/LevelsContainer")
 levels = Array[PackedScene]([ExtResource("4_jsgpt"), ExtResource("5_8eejo"), ExtResource("3_ymn5e")])
+credit_panel = NodePath("CreditsPanel")
 nb_item_slider = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer/NbItemSlider")
 nb_item_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer/NbItemLabel")
 target_height_slider = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer2/TargetHeightSlider")
@@ -267,3 +269,10 @@ texture = ExtResource("6_338e8")
 libraries = {
 "": SubResource("AnimationLibrary_4hcmx")
 }
+
+[node name="CreditsPanel" parent="." instance=ExtResource("11_e4c84")]
+layout_mode = 1
+offset_left = 62.0
+offset_top = 35.0
+offset_right = -62.0
+offset_bottom = -35.0
