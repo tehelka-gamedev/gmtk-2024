@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3nwypvlqbmu6"]
+
+[ext_resource type="PackedScene" uid="uid://c5ckyac1vuu3p" path="res://environment/rocks/rock.tscn" id="1_otydm"]
+[ext_resource type="PackedScene" uid="uid://yjcf38ev1mw3" path="res://environment/rocks/rock1/rock1_low.fbx" id="2_84ua5"]
+
+[node name="Rock" instance=ExtResource("1_otydm")]
+
+[node name="rock1_low" parent="." index="0" instance=ExtResource("2_84ua5")]
+
+[node name="rock1" parent="rock1_low" index="0"]
+transform = Transform3D(0.999779, -0.0210301, 0, 0.0210301, 0.999779, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="rock1_low" parent="rock1_low/rock1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[editable path="rock1_low"]

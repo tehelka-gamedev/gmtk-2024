@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://c5ckyac1vuu3p"]
+
+[node name="Rock" type="StaticBody3D"]

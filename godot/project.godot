@@ -37,12 +37,6 @@ gdscript/warnings/return_value_discarded=1
 
 theme/custom="res://ui/custom_theme.tres"
 
-[importer_defaults]
-
-scene={
-"import_script/path": "res://tool/generate_material_textures.gd"
-}
-
 [input]
 
 move_forward={
