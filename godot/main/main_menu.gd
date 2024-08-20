@@ -8,6 +8,10 @@ extends Control
 @export var levels: Array[PackedScene]
 @export var credit_panel:PanelContainer = null
 
+# logo anim
+@export var title_logo:TextureRect = null
+var tween:Tween = null
+
 @export_category("Debug variables")
 @export var nb_item_slider:Slider = null
 @export var nb_item_label:Label = null
@@ -16,7 +20,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Logo/AnimationPlayer.play("logo_anim")
+	_animate_logo()
 	AudioManager.play_music(SoundBank.main_menu_music)
 	
 	if play_scene != null:
@@ -68,4 +72,16 @@ func show_credits() -> void:
 	credit_panel.show()
 
 func play_logo_impact_sound() -> void:
+	AudioManager.play_sound_effect(SoundBank.impact_wood)
+
+
+func _animate_logo() -> void:
+	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	
+	#tween.tween_interval(1.0)
+	
+	var end_y:float = title_logo.global_position.y
+	var start_y:float = end_y-256
+	tween.tween_property(title_logo, "position:y", end_y, 2.2).from(start_y).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	await tween.finished
 	AudioManager.play_sound_effect(SoundBank.impact_wood)

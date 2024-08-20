@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cduummsvefesk"]
+[gd_scene load_steps=13 format=3 uid="uid://cduummsvefesk"]
 
 [ext_resource type="Script" path="res://main/main_menu.gd" id="1_hjvb3"]
 [ext_resource type="Script" path="res://hud/ButtonWithSound.gd" id="2_dlb6r"]
@@ -7,63 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://dg1tid3vprjl0" path="res://levels/level_2.tscn" id="4_jsgpt"]
 [ext_resource type="PackedScene" uid="uid://dyuoaywmnvenj" path="res://levels/level_3.tscn" id="5_8eejo"]
 [ext_resource type="Texture2D" uid="uid://cyehn5qqyysmw" path="res://main/main-menu/RightOnTop.png" id="6_338e8"]
+[ext_resource type="PackedScene" uid="uid://br45w6vtn6a67" path="res://levels/level_4.tscn" id="6_782ro"]
 [ext_resource type="Texture2D" uid="uid://djc4mk8rfgm1w" path="res://main/gmtk2024-logo.png" id="7_0w4br"]
 [ext_resource type="PackedScene" uid="uid://cyiio111ful15" path="res://main/main-menu/mute_sounds_container.tscn" id="8_c51y2"]
 [ext_resource type="Theme" uid="uid://bxvd01pckxok2" path="res://ui/custom_theme.tres" id="10_gfbr4"]
 [ext_resource type="PackedScene" uid="uid://c147pno6pry8i" path="res://main/main-menu/credits_panel.tscn" id="11_e4c84"]
 
-[sub_resource type="Animation" id="Animation_gxkq5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ioenp"]
-resource_name = "logo_anim"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(3.24901, 0.615572),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(91.6031, 2160.31)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.96667),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"play_logo_impact_sound"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4hcmx"]
-_data = {
-"RESET": SubResource("Animation_gxkq5"),
-"logo_anim": SubResource("Animation_ioenp")
-}
-
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_play", "button_credits", "button_quit", "levels_container", "credit_panel", "nb_item_slider", "nb_item_label", "target_height_slider", "target_height_label")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("button_play", "button_credits", "button_quit", "levels_container", "credit_panel", "title_logo", "nb_item_slider", "nb_item_label", "target_height_slider", "target_height_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,8 +26,9 @@ button_credits = NodePath("MarginContainer/VBoxContainer/BottomButtons/ButtonCre
 button_quit = NodePath("MarginContainer/VBoxContainer/BottomButtons/ButtonQuit")
 play_scene = ExtResource("2_wvtln")
 levels_container = NodePath("MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/LevelsContainer")
-levels = Array[PackedScene]([ExtResource("4_jsgpt"), ExtResource("5_8eejo"), ExtResource("3_ymn5e")])
+levels = Array[PackedScene]([ExtResource("4_jsgpt"), ExtResource("5_8eejo"), ExtResource("3_ymn5e"), ExtResource("6_782ro")])
 credit_panel = NodePath("CreditsPanel")
+title_logo = NodePath("MarginContainer/VBoxContainer/TitleLogo")
 nb_item_slider = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer/NbItemSlider")
 nb_item_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer/NbItemLabel")
 target_height_slider = NodePath("MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest/HBoxContainer2/TargetHeightSlider")
@@ -97,7 +48,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 130.0
+offset_bottom = 109.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 16
@@ -107,9 +58,9 @@ theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 16
 
 [node name="TitleLogo" type="TextureRect" parent="MarginContainer/VBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(0, 256)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -120,10 +71,11 @@ stretch_mode = 4
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_constants/separation = 48
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
@@ -136,8 +88,9 @@ theme_override_constants/separation = 4
 
 [node name="LevelsLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/LevelsContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_type_variation = &"LabelTitle"
 text = "Levels"
+horizontal_alignment = 1
 
 [node name="SandboxMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -149,11 +102,12 @@ theme_override_constants/margin_bottom = 16
 
 [node name="SandboxTest" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 metadata/_edit_group_ = true
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest"]
+[node name="LabelTitle" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/SandboxMarginContainer/SandboxTest"]
 layout_mode = 2
+theme_type_variation = &"LabelTitle"
 text = "Sandbox parameters"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -208,6 +162,8 @@ script = ExtResource("2_dlb6r")
 
 [node name="BottomButtons" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
 
 [node name="ButtonCredits" type="Button" parent="MarginContainer/VBoxContainer/BottomButtons"]
 custom_minimum_size = Vector2(128, 24)
@@ -241,11 +197,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GMTKLogo" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 961.0
-offset_top = 551.0
-offset_right = 1143.0
-offset_bottom = 639.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -191.0
+offset_top = -97.0
+offset_right = -9.0
+offset_bottom = -9.0
 texture = ExtResource("7_0w4br")
 expand_mode = 2
 
@@ -257,18 +218,6 @@ anchor_right = 0.0
 offset_left = 0.0
 offset_right = 127.0
 grow_horizontal = 1
-
-[node name="Logo" type="Node2D" parent="."]
-position = Vector2(562, -135)
-scale = Vector2(0.131, 0.131)
-
-[node name="Sprite2D" type="Sprite2D" parent="Logo"]
-texture = ExtResource("6_338e8")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Logo"]
-libraries = {
-"": SubResource("AnimationLibrary_4hcmx")
-}
 
 [node name="CreditsPanel" parent="." instance=ExtResource("11_e4c84")]
 layout_mode = 1
