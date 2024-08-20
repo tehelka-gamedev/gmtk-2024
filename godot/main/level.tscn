@@ -344,7 +344,7 @@ moving_speed = 4.0
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Billboard" parent="." instance=ExtResource("3_a3m6j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75223, -5.15605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55254, -5.15605)
 
 [node name="HeightDetector" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.2368, 0)
@@ -397,7 +397,6 @@ debugB = NodePath("../debugB")
 
 [node name="ScreenshotCamera" type="Camera3D" parent="WinViewport"]
 transform = Transform3D(-0.0192417, 0.562011, -0.826906, 0.0130742, 0.82713, 0.561859, 0.999729, 0, -0.0232632, -7.42661, 5.25305, 0.529863)
-cull_mask = 1048573
 
 [node name="debugA" type="MeshInstance3D" parent="."]
 visible = false
