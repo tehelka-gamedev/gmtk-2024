@@ -14,15 +14,14 @@ normal_enabled = true
 normal_texture = ExtResource("4_3fls3")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5a4v"]
-size = Vector3(15, 4, 0.5)
+size = Vector3(5.46008, 2.77075, 0.754028)
 
 [node name="Billboard" type="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.80494, -5.69024)
 collision_mask = 0
 script = ExtResource("1_d844d")
 
 [node name="sign_low" parent="." instance=ExtResource("2_euc4p")]
-transform = Transform3D(18, 0, 0, 0, 18, 0, 0, 0, 18, 0, -7.01771, -0.601643)
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, -1.33852, 0.101241)
 
 [node name="trunk_low" parent="sign_low/sign/low" index="0"]
 visible = false
@@ -31,17 +30,19 @@ visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_uc4er")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00897217, 1.35339, 0.117493)
 shape = SubResource("BoxShape3D_d5a4v")
 
 [node name="TargetHeightLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.918, 0.462368)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73883, 0.444077)
 layers = 2
-text = "target height: "
-font_size = 256
+text = "Target height: "
+font_size = 88
 
 [node name="HeightLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.303, 0.462)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03041, 0.443709)
 layers = 2
-font_size = 256
+text = "Current height: "
+font_size = 88
 
 [editable path="sign_low"]

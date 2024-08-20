@@ -32,7 +32,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.242, 0)
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0151578, 0.704389, 0.0738186)
-modulate = Color(0.329412, 0.227451, 0.0666667, 1)
-outline_modulate = Color(0.73468, 0.73468, 0.73468, 1)
+outline_modulate = Color(0, 0, 0, 0)
 text = "STACK
 HERE"

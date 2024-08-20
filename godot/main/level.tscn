@@ -297,6 +297,9 @@ transform = Transform3D(0.269643, 0, 0.96296, 0, 1, 0, -0.96296, 0, 0.269643, 1.
 [node name="Sign" parent="Environment" instance=ExtResource("24_d35s3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.349699, 0.0179738, -2.05747)
 
+[node name="Label3D" parent="Environment/Sign" index="4"]
+modulate = Color(0.200809, 0.200809, 0.200809, 1)
+
 [node name="ControlSign" parent="Environment" instance=ExtResource("24_d35s3")]
 transform = Transform3D(-0.769783, 0, -1.84592, 0, 2, 0, 1.84592, 0, -0.769783, 5.35944, 0.0179738, 2.98904)
 
@@ -342,7 +345,7 @@ moving_speed = 4.0
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="Billboard" parent="." instance=ExtResource("3_a3m6j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8418, -9.20388)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00903, -5.15605)
 
 [node name="HeightDetector" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.2368, 0)
@@ -405,6 +408,7 @@ mesh = SubResource("BoxMesh_3e5qp")
 visible = false
 mesh = SubResource("SphereMesh_xg4oo")
 
+[editable path="Environment/Sign"]
 [editable path="Environment/ControlSign"]
 [editable path="Environment/ControlSign/sign_low"]
 [editable path="Environment/ControlSign2"]
