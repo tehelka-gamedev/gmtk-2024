@@ -17,7 +17,7 @@ normal_texture = ExtResource("4_3fls3")
 size = Vector3(5.46008, 2.77075, 0.754028)
 
 [node name="Billboard" type="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.301583, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.410191, 0)
 collision_mask = 0
 script = ExtResource("1_d844d")
 
@@ -36,13 +36,11 @@ shape = SubResource("BoxShape3D_d5a4v")
 
 [node name="TargetHeightLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73883, 0.444077)
-layers = 2
 text = "Target height: "
 font_size = 128
 
 [node name="HeightLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03041, 0.443709)
-layers = 2
 text = "Current height: "
 font_size = 128
 
