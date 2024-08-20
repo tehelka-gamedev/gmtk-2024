@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cduummsvefesk"]
+[gd_scene load_steps=14 format=3 uid="uid://cduummsvefesk"]
 
 [ext_resource type="Script" path="res://main/main_menu.gd" id="1_hjvb3"]
 [ext_resource type="Script" path="res://hud/ButtonWithSound.gd" id="2_dlb6r"]
@@ -11,6 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://djc4mk8rfgm1w" path="res://main/gmtk2024-logo.png" id="7_0w4br"]
 [ext_resource type="PackedScene" uid="uid://cyiio111ful15" path="res://main/main-menu/mute_sounds_container.tscn" id="8_c51y2"]
 [ext_resource type="PackedScene" uid="uid://c147pno6pry8i" path="res://main/main-menu/credits_panel.tscn" id="11_e4c84"]
+
+[sub_resource type="Gradient" id="Gradient_rq6me"]
+colors = PackedColorArray(0.4785, 0.837375, 0.87, 1, 0.99, 0.5346, 0.78507, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_efxbc"]
+gradient = SubResource("Gradient_rq6me")
+fill_from = Vector2(0, 0.0042735)
+fill_to = Vector2(0, 1)
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("button_play", "button_credits", "button_quit", "levels_container", "credit_panel", "title_logo", "nb_item_slider", "nb_item_label", "target_height_slider", "target_height_label")]
 layout_mode = 3
@@ -41,6 +49,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.411765, 0.411765, 0.411765, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_efxbc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
