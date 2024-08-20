@@ -31,7 +31,9 @@ shape = SubResource("BoxShape3D_0ld1j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.242, 0)
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0151578, 0.704389, 0.0738186)
-outline_modulate = Color(0, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0151578, 0.693711, 0.0738186)
+modulate = Color(0.157753, 0.157753, 0.157753, 1)
+outline_modulate = Color(1, 1, 1, 0)
 text = "STACK
 HERE"
+font_size = 38
