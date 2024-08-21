@@ -7,7 +7,8 @@ const CAMERA_X_ROT_MAX: float = deg_to_rad(70)
 @export var zoom_speed: float = 5.0
 @export var moving_speed: float = 10.0
 @export var running_speed: float = 10.0
-@export var rotation_speed: float = 0.001
+@export var mouse_rotation_speed: float = 0.001
+@export var joystick_rotation_speed: float = 0.05
 @export_flags_3d_physics var object_3d_physics_layer: int
 
 var _running: bool = false
@@ -45,6 +46,20 @@ func _process(delta: float) -> void:
 	
 	velocity = movement_speed * motion_vector
 	move_and_slide()
+	
+
+	var rotation_direction: Vector2 = Input.get_vector(
+			"rotate_left",
+			"rotate_right",
+			"rotate_up",
+			"rotate_down"
+	)
+	var window: Window = get_viewport() as Window
+	var scale_factor: float = min(
+			(float(window.size.x) / window.get_visible_rect().size.x),
+			(float(window.size.y) / window.get_visible_rect().size.y)
+	)
+	rotate_camera(rotation_direction * joystick_rotation_speed * scale_factor)
 
 	var attached_object_zoom: float = Input.get_action_strength("zoom_object_in") - Input.get_action_strength("zoom_object_out")
 	if not is_zero_approx(attached_object_zoom):
@@ -67,8 +82,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	)
 
 	if event is InputEventMouseMotion:
-		var camera_speed_this_frame: float = rotation_speed
-		rotate_camera((event as InputEventMouseMotion).relative * camera_speed_this_frame * scale_factor)
+		rotate_camera((event as InputEventMouseMotion).relative * mouse_rotation_speed * scale_factor)
 
 
 func attach_object(object_global_position: Vector3, object_path_relative_to_root: NodePath) -> void:

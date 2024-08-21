@@ -28,6 +28,9 @@ func _ready():
 
 func play_music(stream:AudioStream, fade_in_time:float=0.25) -> void:
 	# If the same music is already playing, don't do anything
+	if OS.has_feature("editor"):
+		return
+
 	if _music_player.stream == stream:
 		return
 
@@ -47,6 +50,9 @@ func play_music(stream:AudioStream, fade_in_time:float=0.25) -> void:
 
 
 func play_sound_effect(stream:AudioStream) -> void:
+	if OS.has_feature("editor"):
+		return
+
 	var sound_player:AudioStreamPlayer = AudioStreamPlayer.new()
 	sound_player.stream = stream
 	sound_player.bus = SE_BUS

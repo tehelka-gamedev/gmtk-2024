@@ -3,6 +3,7 @@ extends RigidBody3D
 
 
 @export var mouse_sensitivity: float = 0.05
+@export var joystick_sensitivity: float = 3.0
 @export_color_no_alpha var hover_color: Color = Color.YELLOW
 @export_color_no_alpha var valid_color: Color = Color.GREEN
 @export_color_no_alpha var invalid_color: Color = Color.RED
@@ -77,12 +78,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if GameState.current_game_state == Enum.GameState.ROTATING_OBJECT and event is InputEventMouseMotion:
 		var motion_event:InputEventMouseMotion = event as InputEventMouseMotion
-		rotate_x(deg_to_rad(motion_event.relative.y * mouse_sensitivity))
-		rotate_y(deg_to_rad(motion_event.relative.x * mouse_sensitivity))
-
-		var object_rot:Vector3 = rotation_degrees
-		object_rot.x = clamp(object_rot.x, -70, 70)
-		rotation_degrees = object_rot
+		_rotate_object(motion_event.relative * mouse_sensitivity)
 
 
 func _physics_process(_delta: float) -> void:
@@ -92,6 +88,16 @@ func _physics_process(_delta: float) -> void:
 		_set_albedo_color(valid_color)
 	else:
 		_set_albedo_color(invalid_color)
+	
+	if GameState.current_game_state == Enum.GameState.ROTATING_OBJECT:
+		var rotation_direction: Vector2 = Input.get_vector(
+				"rotate_left",
+				"rotate_right",
+				"rotate_up",
+				"rotate_down"
+		)
+		if not rotation_direction.is_zero_approx():
+			_rotate_object(rotation_direction * joystick_sensitivity)
 	
 	_height_ray_cast.global_rotation = Vector3.ZERO
 	_height_ray_cast.force_raycast_update()
@@ -167,7 +173,7 @@ func _set_scale(value: float) -> void:
 
 
 func _get_mesh_instances(current_node: Node) -> Array[MeshInstance3D]:
-	# Tehelka: this is 
+	# Tehelka: this is bug prone (problem if current_node is MeshInstance3D and has MeshInstance3D children)
 	if current_node is MeshInstance3D and current_node is not HeightLine:
 		return [current_node]
 	elif current_node.get_child_count() == 0:
@@ -192,3 +198,8 @@ func _enable_height_line(value: bool) -> void:
 	_height_line.visible = value
 	_height_ray_cast.enabled = value
 	_height_line_impact.visible = value
+
+
+func _rotate_object(motion: Vector2) -> void:
+	rotate_x(deg_to_rad(motion.y))
+	rotate_y(deg_to_rad(motion.x))

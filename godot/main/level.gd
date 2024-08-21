@@ -98,7 +98,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		$camTarget.texture = photo
 	
 	# Handle focus/unfocus with escape / click on the viewport
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("pause_menu"):
 		if GameState.current_game_state == Enum.GameState.FREE_CAMERA:
 			Events.pause()
 		elif GameState.current_game_state == Enum.GameState.OBJECT_SELECTED:
