@@ -241,13 +241,15 @@ func _get_object_scenes() -> Array[PackedScene]:
 
 func _get_object_scene(directory: String) -> String:
 	var physics_engine_is_jolt: bool = ProjectSettings.get_setting("physics/3d/physics_engine") == "JoltPhysics3D"
-	
 	var scene_file: String = ""
 	for file: String in DirAccess.get_files_at(game_object_folder + "/" + directory):
 		if not file.ends_with(".tscn"):
 			continue
-		if file.ends_with("jolt.tscn") and physics_engine_is_jolt:
-			return file
+		if file.ends_with("jolt.tscn"):
+			if physics_engine_is_jolt:
+				return file
+			else:
+				continue
 		else:
 			scene_file = file
 	return scene_file
