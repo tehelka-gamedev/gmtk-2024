@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwbpngwlt08yu"]
+
+[ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_h1bjv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bodas"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ytvcb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5u3c"]
+resource_local_to_scene = true
+
+[node name="Cube" instance=ExtResource("1_h1bjv")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_bodas")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("BoxMesh_ytvcb")
+surface_material_override/0 = SubResource("StandardMaterial3D_b5u3c")

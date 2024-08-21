@@ -4,12 +4,12 @@ extends Node3D
 const TIME_BEFORE_WIN_WHEN_HEIGHT_IS_OVER_TARGET: float = 5.0
 
 @export var target_height: float = 5.0
-@export var object_pool:Array[PackedScene] = []
 @export var select_max_distance: float = 5.0
 @export var no_movement_duration_before_game_win: float = 3.0
 @export var level_name: String
 @export var sandbox_mode: bool = true
 @export_file("*.tscn") var main_menu_scene: String
+@export_dir var game_object_folder: String
 
 var _current_height: float = 0.0
 var _last_time_something_has_moved: float = 0.0
@@ -166,6 +166,7 @@ func reload_level() -> void:
 	
 	
 func start_game() -> void:
+	var object_pool: Array[PackedScene] = _get_object_scenes()
 	_has_won = false
 	_stats.reset()
 	for i in range(GameSettings.number_items_to_spawn):
@@ -225,3 +226,28 @@ func _no_object_has_moved_last_frame() -> bool:
 		_last_frame_object_position[object] = object.global_position
 		
 	return no_movement
+
+
+func _get_object_scenes() -> Array[PackedScene]:
+	var object_scenes: Array[PackedScene] = []
+	for directory: String in DirAccess.get_directories_at(game_object_folder):
+		if directory.contains("DEBUG"):
+			continue
+		var scene_file: String = _get_object_scene(directory)
+		if scene_file != "":
+			object_scenes.append(load(game_object_folder + "/" + directory + "/" + scene_file))
+	return object_scenes
+		
+
+func _get_object_scene(directory: String) -> String:
+	var physics_engine_is_jolt: bool = ProjectSettings.get_setting("physics/3d/physics_engine") == "JoltPhysics3D"
+	
+	var scene_file: String = ""
+	for file: String in DirAccess.get_files_at(game_object_folder + "/" + directory):
+		if not file.ends_with(".tscn"):
+			continue
+		if file.ends_with("jolt.tscn") and physics_engine_is_jolt:
+			return file
+		else:
+			scene_file = file
+	return scene_file

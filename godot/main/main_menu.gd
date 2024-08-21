@@ -24,7 +24,8 @@ var tween:Tween = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	how_to_play_panel.visible = false
-	_animate_logo()
+	if not OS.has_feature("editor"):
+		_animate_logo()
 	AudioManager.play_music(SoundBank.main_menu_music)
 	
 	if play_scene != null:
