@@ -240,6 +240,10 @@ func _get_object_scenes() -> Array[PackedScene]:
 		
 
 func _get_object_scene(directory: String) -> String:
+	# Cette fonction permet de définier des scènes GameObject qui
+	# ne seront utilisées que si le moteur physics est jolt
+	# Il suffit simplement de prendre une scène GameObject et de l'enregistrer sous 
+	# le nom {OBJECT_NAME}_jolt.tscn dans le dosier res://game_object/{OBJECT_NAME} correspondant
 	var physics_engine_is_jolt: bool = ProjectSettings.get_setting("physics/3d/physics_engine") == "JoltPhysics3D"
 	var scene_file: String = ""
 	for file: String in DirAccess.get_files_at(game_object_folder + "/" + directory):
