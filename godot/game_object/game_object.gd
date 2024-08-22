@@ -2,21 +2,21 @@ class_name GameObject
 extends RigidBody3D
 
 
-@export var mouse_sensitivity: float = 0.05
-@export var joystick_sensitivity: float = 3.0
+const mouse_sensitivity: float = 0.05
+const joystick_sensitivity: float = 3.0
+
 @export_color_no_alpha var hover_color: Color = Color.YELLOW
 @export_color_no_alpha var valid_color: Color = Color.GREEN
 @export_color_no_alpha var invalid_color: Color = Color.RED
 @export var model: Node3D
-@export var scale_factor: float = 1 # in pourcentage
 @export var approximate_length: float # in meter
 
 
 @export_category("Gameplay parameters")
-## Amount of unit scaling the object cost
-@export var min_scale:float = 0.5
-@export var max_scale:float = 2.0
+@export var scale_factors: Array[float] = [1.0]
 
+
+var current_scale_factors_idx: int = 0
 var selected: bool = false :
 	set(value):
 		selected = value
@@ -41,12 +41,12 @@ var object_scale: float = 1.0:
 		_set_scale(object_scale)
 		mass = _initial_mass * value * value
 
+
 var _collision_shapes: Array[ScallableCollisionShape3D] = []
 var _collision_detector_shapes: Array[ScallableCollisionShape3D] = []
 var _mesh_instances: Array[MeshInstance3D] = []
 
 var _initial_mass: float = mass
-
 @onready var _collision_detector: Area3D = $CollisionDetector
 @onready var _initial_model_position: Vector3 = model.position
 @onready var _height_line: MeshInstance3D = $HeightLine
@@ -140,17 +140,19 @@ func stop_hover() -> void:
 ## Scale up one time
 ## Returns true if the scaling could be done, false otherwise
 func scale_up() -> bool:
-	if object_scale > max_scale:
+	if current_scale_factors_idx + 1 >= len(scale_factors):
 		return false
-	object_scale *= 1 + scale_factor/100
+	current_scale_factors_idx += 1
+	object_scale = scale_factors[current_scale_factors_idx]
 	return true
 	
 ## Scale down one time
 ## Returns true if the scaling could be done, false otherwise
 func scale_down() -> bool:
-	if object_scale < min_scale:
+	if current_scale_factors_idx - 1 < 0:
 		return false
-	object_scale /= 1 + scale_factor/100
+	current_scale_factors_idx -= 1
+	object_scale = scale_factors[current_scale_factors_idx]
 	return true
 
 

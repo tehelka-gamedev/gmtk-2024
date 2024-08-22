@@ -24,7 +24,7 @@ size = Vector3(0.107666, 0.0692139, 1.16873)
 mass = 40.0
 model = NodePath("Mesh")
 approximate_length = 1.0
-max_scale = 6.0
+scale_factors = Array[float]([0.5, 1.0, 1.5, 2.0, 2.5, 3.0])
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_8gfti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.311979, 0)

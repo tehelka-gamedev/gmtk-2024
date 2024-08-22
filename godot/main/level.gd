@@ -133,17 +133,23 @@ func _handle_selected_object_input(event: InputEvent) -> void:
 	if _current_selected_object == null:
 		return
 	## Handle selected object resize	
-	if event.is_action("scale_up"):
+	if event.is_action_pressed("scale_up"):
 		if _scaling_gauge.can_pay(1.0):
 			if _current_selected_object.scale_up():
 				_scaling_gauge.pay(1.0)
-				_hud.on_object_scale_changed(_current_selected_object.object_scale)
-	elif event.is_action("scale_down"):
+				_hud.on_object_scale_changed(
+						_current_selected_object.scale_factors,
+						_current_selected_object.current_scale_factors_idx
+				)
+	elif event.is_action_pressed("scale_down"):
 		if not _scaling_gauge.isFull():
 			if _current_selected_object.scale_down():
 				_scaling_gauge.restore(1.0)
-				_hud.on_object_scale_changed(_current_selected_object.object_scale)
-
+				_hud.on_object_scale_changed(
+						_current_selected_object.scale_factors,
+						_current_selected_object.current_scale_factors_idx
+				)
+				
 
 func _unselect_current_object() -> void:
 	assert (_current_selected_object!=null, "Trying to unselect an object but none is selected, something is wrong!")
@@ -179,6 +185,7 @@ func start_game() -> void:
 		obj.global_position = Vector3(rand_x.x, rand_x.y, rand_z.z)
 		#await get_tree().create_timer(0.1).timeout
 
+
 func win() -> void:
 	_has_won = true
 	AudioManager.play_music(SoundBank.win_music)
@@ -197,12 +204,13 @@ func win() -> void:
 	
 	_hud.show_win(_stats, photo)
 
+
 func select(object: GameObject) -> void:
 	# Picking object
 	if GameState.current_game_state == Enum.GameState.FREE_CAMERA:
 		GameState.current_game_state = Enum.GameState.OBJECT_SELECTED
 		
-		_hud.on_select(object)
+		_hud.on_select_object(object.scale_factors, object.current_scale_factors_idx)
 		object.global_position = _player_camera.global_position + _player_camera.get_forward_direction() * (object.global_position - _player_camera.global_position).length()
 		# tween way, commented out for now
 		#var new_object_position: Vector3 = _player_camera.global_position + _player_camera.get_forward_direction() * (object.global_position - _player_camera.global_position).length()

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b14fx56dtn7ei"]
+
+[ext_resource type="Script" path="res://hud/scale_label_container.gd" id="1_7hdpj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4gbj"]
+bg_color = Color(0.20871, 0.20871, 0.20871, 0.376471)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x2v0f"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+
+[node name="ScaleLabelContainer" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_v4gbj")
+script = ExtResource("1_7hdpj")
+
+[node name="ScaleLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x2v0f")
+text = "1.0"
+horizontal_alignment = 1

@@ -18,10 +18,8 @@ radius = 0.075815
 [node name="Joystick" node_paths=PackedStringArray("model") instance=ExtResource("1_dyhrf")]
 mass = 0.6
 model = NodePath("Mesh")
-scale_factor = 2.0
 approximate_length = 0.4
-min_scale = 1.0
-max_scale = 15.0
+scale_factors = Array[float]([1.0, 2.5, 4.0, 5.5, 7.0, 8.5, 10.0, 11.5, 13.0])
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_hx1em")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.137589, 0)
