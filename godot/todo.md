@@ -14,6 +14,9 @@ Processus d'import des assets 3D
 - retype les collisions shapes en ScallableCollisionShape3D
 
 
+#TODO
+
+- Retirer le highlight jaune de l'objet quand la photo de fin de niveau est prise
 
 ### Choses à faire en priorité
 - Voir l'éclairage du niveau

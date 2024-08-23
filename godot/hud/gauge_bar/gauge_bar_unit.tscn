@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkcl3fe0t6yl3"]
+
+[ext_resource type="Script" path="res://hud/gauge_bar/gauge_bar_unit.gd" id="1_op5nf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vt3ks"]
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="GaugeBarUnit" type="ProgressBar"]
+custom_minimum_size = Vector2(0, 32)
+offset_right = 20.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_vt3ks")
+max_value = 1.0
+step = 0.0
+value = 1.0
+show_percentage = false
+script = ExtResource("1_op5nf")

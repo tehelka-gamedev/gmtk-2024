@@ -490,9 +490,6 @@ shadow_opacity = 0.47
 
 [node name="HUD" parent="." instance=ExtResource("6_ufsw2")]
 
-[node name="GaugeBar" parent="HUD/GaugeZone/VBoxContainer/MarginContainer" index="0" node_paths=PackedStringArray("gauge")]
-gauge = NodePath("../../../../../ScalingGauge")
-
 [node name="SpawnBorders" type="Path3D" parent="."]
 curve = SubResource("Curve3D_6nq7e")
 

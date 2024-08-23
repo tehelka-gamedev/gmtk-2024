@@ -1,6 +1,8 @@
 extends Node3D
 
 
+signal scale_gauge_updated(new_value: int)
+
 const TIME_BEFORE_WIN_WHEN_HEIGHT_IS_OVER_TARGET: float = 5.0
 
 @export var target_height: float = 5.0
@@ -8,6 +10,7 @@ const TIME_BEFORE_WIN_WHEN_HEIGHT_IS_OVER_TARGET: float = 5.0
 @export var no_movement_duration_before_game_win: float = 3.0
 @export var level_name: String
 @export var sandbox_mode: bool = true
+@export var scale_gauge_bar_units: int = 10
 @export_file("*.tscn") var main_menu_scene: String
 @export_dir var game_object_folder: String
 
@@ -17,7 +20,10 @@ var _current_selected_object: GameObject = null
 var _current_hovered_object: GameObject = null
 var _last_frame_object_position: Dictionary = {}
 var _last_time_height_changed: float = 0.0
-
+var _current_scale_gauge_units: int = scale_gauge_bar_units:
+	set(value):
+		_current_scale_gauge_units = value
+		scale_gauge_updated.emit(_current_scale_gauge_units)
 ## True if the player has won, false otherwise
 var _has_won:bool = false
 
@@ -31,7 +37,7 @@ var _stats:WinStats = WinStats.new()
 
 @onready var _objects = $Objects
 @onready var _spawn_borders = $SpawnBorders
-@onready var _scaling_gauge:Gauge = $ScalingGauge
+@onready var _scale_gauge: ScaleGauge = $HUD/%ScaleGauge
 
 ## Picture taken at the end when winning
 @export var _win_viewport:WinViewport = null
@@ -49,6 +55,8 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	seed(randi())
 	
+	scale_gauge_updated.connect(_scale_gauge.on_gauge_value_changed)
+	
 	@warning_ignore("return_value_discarded")
 	_height_detector.max_height_changed.connect(_on_max_height_changed)
 	if sandbox_mode:
@@ -59,6 +67,8 @@ func _ready() -> void:
 	
 	for object: GameObject in _objects.get_children():
 		_last_frame_object_position[object] = object.global_position
+	
+	_scale_gauge.init_gauge(scale_gauge_bar_units, _current_scale_gauge_units)
 
 
 func _physics_process(delta: float) -> void:
@@ -134,17 +144,17 @@ func _handle_selected_object_input(event: InputEvent) -> void:
 		return
 	## Handle selected object resize	
 	if event.is_action_pressed("scale_up"):
-		if _scaling_gauge.can_pay(1.0):
+		if _current_scale_gauge_units > 0:
 			if _current_selected_object.scale_up():
-				_scaling_gauge.pay(1.0)
+				_current_scale_gauge_units -= 1
 				_hud.on_object_scale_changed(
 						_current_selected_object.scale_factors,
 						_current_selected_object.current_scale_factors_idx
 				)
 	elif event.is_action_pressed("scale_down"):
-		if not _scaling_gauge.isFull():
+		if _current_scale_gauge_units < scale_gauge_bar_units:
 			if _current_selected_object.scale_down():
-				_scaling_gauge.restore(1.0)
+				_current_scale_gauge_units += 1
 				_hud.on_object_scale_changed(
 						_current_selected_object.scale_factors,
 						_current_selected_object.current_scale_factors_idx
