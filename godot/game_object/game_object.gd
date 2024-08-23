@@ -4,6 +4,7 @@ extends RigidBody3D
 
 const mouse_sensitivity: float = 0.05
 const joystick_sensitivity: float = 3.0
+const STARTING_SCALE_FACTOR: float = 1.0
 
 @export_color_no_alpha var hover_color: Color = Color.YELLOW
 @export_color_no_alpha var valid_color: Color = Color.GREEN
@@ -70,6 +71,10 @@ func _ready() -> void:
 	_mesh_instances = _get_mesh_instances(self)
 	_duplicate_mesh_material()
 	center_of_mass = _mass_center.position + _mass_center.get_parent().position
+	
+	current_scale_factors_idx = 0
+	while not is_equal_approx(scale_factors[current_scale_factors_idx], STARTING_SCALE_FACTOR):
+		current_scale_factors_idx += 1
 
 
 func _unhandled_input(event: InputEvent) -> void:
