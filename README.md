@@ -1,7 +1,6 @@
 # GMTK Game Jam 2024 Contribution : Right On Top
 
-
-gif_gameplay_jam_version.mp4
+<video src="gif_gameplay_jam_version.mp4" width=180 />
 
 Contribution to the GMTK Game Jam 2024, made by Meru, Axel, Grominet and Tehelka (see credits).
 
