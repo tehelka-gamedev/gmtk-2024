@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://jtfln521qcp4" path="res://environment/sign/Texture_export/sign_low_sign_mat_Roughness.png" id="5_f0ppb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uc4er"]
-albedo_color = Color(0.701189, 0.386703, 0.215699, 1)
+albedo_color = Color(0.501961, 0.298039, 0.145098, 1)
 albedo_texture = ExtResource("3_5dt7q")
 roughness_texture = ExtResource("5_f0ppb")
 normal_enabled = true
