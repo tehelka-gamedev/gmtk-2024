@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://brmidh11yp6u8"]
+[gd_scene load_steps=18 format=3 uid="uid://brmidh11yp6u8"]
 
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_o848y"]
 [ext_resource type="PackedScene" uid="uid://cg2w14yu3ji22" path="res://game_object/dumbell/dumbell_low.fbx" id="2_ssg5y"]
+[ext_resource type="Material" uid="uid://d2nf2bcixhfmb" path="res://game_object/dumbell/dumbell_low.material" id="3_0v6nb"]
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="3_ceiy1"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_igpqx"]
@@ -46,67 +47,92 @@ points = PackedVector3Array(-0.0794, 0.0544735, -0.0499234, -0.0583, 0.00967463,
 [node name="Dumbell" node_paths=PackedStringArray("model") instance=ExtResource("1_o848y")]
 mass = 6.0
 model = NodePath("Mesh")
-scale_factor = 2.0
 approximate_length = 0.3
-min_scale = 1.0
-max_scale = 15.0
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_ssg5y")]
 
 [node name="dumbell" parent="Mesh" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
+[node name="bar_low" parent="Mesh/dumbell/low" index="0"]
+surface_material_override/0 = ExtResource("3_0v6nb")
+
+[node name="little_low" parent="Mesh/dumbell/low" index="1"]
+surface_material_override/0 = ExtResource("3_0v6nb")
+
+[node name="middle_low" parent="Mesh/dumbell/low" index="2"]
+surface_material_override/0 = ExtResource("3_0v6nb")
+
+[node name="gear_low" parent="Mesh/dumbell/low" index="3"]
+surface_material_override/0 = ExtResource("3_0v6nb")
+
+[node name="high_low" parent="Mesh/dumbell/low" index="4"]
+surface_material_override/0 = ExtResource("3_0v6nb")
+
 [node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_igpqx")
 script = ExtResource("3_ceiy1")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="2"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_w5qy5")
 script = ExtResource("3_ceiy1")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="3"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_2htoa")
 script = ExtResource("3_ceiy1")
 
 [node name="CollisionShape3D13" type="CollisionShape3D" parent="." index="4"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_w4igv")
 script = ExtResource("3_ceiy1")
 
 [node name="CollisionShape3D12" type="CollisionShape3D" parent="." index="5"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_wyjre")
 script = ExtResource("3_ceiy1")
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="." index="6"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_6d7vv")
 script = ExtResource("3_ceiy1")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="." index="7"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_n7q1e")
 script = ExtResource("3_ceiy1")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="." index="8"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_r3ul1")
 script = ExtResource("3_ceiy1")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="." index="9"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_b5gd4")
 script = ExtResource("3_ceiy1")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="." index="10"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_luhx2")
 script = ExtResource("3_ceiy1")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="." index="11"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_agntv")
 script = ExtResource("3_ceiy1")
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="." index="12"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_k2uam")
 script = ExtResource("3_ceiy1")
 
 [node name="CollisionShape3D10" type="CollisionShape3D" parent="." index="13"]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_15cmd")
 script = ExtResource("3_ceiy1")
 

@@ -17,6 +17,9 @@ Processus d'import des assets 3D
 #TODO
 
 - Retirer le highlight jaune de l'objet quand la photo de fin de niveau est prise
+- Mettre toutes les textures en 1K (il en reste qlq unes en 2K, par exemple celle des rochers)
+- Reste qlq bugs sur les assets
+    - Rainures du ballon de foot avec de l'aliasing ?
 
 ### Choses à faire en priorité
 - Voir l'éclairage du niveau

@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://btil01b1js8kr"]
+[gd_scene load_steps=25 format=3 uid="uid://btil01b1js8kr"]
 
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_c3c10"]
 [ext_resource type="PackedScene" uid="uid://fqouxctecjum" path="res://game_object/bucket/bucket_low.fbx" id="2_pjr0a"]
+[ext_resource type="Material" uid="uid://g4s01imc042x" path="res://game_object/bucket/bucket_low.material" id="3_fvtqs"]
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="3_xeil1"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3v7yb"]
@@ -66,10 +67,7 @@ points = PackedVector3Array(-0.00537924, 0.0901, 0.000155352, -0.0978939, 0.0998
 
 [node name="Bucket" node_paths=PackedStringArray("model") instance=ExtResource("1_c3c10")]
 model = NodePath("Mesh")
-scale_factor = 1.5
 approximate_length = 0.33
-min_scale = 1.0
-max_scale = 10.0
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_pjr0a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.207628, 0)
@@ -77,106 +75,132 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.207628, 0)
 [node name="bucket" parent="Mesh" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0533098, 0)
 
+[node name="bucket_low" parent="Mesh/bucket/low" index="0"]
+surface_material_override/0 = ExtResource("3_fvtqs")
+
+[node name="holder_low" parent="Mesh/bucket/low" index="1"]
+surface_material_override/0 = ExtResource("3_fvtqs")
+
 [node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.208, 0)
 
 [node name="CollisionShape3D20" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_3v7yb")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D19" type="CollisionShape3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_tmpit")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D18" type="CollisionShape3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_avcwy")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D17" type="CollisionShape3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_w4egv")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D16" type="CollisionShape3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_1ll0y")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D15" type="CollisionShape3D" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_7yk8x")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D14" type="CollisionShape3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_the7g")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D13" type="CollisionShape3D" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_tmmqw")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D12" type="CollisionShape3D" parent="." index="9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_p4qb5")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D11" type="CollisionShape3D" parent="." index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_nd3c7")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D10" type="CollisionShape3D" parent="." index="11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_ta3uj")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="." index="12"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_upt7e")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="." index="13"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_35vrs")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_4ysv0")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="." index="15"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_eygdc")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="." index="16"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_fhvgc")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="." index="17"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_li74n")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="18"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_pp1yx")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="19"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_devlh")
 script = ExtResource("3_xeil1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="20"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154318, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_kekko")
 script = ExtResource("3_xeil1")
 

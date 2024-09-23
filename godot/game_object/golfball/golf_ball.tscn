@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://clngcuh1vawvw"]
+[gd_scene load_steps=7 format=3 uid="uid://clngcuh1vawvw"]
 
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_0pysw"]
 [ext_resource type="PackedScene" uid="uid://ctxoaexo53ehy" path="res://game_object/golfball/golfball_low.fbx" id="2_nppoh"]
+[ext_resource type="Material" uid="uid://b4iij7wlp0jgw" path="res://game_object/golfball/golfball_low.material" id="3_acoqg"]
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="3_mmw5k"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idfn3"]
@@ -14,16 +15,17 @@ radius = 0.02
 mass = 0.046
 physics_material_override = SubResource("PhysicsMaterial_idfn3")
 model = NodePath("Mesh")
-scale_factor = 20.0
 approximate_length = 0.04
-min_scale = 1.0
-max_scale = 50.0
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_nppoh")]
+
+[node name="golfball_low" parent="Mesh/golfball" index="0"]
+surface_material_override/0 = ExtResource("3_acoqg")
 
 [node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+visible = false
 shape = SubResource("SphereShape3D_qsjnc")
 script = ExtResource("3_mmw5k")
 

@@ -12,8 +12,6 @@ points = PackedVector3Array(-0.135648, 0.0559333, -0.637704, 0.0298981, 0.03523,
 mass = 8.0
 model = NodePath("Mesh")
 approximate_length = 0.5
-min_scale = 1.0
-max_scale = 4.0
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_idxm4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0613661, -0.0110761, 0)
@@ -29,6 +27,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061, 0.011, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0613661, -0.0110761, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_bjaic")
 script = ExtResource("8_55kpv")
 

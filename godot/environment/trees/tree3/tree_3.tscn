@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://br7vfpljamwtm"]
+[gd_scene load_steps=41 format=3 uid="uid://br7vfpljamwtm"]
 
 [ext_resource type="PackedScene" uid="uid://kq3pp4bx8vhr" path="res://environment/trees/tree.tscn" id="1_uopcq"]
 [ext_resource type="PackedScene" uid="uid://cfj4j4jpu5dh4" path="res://environment/trees/tree3/tree3_low.fbx" id="2_mdbj5"]
+[ext_resource type="Material" uid="uid://dbx0jufa52ig5" path="res://environment/trees/tree3/tree3_low.material" id="3_dl5l2"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7301s"]
 points = PackedVector3Array(-0.370884, 0.403267, 0.115595, -0.574869, 0.32909, 0.0228794, -0.593473, 0.32909, 0.041429, -0.0741841, 0.310536, 0.0599896, -0.204057, 0.403267, 0.0228794, -0.500656, 0.310536, 0.115595, -0.574869, 0.403267, 0.0785175, -0.167001, 0.32909, 0.115595, -0.593473, 0.36616, 0.134156, -0.0779237, 0.311204, 0.0236807, -0.593473, 0.310536, 0.0599896, -0.204057, 0.403267, 0.0599896, -0.276756, 0.404487, 0.0214147, -0.167001, 0.310536, 0.115595, -0.0927882, 0.347643, 0.0599896, -0.51926, 0.310536, 0.0228794, -0.556366, 0.403267, 0.0599896, -0.22261, 0.36616, 0.115595, -0.574869, 0.347643, 0.0228794, -0.593473, 0.347643, 0.134156, -0.51926, 0.403267, 0.115595, -0.0741841, 0.32909, 0.0228794, -0.593473, 0.310536, 0.0970453, -0.111291, 0.347643, 0.0785175, -0.556366, 0.36616, 0.134156, -0.593473, 0.347643, 0.041429, -0.0927882, 0.32909, 0.0785175, -0.0927882, 0.347643, 0.0228794, -0.574869, 0.403267, 0.0970453, -0.241164, 0.403267, 0.0785175)
@@ -117,6 +118,12 @@ points = PackedVector3Array(-0.275027, 0.365764, 0.320079, -0.849772, -0.44619, 
 [node name="Tree3" instance=ExtResource("1_uopcq")]
 
 [node name="tree3_low" parent="." index="0" instance=ExtResource("2_mdbj5")]
+
+[node name="trunk3_low" parent="tree3_low/tree5/low" index="0"]
+surface_material_override/0 = ExtResource("3_dl5l2")
+
+[node name="leaf3_low" parent="tree3_low/tree5/low" index="1"]
+surface_material_override/0 = ExtResource("3_dl5l2")
 
 [node name="CollisionShape3D32" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0619619, 0.559279, 0.00853909)

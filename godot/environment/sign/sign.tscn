@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddjn1k2nxe7i"]
+[gd_scene load_steps=6 format=3 uid="uid://ddjn1k2nxe7i"]
 
 [ext_resource type="PackedScene" uid="uid://dswicwr0njddc" path="res://environment/sign/sign_low.fbx" id="1_par8r"]
+[ext_resource type="Material" uid="uid://dqag03yt5jkx1" path="res://environment/sign/sign_low.material" id="2_504aj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_42keo"]
 size = Vector3(0.916138, 0.0969849, 0.0978851)
@@ -30,10 +31,18 @@ shape = SubResource("BoxShape3D_0ld1j")
 [node name="sign_low" parent="." instance=ExtResource("1_par8r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.242, 0)
 
+[node name="trunk_low" parent="sign_low/sign/low" index="0"]
+surface_material_override/0 = ExtResource("2_504aj")
+
+[node name="sign_low" parent="sign_low/sign/low" index="1"]
+surface_material_override/0 = ExtResource("2_504aj")
+
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0151578, 0.693711, 0.0738186)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0151578, 0.693711, 0.0546025)
 modulate = Color(0.157753, 0.157753, 0.157753, 1)
 outline_modulate = Color(1, 1, 1, 0)
 text = "STACK
 HERE"
 font_size = 38
+
+[editable path="sign_low"]

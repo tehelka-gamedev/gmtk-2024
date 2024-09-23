@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4ckgjiuaqsuw"]
+[gd_scene load_steps=7 format=3 uid="uid://b4ckgjiuaqsuw"]
 
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_ljb3l"]
 [ext_resource type="PackedScene" uid="uid://b5epmmq4dfyd8" path="res://game_object/beachball/beachball_low.fbx" id="2_agl27"]
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="3_0twcd"]
+[ext_resource type="Material" uid="uid://cd6c408tqoft4" path="res://game_object/beachball/beachball_low.material" id="3_ssvbs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3tmhj"]
 bounce = 0.5
@@ -14,12 +15,12 @@ radius = 0.1
 mass = 0.28
 physics_material_override = SubResource("PhysicsMaterial_3tmhj")
 model = NodePath("Mesh")
-scale_factor = 2.0
 approximate_length = 0.2
-min_scale = 1.0
-max_scale = 20.0
 
 [node name="Mesh" parent="." index="0" instance=ExtResource("2_agl27")]
+
+[node name="beachball_low" parent="Mesh/beachball" index="0"]
+surface_material_override/0 = ExtResource("3_ssvbs")
 
 [node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
 

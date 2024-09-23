@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwjps2n1sxqbg"]
+[gd_scene load_steps=6 format=3 uid="uid://dwjps2n1sxqbg"]
 
 [ext_resource type="PackedScene" uid="uid://kq3pp4bx8vhr" path="res://environment/trees/tree.tscn" id="1_8jtfi"]
 [ext_resource type="PackedScene" uid="uid://d126p227o8y22" path="res://environment/trees/tree1/tree1_low.fbx" id="2_8vxnj"]
+[ext_resource type="Material" uid="uid://5yc0fbrv30ww" path="res://environment/trees/tree1/tree1_low.material" id="3_127sr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_18x67"]
 size = Vector3(1.27747, 2.00035, 1.22634)
@@ -13,6 +14,12 @@ radius = 0.26
 [node name="Tree1" instance=ExtResource("1_8jtfi")]
 
 [node name="tree1_low" parent="." index="0" instance=ExtResource("2_8vxnj")]
+
+[node name="trunk_low" parent="tree1_low/tree1/low" index="0"]
+surface_material_override/0 = ExtResource("3_127sr")
+
+[node name="leaf_low" parent="tree1_low/tree1/low" index="1"]
+surface_material_override/0 = ExtResource("3_127sr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0176392, 1.88833, 0.0176735)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://516yvd011d4p"]
+[gd_scene load_steps=7 format=3 uid="uid://516yvd011d4p"]
 
 [ext_resource type="PackedScene" uid="uid://cohw3wvy4s1n4" path="res://game_object/game_object.tscn" id="1_h057n"]
 [ext_resource type="PackedScene" uid="uid://dwrs1dvfm22l8" path="res://game_object/football/football_low.fbx" id="2_01p0p"]
+[ext_resource type="Material" uid="uid://mk1mvljv373g" path="res://game_object/football/football_low.material" id="3_3puax"]
 [ext_resource type="Script" path="res://utils/scallable_collision_shape_3d.gd" id="3_llhja"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_10k5e"]
@@ -18,9 +19,13 @@ approximate_length = 0.2
 
 [node name="Mesh" parent="." index="1" instance=ExtResource("2_01p0p")]
 
+[node name="football_low" parent="Mesh/football" index="0"]
+surface_material_override/0 = ExtResource("3_3puax")
+
 [node name="MassCenter" type="Marker3D" parent="Mesh" index="2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+visible = false
 shape = SubResource("SphereShape3D_dbas7")
 script = ExtResource("3_llhja")
 
