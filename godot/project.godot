@@ -37,6 +37,10 @@ gdscript/warnings/return_value_discarded=1
 
 window/stretch/mode="canvas_items"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [gui]
 
 theme/custom="res://ui/custom_theme.tres"
@@ -178,5 +182,4 @@ rotate_down={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+anti_aliasing/quality/screen_space_aa=1
