@@ -6,7 +6,6 @@ signal scale_gauge_updated(new_value: int)
 const TIME_BEFORE_WIN_WHEN_HEIGHT_IS_OVER_TARGET: float = 5.0
 
 @export var target_height: float = 5.0
-@export var select_max_distance: float = 5.0
 @export var no_movement_duration_before_game_win: float = 3.0
 @export var level_name: String
 @export var sandbox_mode: bool = true
@@ -86,7 +85,7 @@ func _physics_process(delta: float) -> void:
 
 	if _current_selected_object == null:
 		var mouse_position: Vector2 = get_viewport().get_visible_rect().size / 2
-		var object: GameObject = _player_camera.get_object_under_mouse(mouse_position, select_max_distance)
+		var object: GameObject = _player_camera.get_object_under_mouse(mouse_position)
 		if object != null:
 			if _current_hovered_object != null:
 				_current_hovered_object.stop_hover()

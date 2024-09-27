@@ -4,6 +4,8 @@ extends CharacterBody3D
 const CAMERA_X_ROT_MIN: float = deg_to_rad(-89.9)
 const CAMERA_X_ROT_MAX: float = deg_to_rad(70)
 
+@export var select_min_distance: float = 0.5
+@export var select_max_distance: float = 5.0
 @export var zoom_speed: float = 5.0
 @export var moving_speed: float = 10.0
 @export var running_speed: float = 10.0
@@ -61,10 +63,9 @@ func _process(delta: float) -> void:
 	)
 	rotate_camera(rotation_direction * joystick_rotation_speed * scale_factor)
 
-	var attached_object_zoom: float = Input.get_action_strength("zoom_object_in") - Input.get_action_strength("zoom_object_out")
-	if not is_zero_approx(attached_object_zoom):
-		var zoom_direction: Vector3 = -_camera.global_basis.z
-		_remote_transform3D.global_position += zoom_direction * zoom_speed * attached_object_zoom * delta
+	var zoom_motion: float = Input.get_action_strength("zoom_object_in") - Input.get_action_strength("zoom_object_out")
+	if not is_zero_approx(zoom_motion):
+		maybe_zoom_object(delta, zoom_motion)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -85,6 +86,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotate_camera((event as InputEventMouseMotion).relative * mouse_rotation_speed * scale_factor)
 
 
+func maybe_zoom_object(delta: float, value: float) -> void:
+	var camera_to_object_distance: float = (_remote_transform3D.global_position - global_position).length()
+	camera_to_object_distance += zoom_speed * value * delta
+	camera_to_object_distance = clamp(camera_to_object_distance, select_min_distance, select_max_distance)
+	var zoom_direction: Vector3 = -_camera.global_basis.z
+	_remote_transform3D.global_position = global_position + zoom_direction * camera_to_object_distance
+
+
 func attach_object(object_global_position: Vector3, object_path_relative_to_root: NodePath) -> void:
 	_remote_transform3D.global_position = object_global_position
 	_remote_transform3D.remote_path = NodePath(
@@ -103,7 +112,7 @@ func rotate_camera(move: Vector2) -> void:
 	_camera_rotation.rotation.x = clamp(_camera_rotation.rotation.x - move.y, CAMERA_X_ROT_MIN, CAMERA_X_ROT_MAX)
 
 
-func get_object_under_mouse(mouse_position: Vector2, select_max_distance: float) -> GameObject:
+func get_object_under_mouse(mouse_position: Vector2) -> GameObject:
 	var world_space := get_world_3d().direct_space_state
 
 	var params := PhysicsRayQueryParameters3D.new()
